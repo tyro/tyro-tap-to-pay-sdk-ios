@@ -70,7 +70,7 @@ Tap to Pay on iPhone requires the latest version of iOS. Update to the latest ve
 [swift-image]:https://img.shields.io/badge/swift-5.9-blue.svg (Swift 5.9 or newer)
 [swift-url]:https://swift.org/ (Swift Programming Language)
 [ios-image]:https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white
-[repo-url]:https://github.com/tyro/tyro-tap-to-pay-sdk-ios/tree/PLA-6149 (Tyro Tap to Pay SDK iOS GitHub Repository)
+[repo-url]:https://github.com/tyro/tyro-tap-to-pay-sdk-ios (Tyro Tap to Pay SDK iOS GitHub Repository)
 [Tap to Pay Marketing Guidelines]:https://developer.apple.com/tap-to-pay/marketing-guidelines/ 
 [min-ios-version]: https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-16_4-release-notes (iOS 16.4)
 [min-ios-image]: https://img.shields.io/badge/iOS-16.4-purple (iOS 16.4)

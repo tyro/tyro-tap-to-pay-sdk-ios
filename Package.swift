@@ -4,7 +4,7 @@ import PackageDescription
 let package = Package(
   name: "TyroTapToPaySDKPackage",
   platforms: [
-    .iOS(.v17)
+    .iOS("16.4")
   ],
   products: [
     .library(
@@ -52,8 +52,8 @@ let package = Package(
             ]
            ),
     .binaryTarget(name: "TyroTapToPaySDK",
-                  url: "https://tap-to-pay.connect.tyro.com/TyroTapToPaySDK.xcframework.zip",
-                  checksum: "bace85245a1fbad27f04d7d4ad06d92a7d7e86cb5c6e314abf06552d8f5e312c"),
+                  url: "https://tap-to-pay.connect.tyro.com/TyroTapToPaySDK_v0.1.0.xcframework.zip",
+                  checksum: "64b6e5ac095e1c46c93fee45452012eac32bf57ea2c01bad639e967bef209aae"),
     // S3 hosted frameworks
     .binaryTarget(name: "SSMobileConfiguration",
                   url: "https://tap-to-pay.connect.tyro.com/SSMobileConfiguration.xcframework.zip",
