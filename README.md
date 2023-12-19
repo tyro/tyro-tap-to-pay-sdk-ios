@@ -35,19 +35,23 @@ Make sure, you have the latest version of the Xcode command line tools installed
 3. Configure the team for each target within the project and ensure it is consistent with your Code Signing configuration.
 4. Add the `Tap to Pay on iPhone` entitlement, note this will appear in the list of available options when code signing is correctly configured.
 
-## Swift Package
+## Using the Swift Package in your iOS app
+#### Note: the same process for code signing entitlements is required
 
-#### Adding the Swift Package to your iOS App
+#### 1. In Xcode, add the Swift Package to your iOS app 
 Select `File` -> `Swift Packages` -> `Add Package Dependency` and enter `https://github.com/tyro/tap-to-pay-sdk-ios`.
 
-#### Import the SDK in your Swift code
+#### 2. Import the SDK in your Swift code
 ```swift
 import TyroTapToPaySDK
 ```
 
-#### How to validate that the proximity sensor can be used
+#### 3. Validate that the device supports Tap To Pay
 ```swift 
-UIDevice.current.isProximityMonitoringEnabled = true
+guard UIDevice.current.isProximityMonitoringEnabled == true else {
+    // This device does not support Tap To Pay :(
+    return
+}
 ```
 
 ## Documentation 
