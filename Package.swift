@@ -52,8 +52,8 @@ let package = Package(
             ]
            ),
     .binaryTarget(name: "TyroTapToPaySDK",
-                  url: "https://tap-to-pay.connect.tyro.com/TyroTapToPaySDK_v0.1.0.xcframework.zip",
-                  checksum: "64b6e5ac095e1c46c93fee45452012eac32bf57ea2c01bad639e967bef209aae"),
+                  url: "https://tap-to-pay.connect.tyro.com/TyroTapToPaySDK_v0.1.1.xcframework.zip",
+                  checksum: "94ebcb88948655495f63843dfcb2df6a66053d2685b2bd146700e6128b92eb9a"),
     // S3 hosted frameworks
     .binaryTarget(name: "SSMobileConfiguration",
                   url: "https://tap-to-pay.connect.tyro.com/SSMobileConfiguration.xcframework.zip",
