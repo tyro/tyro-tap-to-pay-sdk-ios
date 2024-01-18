@@ -1,0 +1,3 @@
+[submodule "tyro-tap-to-pay-sdk-ios-sample-app"]
+	path = tyro-tap-to-pay-sdk-ios-sample-app
+	url = https://github.com/tyro/tyro-tap-to-pay-sdk-ios-sample-app.git
