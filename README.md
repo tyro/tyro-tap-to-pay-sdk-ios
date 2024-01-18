@@ -21,6 +21,17 @@ Make sure, you have the latest version of the Xcode command line tools installed
 ```shell
     xcode-select --install
 ```
+### Submodule
+The sample app included in this repository is a git submodules, before running it you can do one of the two things depending on how you cloned this repository.
+
+- If you haven't yet cloned this repository, use the following line to include the submodule
+  ```
+  git clone --recursive <project url>
+  ```
+- If you have already cloned this repository and noticed the sample app folder is empty, try the following line
+  ```
+  git submodule update --init --recursive
+  ```
 
 ## Entitlements
 **Note:** you must request access to the `Tap to Pay on iPhone` entitlement from Apple directly, refer to [Apple's proximity reader documentation](https://developer.apple.com/documentation/proximityreader/setting-up-the-entitlement-for-tap-to-pay-on-iphone) for more information.
