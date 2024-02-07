@@ -1,4 +1,4 @@
-// swift-tools-version: 5.9
+	// swift-tools-version: 5.9
 import PackageDescription
 
 let package = Package(
@@ -10,7 +10,6 @@ let package = Package(
     .library(
       name: "TyroTapToPaySDKPackage",
       targets: [
-        "TyroTapToPaySDKPackage",
         "TyroTapToPaySDK",
         "SSMobileConfiguration",
         "SSMobileHttp",
@@ -50,11 +49,11 @@ let package = Package(
               .target(name: "Shared"),
               .target(name: "TrustKit"),
             ]
-           ),
+		),
+		// S3 hosted frameworks
     .binaryTarget(name: "TyroTapToPaySDK",
-                  url: "https://tap-to-pay.connect.tyro.com/TyroTapToPaySDK_v0.1.0.xcframework.zip",
-                  checksum: "64b6e5ac095e1c46c93fee45452012eac32bf57ea2c01bad639e967bef209aae"),
-    // S3 hosted frameworks
+                  url: "https://tap-to-pay.connect.tyro.com/tyro/0.2.0/TyroTapToPaySDK.xcframework.zip",
+                  checksum: "65014d1ba962dbf5c04342d9eeed4b31815a188beee74af1117a47befba76577"),
     .binaryTarget(name: "SSMobileConfiguration",
                   url: "https://tap-to-pay.connect.tyro.com/SSMobileConfiguration.xcframework.zip",
                   checksum: "67f799bd7788ef5e7a0c94400daa1954f5a4a8a2869a8f93c87060f1a240a21b"),
@@ -100,6 +99,5 @@ let package = Package(
     .binaryTarget(name: "TrustKit",
                   url: "https://tap-to-pay.connect.tyro.com/TrustKit.xcframework.zip",
                   checksum: "cb5b67bb83bdcefa28d622130da742186da82bc11dbc1f1e11df80286697d3f5"),
-    
   ]
 )
