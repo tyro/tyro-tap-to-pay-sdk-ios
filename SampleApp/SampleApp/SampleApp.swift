@@ -6,12 +6,33 @@
 //
 
 import SwiftUI
+import TyroTapToPaySDK
 
 @main
 struct SampleApp: App {
-  var body: some Scene {
-    WindowGroup {
-      ContentView() 
-    }
-  }
+	@Environment(\.scenePhase)
+	private var scenePhase: ScenePhase
+	@StateObject
+	private var tapToPaySDK = TyroTapToPay.shared
+	
+	init() {
+		
+	}
+	
+	var body: some Scene {
+		WindowGroup {
+			ReaderDiscoveryView(adapter: ReaderDiscoveryAdapter(tyroTapToPaySDK: tapToPaySDK))
+		}.onChange(of: scenePhase) { (newPhase, oldPhase) in
+			switch newPhase {
+			case .active:
+				print("Foreground")
+			case .background:
+				print("Background")
+			case .inactive:
+				print("Inactive")
+			@unknown default:
+				return
+			}
+		}
+	}
 }

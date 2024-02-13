@@ -3,21 +3,26 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		63BE47FD2B2FF19500D9CBB9 /* TyroTapToPaySDKPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 63BE47FC2B2FF19500D9CBB9 /* TyroTapToPaySDKPackage */; };
+		BD290FC02B759AEE00028257 /* TyroTapToPaySDKPackage in Frameworks */ = {isa = PBXBuildFile; productRef = BD290FBF2B759AEE00028257 /* TyroTapToPaySDKPackage */; };
+		BD290FC62B79F2F100028257 /* TyroTapToPaySDKPackage in Frameworks */ = {isa = PBXBuildFile; productRef = BD290FC52B79F2F100028257 /* TyroTapToPaySDKPackage */; };
+		BD290FCA2B7B114F00028257 /* ReaderDiscoveryAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD290FC92B7B114F00028257 /* ReaderDiscoveryAdapter.swift */; };
 		BD7F0EAB2B198CF900EDEC1B /* SampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7F0EAA2B198CF900EDEC1B /* SampleApp.swift */; };
-		BD7F0EAD2B198CF900EDEC1B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7F0EAC2B198CF900EDEC1B /* ContentView.swift */; };
+		BD7F0EAD2B198CF900EDEC1B /* ReaderDiscoveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7F0EAC2B198CF900EDEC1B /* ReaderDiscoveryView.swift */; };
 		BD7F0EAF2B198CFB00EDEC1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD7F0EAE2B198CFB00EDEC1B /* Assets.xcassets */; };
 		BD7F0EB22B198CFB00EDEC1B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD7F0EB12B198CFB00EDEC1B /* Preview Assets.xcassets */; };
+		BDE488F62B74539300C176F4 /* TyroTapToPaySDKPackage in Frameworks */ = {isa = PBXBuildFile; productRef = BDE488F52B74539300C176F4 /* TyroTapToPaySDKPackage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BD290FC92B7B114F00028257 /* ReaderDiscoveryAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderDiscoveryAdapter.swift; sourceTree = "<group>"; };
 		BD7F0EA72B198CF900EDEC1B /* SampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD7F0EAA2B198CF900EDEC1B /* SampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleApp.swift; sourceTree = "<group>"; };
-		BD7F0EAC2B198CF900EDEC1B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BD7F0EAC2B198CF900EDEC1B /* ReaderDiscoveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderDiscoveryView.swift; sourceTree = "<group>"; };
 		BD7F0EAE2B198CFB00EDEC1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD7F0EB12B198CFB00EDEC1B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BDB22D742B1EE444003A7380 /* SampleApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SampleApp.entitlements; sourceTree = "<group>"; };
@@ -28,13 +33,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD290FC62B79F2F100028257 /* TyroTapToPaySDKPackage in Frameworks */,
+				BDE488F62B74539300C176F4 /* TyroTapToPaySDKPackage in Frameworks */,
 				63BE47FD2B2FF19500D9CBB9 /* TyroTapToPaySDKPackage in Frameworks */,
+				BD290FC02B759AEE00028257 /* TyroTapToPaySDKPackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD290FC72B7B112500028257 /* ReaderDiscovery */ = {
+			isa = PBXGroup;
+			children = (
+				BD7F0EAC2B198CF900EDEC1B /* ReaderDiscoveryView.swift */,
+				BD290FC92B7B114F00028257 /* ReaderDiscoveryAdapter.swift */,
+			);
+			path = ReaderDiscovery;
+			sourceTree = "<group>";
+		};
+		BD290FC82B7B113900028257 /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		BD290FCB2B7B13DD00028257 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		BD7F0E9E2B198CF900EDEC1B = {
 			isa = PBXGroup;
 			children = (
@@ -55,11 +86,13 @@
 		BD7F0EA92B198CF900EDEC1B /* SampleApp */ = {
 			isa = PBXGroup;
 			children = (
-				BDB22D742B1EE444003A7380 /* SampleApp.entitlements */,
+				BD290FC82B7B113900028257 /* Payment */,
+				BD290FC72B7B112500028257 /* ReaderDiscovery */,
 				BD7F0EAA2B198CF900EDEC1B /* SampleApp.swift */,
-				BD7F0EAC2B198CF900EDEC1B /* ContentView.swift */,
+				BDB22D742B1EE444003A7380 /* SampleApp.entitlements */,
 				BD7F0EAE2B198CFB00EDEC1B /* Assets.xcassets */,
 				BD7F0EB02B198CFB00EDEC1B /* Preview Content */,
+				BD290FCB2B7B13DD00028257 /* Util */,
 			);
 			path = SampleApp;
 			sourceTree = "<group>";
@@ -97,6 +130,9 @@
 			name = SampleApp;
 			packageProductDependencies = (
 				63BE47FC2B2FF19500D9CBB9 /* TyroTapToPaySDKPackage */,
+				BDE488F52B74539300C176F4 /* TyroTapToPaySDKPackage */,
+				BD290FBF2B759AEE00028257 /* TyroTapToPaySDKPackage */,
+				BD290FC52B79F2F100028257 /* TyroTapToPaySDKPackage */,
 			);
 			productName = SampleApp;
 			productReference = BD7F0EA72B198CF900EDEC1B /* SampleApp.app */;
@@ -127,7 +163,7 @@
 			);
 			mainGroup = BD7F0E9E2B198CF900EDEC1B;
 			packageReferences = (
-				BD057F6F2B29DB3B00E07B8F /* XCRemoteSwiftPackageReference "tyro-tap-to-pay-sdk-ios" */,
+				BD290FC42B79F2F100028257 /* XCLocalSwiftPackageReference ".." */,
 			);
 			productRefGroup = BD7F0EA82B198CF900EDEC1B /* Products */;
 			projectDirPath = "";
@@ -155,7 +191,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD7F0EAD2B198CF900EDEC1B /* ContentView.swift in Sources */,
+				BD7F0EAD2B198CF900EDEC1B /* ReaderDiscoveryView.swift in Sources */,
+				BD290FCA2B7B114F00028257 /* ReaderDiscoveryAdapter.swift in Sources */,
 				BD7F0EAB2B198CF900EDEC1B /* SampleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,19 +412,27 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		BD057F6F2B29DB3B00E07B8F /* XCRemoteSwiftPackageReference "tyro-tap-to-pay-sdk-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/tyro/tyro-tap-to-pay-sdk-ios";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
+/* Begin XCLocalSwiftPackageReference section */
+		BD290FC42B79F2F100028257 /* XCLocalSwiftPackageReference ".." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ..;
 		};
-/* End XCRemoteSwiftPackageReference section */
+/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		63BE47FC2B2FF19500D9CBB9 /* TyroTapToPaySDKPackage */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TyroTapToPaySDKPackage;
+		};
+		BD290FBF2B759AEE00028257 /* TyroTapToPaySDKPackage */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TyroTapToPaySDKPackage;
+		};
+		BD290FC52B79F2F100028257 /* TyroTapToPaySDKPackage */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TyroTapToPaySDKPackage;
+		};
+		BDE488F52B74539300C176F4 /* TyroTapToPaySDKPackage */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = TyroTapToPaySDKPackage;
 		};
