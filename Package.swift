@@ -1,4 +1,4 @@
-	// swift-tools-version: 5.9
+// swift-tools-version: 5.9
 import PackageDescription
 
 let package = Package(
@@ -9,22 +9,7 @@ let package = Package(
   products: [
     .library(
       name: "TyroTapToPaySDKPackage",
-      targets: [
-				"TyroTapToPaySDKPackage",	
-        "TyroTapToPaySDK",
-        "SSMobileConfiguration",
-        "SSMobileHttp",
-        "SSMobileMessageProcess",
-        "SSMobileMPOSCoreV2",
-        "SSMobileMPOSSDK",
-        "SSMobileProximityReaderSDK",
-        "SSMobileReaderSPOC",
-        "SSMobileSecurity",
-        "SSMobileService",
-        "SSMobileThirdPartyIntegration",
-        "SSMobileUIKit",
-        "SSMobileUtils",
-        "TrustKit"])
+      targets: ["TyroTapToPaySDKPackage"])
   ],
   dependencies: [
     .package(url: "https://github.com/krzyzanowskim/OpenSSL.git", .upToNextMinor(from: "3.1.4000"))
@@ -52,11 +37,11 @@ let package = Package(
             ]
 		),
 		// S3 hosted frameworks
-    .binaryTarget(name: "TyroTapToPaySDK",
-                  url: "https://tap-to-pay.connect.tyro.com/tyro/0.2.0/TyroTapToPaySDK.xcframework.zip",
-                  checksum: "65014d1ba962dbf5c04342d9eeed4b31815a188beee74af1117a47befba76577"),
-//		.binaryTarget(name: "TyroTapToPaySDK",
-//									path: "../TyroTapToPaySDK/xcframeworks/TyroTapToPaySDK.xcframework"),
+//    .binaryTarget(name: "TyroTapToPaySDK",
+//                  url: "https://tap-to-pay.connect.tyro.com/tyro/0.2.0/TyroTapToPaySDK.xcframework.zip",
+//                  checksum: "65014d1ba962dbf5c04342d9eeed4b31815a188beee74af1117a47befba76577"),
+		.binaryTarget(name: "TyroTapToPaySDK",
+									path: "../TyroTapToPaySDK/xcframeworks/TyroTapToPaySDK.xcframework"),
     .binaryTarget(name: "SSMobileConfiguration",
                   url: "https://tap-to-pay.connect.tyro.com/SSMobileConfiguration.xcframework.zip",
                   checksum: "67f799bd7788ef5e7a0c94400daa1954f5a4a8a2869a8f93c87060f1a240a21b"),

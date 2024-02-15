@@ -15,11 +15,11 @@ enum LoadingState {
 }
 
 struct ReaderDiscoveryView: View {
-	private let adapter: ReaderDiscoveryAdapter
+	private let adapter: ReaderDiscoveryAdapterProtocol
 	@State
 	private var loadingState: LoadingState = .ready
 	
-	init(adapter: ReaderDiscoveryAdapter) {
+	init(adapter: ReaderDiscoveryAdapterProtocol) {
 		self.adapter = adapter
 	}
 	
@@ -34,10 +34,22 @@ struct ReaderDiscoveryView: View {
 					try await adapter.discoverReaders()
 				}
 			} label: {
-				Text("Discover readers")
-			}.disabled(loadingState == .loading)
+					Text("Discover readers")
+			}
+			.disabled(loadingState == .loading)
+			.clipShape(Capsule())
       Spacer()
     }
     .padding()
   }
 }
+
+#if DEBUG
+fileprivate class PreviewAdapter: ReaderDiscoveryAdapterProtocol {
+	func discoverReaders() {}
+}
+
+#Preview {
+	return ReaderDiscoveryView(adapter: PreviewAdapter())
+}
+#endif

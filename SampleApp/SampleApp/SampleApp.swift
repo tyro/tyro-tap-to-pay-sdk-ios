@@ -15,10 +15,6 @@ struct SampleApp: App {
 	@StateObject
 	private var tapToPaySDK = TyroTapToPay.shared
 	
-	init() {
-		
-	}
-	
 	var body: some Scene {
 		WindowGroup {
 			ReaderDiscoveryView(adapter: ReaderDiscoveryAdapter(tyroTapToPaySDK: tapToPaySDK))

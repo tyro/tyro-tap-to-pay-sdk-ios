@@ -10,7 +10,11 @@ import Combine
 
 import TyroTapToPaySDK
 
-class ReaderDiscoveryAdapter: ObservableObject {
+protocol ReaderDiscoveryAdapterProtocol {
+	func discoverReaders() async throws
+}
+
+class ReaderDiscoveryAdapter: ObservableObject, ReaderDiscoveryAdapterProtocol {
 	@Published var reader: ProximityReader?
 	
 	private let tyroTapToPaySDK: TyroTapToPay
@@ -28,6 +32,7 @@ class ReaderDiscoveryAdapter: ObservableObject {
 		}.store(in: &cancellables)
 	}
 	
+	// MARK: - ReaderDiscoveryAdapterProtocol
 	func discoverReaders() async throws {
 		try await tyroTapToPaySDK.discoverReaders()
 	}
