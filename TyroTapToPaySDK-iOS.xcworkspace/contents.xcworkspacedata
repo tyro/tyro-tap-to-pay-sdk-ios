@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "container:">
+      location = "group:tyro-tap-to-pay-sdk-ios-sample-app/tyro-tap-to-pay-sdk-ios-sample-app.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:SampleApp/SampleApp.xcodeproj">
+      location = "container:">
    </FileRef>
 </Workspace>
