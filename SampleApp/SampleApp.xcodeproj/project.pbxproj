@@ -434,4 +434,5 @@
 /* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BD7F0E9F2B198CF900EDEC1B /* Project object */;
+	};
 }
