@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		63BE47FD2B2FF19500D9CBB9 /* TyroTapToPaySDKPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 63BE47FC2B2FF19500D9CBB9 /* TyroTapToPaySDKPackage */; };
 		BD290FC02B759AEE00028257 /* TyroTapToPaySDKPackage in Frameworks */ = {isa = PBXBuildFile; productRef = BD290FBF2B759AEE00028257 /* TyroTapToPaySDKPackage */; };
 		BD290FCA2B7B114F00028257 /* ReaderDiscoveryAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD290FC92B7B114F00028257 /* ReaderDiscoveryAdapter.swift */; };
 		BD7F0EAB2B198CF900EDEC1B /* SampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7F0EAA2B198CF900EDEC1B /* SampleApp.swift */; };
 		BD7F0EAD2B198CF900EDEC1B /* ReaderDiscoveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7F0EAC2B198CF900EDEC1B /* ReaderDiscoveryView.swift */; };
 		BD7F0EAF2B198CFB00EDEC1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD7F0EAE2B198CFB00EDEC1B /* Assets.xcassets */; };
 		BD7F0EB22B198CFB00EDEC1B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD7F0EB12B198CFB00EDEC1B /* Preview Assets.xcassets */; };
+		BDD79C142B8DAF2F005ED6E5 /* TyroTapToPaySDKPackage in Frameworks */ = {isa = PBXBuildFile; productRef = BDD79C132B8DAF2F005ED6E5 /* TyroTapToPaySDKPackage */; };
+		BDD79C162B8DAF78005ED6E5 /* TyroTapToPaySDKPackage in Frameworks */ = {isa = PBXBuildFile; productRef = BDD79C152B8DAF78005ED6E5 /* TyroTapToPaySDKPackage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,8 +32,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63BE47FD2B2FF19500D9CBB9 /* TyroTapToPaySDKPackage in Frameworks */,
 				BD290FC02B759AEE00028257 /* TyroTapToPaySDKPackage in Frameworks */,
+				BDD79C142B8DAF2F005ED6E5 /* TyroTapToPaySDKPackage in Frameworks */,
+				BDD79C162B8DAF78005ED6E5 /* TyroTapToPaySDKPackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,8 +127,9 @@
 			);
 			name = SampleApp;
 			packageProductDependencies = (
-				63BE47FC2B2FF19500D9CBB9 /* TyroTapToPaySDKPackage */,
 				BD290FBF2B759AEE00028257 /* TyroTapToPaySDKPackage */,
+				BDD79C132B8DAF2F005ED6E5 /* TyroTapToPaySDKPackage */,
+				BDD79C152B8DAF78005ED6E5 /* TyroTapToPaySDKPackage */,
 			);
 			productName = SampleApp;
 			productReference = BD7F0EA72B198CF900EDEC1B /* SampleApp.app */;
@@ -157,7 +160,7 @@
 			);
 			mainGroup = BD7F0E9E2B198CF900EDEC1B;
 			packageReferences = (
-				BDB9A8742B7D9D6B0046A347 /* XCLocalSwiftPackageReference "../.." */,
+				BDD79C122B8DAF2F005ED6E5 /* XCLocalSwiftPackageReference ".." */,
 			);
 			productRefGroup = BD7F0EA82B198CF900EDEC1B /* Products */;
 			projectDirPath = "";
@@ -319,10 +322,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_ENTITLEMENTS = SampleApp/SampleApp.entitlements;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SampleApp/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = AP4UA2XZ78;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -355,10 +359,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_ENTITLEMENTS = SampleApp/SampleApp.entitlements;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SampleApp/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = AP4UA2XZ78;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -407,18 +412,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		BDB9A8742B7D9D6B0046A347 /* XCLocalSwiftPackageReference "../.." */ = {
+		BDD79C122B8DAF2F005ED6E5 /* XCLocalSwiftPackageReference ".." */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = ../..;
+			relativePath = ..;
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		63BE47FC2B2FF19500D9CBB9 /* TyroTapToPaySDKPackage */ = {
+		BD290FBF2B759AEE00028257 /* TyroTapToPaySDKPackage */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = TyroTapToPaySDKPackage;
 		};
-		BD290FBF2B759AEE00028257 /* TyroTapToPaySDKPackage */ = {
+		BDD79C132B8DAF2F005ED6E5 /* TyroTapToPaySDKPackage */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TyroTapToPaySDKPackage;
+		};
+		BDD79C152B8DAF78005ED6E5 /* TyroTapToPaySDKPackage */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = TyroTapToPaySDKPackage;
 		};
