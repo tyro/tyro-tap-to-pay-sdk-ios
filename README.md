@@ -39,7 +39,7 @@ Make sure, you have the latest version of the Xcode command line tools installed
 #### Note: the same process for code signing entitlements is required
 
 #### 1. In Xcode, add the Swift Package to your iOS app 
-Select `File` -> `Swift Packages` -> `Add Package Dependency` and enter `https://github.com/tyro/tap-to-pay-sdk-ios`.
+Select `File` -> `Swift Packages` -> `Add Package Dependency` and enter `https://github.com/tyro/tyro-tap-to-pay-sdk-ios`.
 
 #### 2. Import the SDK in your Swift code
 ```swift
