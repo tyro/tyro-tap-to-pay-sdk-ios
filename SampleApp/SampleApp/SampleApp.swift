@@ -7,11 +7,18 @@
 
 import SwiftUI
 import TyroTapToPaySDK
+import netfox
 
 @main
 struct SampleApp: App {
   private var notificationCentre = NotificationCenter.default
   @Environment(\.scenePhase) private var scenePhase
+
+  init() {
+#if DEBUG
+    NFX.sharedInstance().start()
+#endif
+  }
 
   var body: some Scene {
     WindowGroup {

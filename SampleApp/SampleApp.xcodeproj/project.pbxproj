@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD1633712B9AC85200183BE7 /* config_uat.env in Resources */ = {isa = PBXBuildFile; fileRef = BD16336E2B9AC85200183BE7 /* config_uat.env */; };
+		BD1633732B9AC85200183BE7 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1633702B9AC85200183BE7 /* AppConfig.swift */; };
+		BD1633752B9ACA9000183BE7 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1633742B9ACA9000183BE7 /* Utils.swift */; };
+		BD1633782B9ACB6800183BE7 /* netfox in Frameworks */ = {isa = PBXBuildFile; productRef = BD1633772B9ACB6800183BE7 /* netfox */; };
+		BD1633802B9ACF6A00183BE7 /* ConnectionResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD16337F2B9ACF6A00183BE7 /* ConnectionResponseTests.swift */; };
 		BD9CEA4F2B982CF200928203 /* PaymentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CEA4E2B982CF200928203 /* PaymentsView.swift */; };
 		BD9CEA592B9A038100928203 /* ConnectionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CEA582B9A038100928203 /* ConnectionRequest.swift */; };
 		BD9CEA5D2B9A838B00928203 /* ConnectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CEA5C2B9A838B00928203 /* ConnectionResponse.swift */; };
@@ -17,6 +22,16 @@
 		BDC05CC72B903FB50062C06D /* SampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC05CBC2B903FB50062C06D /* SampleApp.swift */; };
 		BDFDEE622B8F03760034DA1F /* TyroTapToPaySDKPackage in Frameworks */ = {isa = PBXBuildFile; productRef = BDFDEE612B8F03760034DA1F /* TyroTapToPaySDKPackage */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BD1633812B9ACF6A00183BE7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B76E0C82B5782500017B455 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B76E0CF2B5782500017B455;
+			remoteInfo = SampleApp;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		8B76E12C2B579E780017B455 /* Embed Frameworks */ = {
@@ -33,6 +48,12 @@
 
 /* Begin PBXFileReference section */
 		8B76E0D02B5782500017B455 /* SampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD16336E2B9AC85200183BE7 /* config_uat.env */ = {isa = PBXFileReference; lastKnownFileType = file; path = config_uat.env; sourceTree = "<group>"; };
+		BD16336F2B9AC85200183BE7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD1633702B9AC85200183BE7 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		BD1633742B9ACA9000183BE7 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		BD16337D2B9ACF6A00183BE7 /* SampleAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SampleAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD16337F2B9ACF6A00183BE7 /* ConnectionResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionResponseTests.swift; sourceTree = "<group>"; };
 		BD9CEA4E2B982CF200928203 /* PaymentsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentsView.swift; sourceTree = "<group>"; };
 		BD9CEA582B9A038100928203 /* ConnectionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionRequest.swift; sourceTree = "<group>"; };
 		BD9CEA5C2B9A838B00928203 /* ConnectionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionResponse.swift; sourceTree = "<group>"; };
@@ -50,6 +71,14 @@
 			files = (
 				BDFDEE622B8F03760034DA1F /* TyroTapToPaySDKPackage in Frameworks */,
 				BD9CEA762B9ABB2B00928203 /* OpenSSL in Frameworks */,
+				BD1633782B9ACB6800183BE7 /* netfox in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD16337A2B9ACF6A00183BE7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				BDC05CB02B903FB50062C06D /* SampleApp */,
+				BD16337E2B9ACF6A00183BE7 /* SampleAppTests */,
 				8B76E0D12B5782500017B455 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -68,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				8B76E0D02B5782500017B455 /* SampleApp.app */,
+				BD16337D2B9ACF6A00183BE7 /* SampleAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -78,6 +109,41 @@
 				BD9CEA642B9A90FD00928203 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		BD16336C2B9AC85200183BE7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BD16336D2B9AC85200183BE7 /* Configurations */,
+				BD1633702B9AC85200183BE7 /* AppConfig.swift */,
+				BD1633742B9ACA9000183BE7 /* Utils.swift */,
+				BD16336F2B9AC85200183BE7 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BD16336D2B9AC85200183BE7 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				BD16336E2B9AC85200183BE7 /* config_uat.env */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
+		BD16337E2B9ACF6A00183BE7 /* SampleAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				BD1633862B9ACF9000183BE7 /* ConnectionProvider */,
+			);
+			path = SampleAppTests;
+			sourceTree = "<group>";
+		};
+		BD1633862B9ACF9000183BE7 /* ConnectionProvider */ = {
+			isa = PBXGroup;
+			children = (
+				BD16337F2B9ACF6A00183BE7 /* ConnectionResponseTests.swift */,
+			);
+			path = ConnectionProvider;
 			sourceTree = "<group>";
 		};
 		BD9CEA4A2B982BB800928203 /* View */ = {
@@ -108,12 +174,13 @@
 		BDC05CB02B903FB50062C06D /* SampleApp */ = {
 			isa = PBXGroup;
 			children = (
-				BD9CEA782B9ABD4A00928203 /* SampleApp.entitlements */,
-				BDC05CBC2B903FB50062C06D /* SampleApp.swift */,
 				BDC05CB52B903FB50062C06D /* ConnectionProvider */,
 				BD9CEA662B9A90FD00928203 /* Preview Content */,
 				BD16336B2B9AC46800183BE7 /* Resources */,
+				BD16336C2B9AC85200183BE7 /* Supporting Files */,
 				BD9CEA4A2B982BB800928203 /* View */,
+				BDC05CBC2B903FB50062C06D /* SampleApp.swift */,
+				BD9CEA782B9ABD4A00928203 /* SampleApp.entitlements */,
 			);
 			path = SampleApp;
 			sourceTree = "<group>";
@@ -147,10 +214,29 @@
 			packageProductDependencies = (
 				BDFDEE612B8F03760034DA1F /* TyroTapToPaySDKPackage */,
 				BD9CEA752B9ABB2B00928203 /* OpenSSL */,
+				BD1633772B9ACB6800183BE7 /* netfox */,
 			);
 			productName = "tyro-tap-to-pay-sdk-ios-sample-app";
 			productReference = 8B76E0D02B5782500017B455 /* SampleApp.app */;
 			productType = "com.apple.product-type.application";
+		};
+		BD16337C2B9ACF6A00183BE7 /* SampleAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD1633832B9ACF6A00183BE7 /* Build configuration list for PBXNativeTarget "SampleAppTests" */;
+			buildPhases = (
+				BD1633792B9ACF6A00183BE7 /* Sources */,
+				BD16337A2B9ACF6A00183BE7 /* Frameworks */,
+				BD16337B2B9ACF6A00183BE7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BD1633822B9ACF6A00183BE7 /* PBXTargetDependency */,
+			);
+			name = SampleAppTests;
+			productName = SampleAppTests;
+			productReference = BD16337D2B9ACF6A00183BE7 /* SampleAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -164,6 +250,10 @@
 				TargetAttributes = {
 					8B76E0CF2B5782500017B455 = {
 						CreatedOnToolsVersion = 15.0.1;
+					};
+					BD16337C2B9ACF6A00183BE7 = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = 8B76E0CF2B5782500017B455;
 					};
 				};
 			};
@@ -179,12 +269,14 @@
 			packageReferences = (
 				BD9CEA742B9ABB2B00928203 /* XCRemoteSwiftPackageReference "OpenSSL" */,
 				BD9CEA772B9ABB8400928203 /* XCLocalSwiftPackageReference ".." */,
+				BD1633762B9ACB6800183BE7 /* XCRemoteSwiftPackageReference "netfox" */,
 			);
 			productRefGroup = 8B76E0D12B5782500017B455 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				8B76E0CF2B5782500017B455 /* SampleApp */,
+				BD16337C2B9ACF6A00183BE7 /* SampleAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -194,8 +286,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD1633712B9AC85200183BE7 /* config_uat.env in Resources */,
 				BD9CEA6E2B9A90FD00928203 /* Preview Assets.xcassets in Resources */,
 				BD9CEA6C2B9A90FD00928203 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD16337B2B9ACF6A00183BE7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,12 +309,30 @@
 				BD9CEA4F2B982CF200928203 /* PaymentsView.swift in Sources */,
 				BD9CEA5D2B9A838B00928203 /* ConnectionResponse.swift in Sources */,
 				BDC05CC72B903FB50062C06D /* SampleApp.swift in Sources */,
+				BD1633752B9ACA9000183BE7 /* Utils.swift in Sources */,
+				BD1633732B9AC85200183BE7 /* AppConfig.swift in Sources */,
 				BD9CEA592B9A038100928203 /* ConnectionRequest.swift in Sources */,
 				BDC05CC22B903FB50062C06D /* SandboxConnectionProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BD1633792B9ACF6A00183BE7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD1633802B9ACF6A00183BE7 /* ConnectionResponseTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BD1633822B9ACF6A00183BE7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B76E0CF2B5782500017B455 /* SampleApp */;
+			targetProxy = BD1633812B9ACF6A00183BE7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		8B76E0DC2B5782520017B455 /* Debug */ = {
@@ -269,11 +387,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tyro.tap-to-pay-sdk-ios.sample-app";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -326,10 +447,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tyro.tap-to-pay-sdk-ios.sample-app";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
@@ -348,7 +472,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SampleApp/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(PROJECT_DIR)/$(TARGET_NAME)/Supporting Files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Tyro Tap to Pay on iPhone Demo";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -361,7 +485,6 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tyro.tap-to-pay-sdk-ios.sample-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -385,7 +508,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SampleApp/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(PROJECT_DIR)/$(TARGET_NAME)/Supporting Files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Tyro Tap to Pay on iPhone Demo";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -398,7 +521,6 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tyro.tap-to-pay-sdk-ios.sample-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -407,6 +529,42 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		BD1633842B9ACF6A00183BE7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AP4UA2XZ78;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tyro.SampleAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SampleApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SampleApp";
+			};
+			name = Debug;
+		};
+		BD1633852B9ACF6A00183BE7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AP4UA2XZ78;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tyro.SampleAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SampleApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SampleApp";
 			};
 			name = Release;
 		};
@@ -431,6 +589,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		BD1633832B9ACF6A00183BE7 /* Build configuration list for PBXNativeTarget "SampleAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD1633842B9ACF6A00183BE7 /* Debug */,
+				BD1633852B9ACF6A00183BE7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
@@ -441,6 +608,14 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		BD1633762B9ACB6800183BE7 /* XCRemoteSwiftPackageReference "netfox" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kasketis/netfox.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.21.0;
+			};
+		};
 		BD9CEA742B9ABB2B00928203 /* XCRemoteSwiftPackageReference "OpenSSL" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/krzyzanowskim/OpenSSL.git";
@@ -452,6 +627,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		BD1633772B9ACB6800183BE7 /* netfox */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BD1633762B9ACB6800183BE7 /* XCRemoteSwiftPackageReference "netfox" */;
+			productName = netfox;
+		};
 		BD9CEA752B9ABB2B00928203 /* OpenSSL */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BD9CEA742B9ABB2B00928203 /* XCRemoteSwiftPackageReference "OpenSSL" */;

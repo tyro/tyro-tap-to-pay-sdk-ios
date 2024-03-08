@@ -14,7 +14,7 @@ import TyroTapToPaySDK
 /// For more info, see: - ()[]
 public class SandboxConnectionProvider : ConnectionProvider {
   static let timeoutIntervalSeconds: TimeInterval = 10
-  
+
   private let sandboxReaderId: String = "f310e43b-a6c9-4c43-9535-ff68b2b9c4a1"
   private let sandboxConnectionUrl: String = "https://api.tyro.com/connect/tap-to-pay/demo/connections"
 
@@ -26,33 +26,27 @@ public class SandboxConnectionProvider : ConnectionProvider {
     guard let sandboxUrl = URL(string: sandboxConnectionUrl) else {
       throw TyroTapToPaySDK.TapToPaySDKError.connectionProviderFailure
     }
-    let response = try await post(url: sandboxUrl, requestPayload: ConnectionRequest(readerId: sandboxReaderId))
-    let connectionResponse = try JSONDecoder().decode(ConnectionResponse.self, from: response)
-    return connectionResponse.connectionSecret
+    let requestBody = ConnectionRequest(readerId: sandboxReaderId)
+    let responseBody: ConnectionResponse = try await post(url: sandboxUrl,
+                                                          requestPayload: requestBody)
+    return responseBody.connectionSecret
   }
-/**
- {"id":316,
-  "connectionSecret":"$2a$10$3M9j6OpIqvVbIJ2giFjEg.nQK5dFGNwGhHxjZXTWwC5zezOQcFsZS",
-  "createdDate":"2024-03-06T05:28:49.567Z",
-  "readerId":"bf25e679-ee58-4574-9d1f-4a0ec1cb99bb",
-  "readerName":"sandbox demo reader android test 1",
-  "locationId":"tc-taptopaydemo3-4940",
-  "locationName":"Sandbox Location 1fde2e05-becd-4505-9c5e-68b21f874be0"}%
-  return "$2a$10$3M9j6OpIqvVbIJ2giFjEg.nQK5dFGNwGhHxjZXTWwC5zezOQcFsZS"
- */
-  private func post(url: URL, requestPayload: Encodable) async throws -> Data {
+
+  private func post<T: Decodable>(url: URL, requestPayload: Encodable) async throws -> T {
     var request = URLRequest(url: url,
                              cachePolicy: .reloadIgnoringCacheData,
                              timeoutInterval: SandboxConnectionProvider.timeoutIntervalSeconds)
+    
     request.httpMethod = "POST"
     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
     request.addValue("application/json", forHTTPHeaderField: "Accept")
     request.httpBody = try JSONEncoder().encode(requestPayload)
 
     let (data, response) = try await URLSession.shared.data(for: request)
-    guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+    // HTTP 201 indicates that the ConnectionSecret was created successfully.
+    guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 201 else {
       throw TapToPaySDKError.connectionProviderFailure
     }
-    return data
+    return try JSONDecoder().decode(T.self, from: data)
   }
 }
