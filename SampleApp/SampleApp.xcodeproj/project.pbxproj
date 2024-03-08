@@ -69,7 +69,6 @@
 			isa = PBXGroup;
 			children = (
 				BDC05CB02B903FB50062C06D /* SampleApp */,
-				BDC05CBC2B903FB50062C06D /* SampleApp.swift */,
 				8B76E0D12B5782500017B455 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -123,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				BD9CEA782B9ABD4A00928203 /* SampleApp.entitlements */,
+				BDC05CBC2B903FB50062C06D /* SampleApp.swift */,
 				BD9CEA642B9A90FD00928203 /* Assets.xcassets */,
 				BDC05CB52B903FB50062C06D /* ConnectionProvider */,
 				BD9CEA662B9A90FD00928203 /* Preview Content */,
