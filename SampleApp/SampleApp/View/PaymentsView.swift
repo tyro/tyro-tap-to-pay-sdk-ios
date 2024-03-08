@@ -11,10 +11,10 @@ class PaymentsViewModel: ObservableObject {
     }
   }
 
-  let posInfo = POSInformation(name: "Your POS name",
-                               vendor: "Your POS vendor",
-                               version: "Your POS version",
-                               siteReference: "Merchant site reference")
+  let posInfo = POSInformation(name: "Demo",
+                               vendor: "Tyro Payments Sample App",
+                               version: "1.0",
+                               siteReference: "Sydney")
 
   init() {
     Task {

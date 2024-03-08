@@ -11,11 +11,7 @@
 		BD9CEA592B9A038100928203 /* ConnectionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CEA582B9A038100928203 /* ConnectionRequest.swift */; };
 		BD9CEA5D2B9A838B00928203 /* ConnectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CEA5C2B9A838B00928203 /* ConnectionResponse.swift */; };
 		BD9CEA6C2B9A90FD00928203 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD9CEA642B9A90FD00928203 /* Assets.xcassets */; };
-		BD9CEA6D2B9A90FD00928203 /* config_uat.env in Resources */ = {isa = PBXBuildFile; fileRef = BD9CEA652B9A90FD00928203 /* config_uat.env */; };
 		BD9CEA6E2B9A90FD00928203 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD9CEA672B9A90FD00928203 /* Preview Assets.xcassets */; };
-		BD9CEA6F2B9A90FD00928203 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CEA682B9A90FD00928203 /* Utils.swift */; };
-		BD9CEA702B9A90FD00928203 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CEA692B9A90FD00928203 /* AppConfig.swift */; };
-		BD9CEA712B9A90FD00928203 /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CEA6A2B9A90FD00928203 /* TransactionView.swift */; };
 		BD9CEA762B9ABB2B00928203 /* OpenSSL in Frameworks */ = {isa = PBXBuildFile; productRef = BD9CEA752B9ABB2B00928203 /* OpenSSL */; };
 		BDC05CC22B903FB50062C06D /* SandboxConnectionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC05CB62B903FB50062C06D /* SandboxConnectionProvider.swift */; };
 		BDC05CC72B903FB50062C06D /* SampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC05CBC2B903FB50062C06D /* SampleApp.swift */; };
@@ -41,12 +37,7 @@
 		BD9CEA582B9A038100928203 /* ConnectionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionRequest.swift; sourceTree = "<group>"; };
 		BD9CEA5C2B9A838B00928203 /* ConnectionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionResponse.swift; sourceTree = "<group>"; };
 		BD9CEA642B9A90FD00928203 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BD9CEA652B9A90FD00928203 /* config_uat.env */ = {isa = PBXFileReference; lastKnownFileType = file; path = config_uat.env; sourceTree = "<group>"; };
 		BD9CEA672B9A90FD00928203 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		BD9CEA682B9A90FD00928203 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		BD9CEA692B9A90FD00928203 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
-		BD9CEA6A2B9A90FD00928203 /* TransactionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
-		BD9CEA6B2B9A90FD00928203 /* SampleApp.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = SampleApp.entitlements; sourceTree = "<group>"; };
 		BD9CEA782B9ABD4A00928203 /* SampleApp.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = SampleApp.entitlements; sourceTree = "<group>"; };
 		BDC05CB62B903FB50062C06D /* SandboxConnectionProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SandboxConnectionProvider.swift; sourceTree = "<group>"; };
 		BDC05CBC2B903FB50062C06D /* SampleApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleApp.swift; sourceTree = "<group>"; };
@@ -81,11 +72,18 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		BD16336B2B9AC46800183BE7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BD9CEA642B9A90FD00928203 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		BD9CEA4A2B982BB800928203 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				BD9CEA4E2B982CF200928203 /* PaymentsView.swift */,
-				BD9CEA6A2B9A90FD00928203 /* TransactionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -107,26 +105,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		BD9CEA722B9A910500928203 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				BD9CEA692B9A90FD00928203 /* AppConfig.swift */,
-				BD9CEA682B9A90FD00928203 /* Utils.swift */,
-				BD9CEA652B9A90FD00928203 /* config_uat.env */,
-				BD9CEA6B2B9A90FD00928203 /* SampleApp.entitlements */,
-			);
-			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		BDC05CB02B903FB50062C06D /* SampleApp */ = {
 			isa = PBXGroup;
 			children = (
 				BD9CEA782B9ABD4A00928203 /* SampleApp.entitlements */,
 				BDC05CBC2B903FB50062C06D /* SampleApp.swift */,
-				BD9CEA642B9A90FD00928203 /* Assets.xcassets */,
 				BDC05CB52B903FB50062C06D /* ConnectionProvider */,
 				BD9CEA662B9A90FD00928203 /* Preview Content */,
-				BD9CEA722B9A910500928203 /* Supporting Files */,
+				BD16336B2B9AC46800183BE7 /* Resources */,
 				BD9CEA4A2B982BB800928203 /* View */,
 			);
 			path = SampleApp;
@@ -208,7 +194,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD9CEA6D2B9A90FD00928203 /* config_uat.env in Resources */,
 				BD9CEA6E2B9A90FD00928203 /* Preview Assets.xcassets in Resources */,
 				BD9CEA6C2B9A90FD00928203 /* Assets.xcassets in Resources */,
 			);
@@ -222,13 +207,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD9CEA4F2B982CF200928203 /* PaymentsView.swift in Sources */,
-				BD9CEA712B9A90FD00928203 /* TransactionView.swift in Sources */,
 				BD9CEA5D2B9A838B00928203 /* ConnectionResponse.swift in Sources */,
 				BDC05CC72B903FB50062C06D /* SampleApp.swift in Sources */,
-				BD9CEA702B9A90FD00928203 /* AppConfig.swift in Sources */,
 				BD9CEA592B9A038100928203 /* ConnectionRequest.swift in Sources */,
 				BDC05CC22B903FB50062C06D /* SandboxConnectionProvider.swift in Sources */,
-				BD9CEA6F2B9A90FD00928203 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,7 +349,6 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SampleApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Tyro Tap to Pay on iPhone Demo";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -405,7 +386,6 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SampleApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Tyro Tap to Pay on iPhone Demo";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
