@@ -16,6 +16,7 @@ class PaymentsViewModel: ObservableObject {
                                version: "1.0",
                                siteReference: "Sydney")
 
+  @MainActor
   init() {
     Task {
       processInProgress = "Initialising..."
