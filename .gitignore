@@ -62,6 +62,7 @@ DerivedData
 build
 archives
 xcframeworks
+*.zip
 
 # User specific state
 **/.xcuserstate

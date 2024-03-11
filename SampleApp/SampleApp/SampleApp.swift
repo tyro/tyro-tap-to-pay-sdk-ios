@@ -14,10 +14,13 @@ struct SampleApp: App {
   private var notificationCentre = NotificationCenter.default
   @Environment(\.scenePhase) private var scenePhase
 
+  private let connectionProvider = SandboxConnectionProvider(tyroRestClient: TyroRestClient(environment: .sandBox))
+
   init() {
 #if DEBUG
     NFX.sharedInstance().start()
 #endif
+
   }
 
   var body: some Scene {
