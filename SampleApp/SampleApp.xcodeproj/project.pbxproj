@@ -49,10 +49,6 @@
 
 /* Begin PBXFileReference section */
 		8B76E0D02B5782500017B455 /* SampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD16336E2B9AC85200183BE7 /* config_uat.env */ = {isa = PBXFileReference; lastKnownFileType = file; path = config_uat.env; sourceTree = "<group>"; };
-		BD16336F2B9AC85200183BE7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BD1633702B9AC85200183BE7 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
-		BD1633742B9ACA9000183BE7 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		BD16337D2B9ACF6A00183BE7 /* SampleAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SampleAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD16337F2B9ACF6A00183BE7 /* ConnectionResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionResponseTests.swift; sourceTree = "<group>"; };
 		BD9CEA4E2B982CF200928203 /* PaymentsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentsView.swift; sourceTree = "<group>"; };
@@ -178,7 +174,6 @@
 				BDC05CB52B903FB50062C06D /* ConnectionProvider */,
 				BD9CEA662B9A90FD00928203 /* Preview Content */,
 				BD16336B2B9AC46800183BE7 /* Resources */,
-				BD16336C2B9AC85200183BE7 /* Supporting Files */,
 				BD9CEA4A2B982BB800928203 /* View */,
 				BDC05CBC2B903FB50062C06D /* SampleApp.swift */,
 				BDA59BC52B9DF3CB000ABB45 /* Entitlements.plist */,
@@ -287,17 +282,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDA59BC62B9DF3CB000ABB45 /* Entitlements.plist in Resources */,
-				BD1633712B9AC85200183BE7 /* config_uat.env in Resources */,
-				BD9CEA6E2B9A90FD00928203 /* Preview Assets.xcassets in Resources */,
-				BD9CEA6C2B9A90FD00928203 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BD16337B2B9ACF6A00183BE7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				BDC05CC52B903FB50062C06D /* Preview Assets.xcassets in Resources */,
+				BDC05CC42B903FB50062C06D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,8 +297,6 @@
 				BD9CEA4F2B982CF200928203 /* PaymentsView.swift in Sources */,
 				BD9CEA5D2B9A838B00928203 /* ConnectionResponse.swift in Sources */,
 				BDC05CC72B903FB50062C06D /* SampleApp.swift in Sources */,
-				BD1633752B9ACA9000183BE7 /* Utils.swift in Sources */,
-				BD1633732B9AC85200183BE7 /* AppConfig.swift in Sources */,
 				BD9CEA592B9A038100928203 /* ConnectionRequest.swift in Sources */,
 				BDC05CC22B903FB50062C06D /* SandboxConnectionProvider.swift in Sources */,
 			);
