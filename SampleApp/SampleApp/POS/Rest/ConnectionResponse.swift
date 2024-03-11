@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct ConnectionResponse: Decodable {
-  let id: Int
-  let connectionSecret: String
-  let createdDate: Date
-  let readerId: UUID
-  let readerName: String
-  let locationId: String
-  let locationName: String
+public struct ConnectionResponse: Decodable {
+  public let id: Int
+  public let connectionSecret: String
+  public let createdDate: Date
+  public let readerId: UUID
+  public let readerName: String
+  public let locationId: String
+  public let locationName: String
 
   enum CodingKeys: CodingKey {
     case id
@@ -36,7 +36,7 @@ struct ConnectionResponse: Decodable {
     return formatter
   }()
 
-  init(from decoder: Decoder) throws {
+  public init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
     self.id = try container.decode(Int.self, forKey: .id)
     self.connectionSecret = try container.decode(String.self, forKey: .connectionSecret)

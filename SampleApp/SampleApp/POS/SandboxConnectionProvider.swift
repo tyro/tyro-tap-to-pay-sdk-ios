@@ -12,7 +12,7 @@ import TyroTapToPaySDK
 /// You will need to implement `ConnectionProvider` in your own applications and call:
 /// ```TyroTapToPaySDKTyroTapToPay.shared.initSDK(_:ConnectionProvider)```.
 /// Tap to Pay on iPhone App.
-/// > Note: You will need to implement your own `ConnectionProvider` to query your back-end for user lookup and respond with the relevant `ConnectionSecret`.
+/// > Note: You will need to implement your own `ConnectionProvider` to retrieve the relevant `ConnectionSecret` for the reader ID.
 /// # See Also:
 /// - [Tap to Pay connection endpoint](https://preview.redoc.ly/tyro-connect/pla-5831/pos/tap-to-pay/iphone/integrate-sdk/#tap-to-pay-connection-endpoint)
 /// - [SandBox Testing](https://preview.redoc.ly/tyro-connect/pla-5831/pos/tap-to-pay/sandbox-testing/#sandbox-testing)
@@ -20,7 +20,7 @@ public class SandboxConnectionProvider : ConnectionProvider, ObservableObject {
   static let timeoutIntervalSeconds: TimeInterval = 10
 
   private let sandboxReaderId: String = "f310e43b-a6c9-4c43-9535-ff68b2b9c4a1"
-  private let tyroRestClient: TyroRestClient
+  private let restClient: TyroRestClient
 
   @Published
   public var connectionResponse: ConnectionResponse? = nil
@@ -29,7 +29,7 @@ public class SandboxConnectionProvider : ConnectionProvider, ObservableObject {
   /// - Parameters:
   ///   - restClient: The ``TyroRestClient`` client instance configured for the Tyro-Tap-to-Pay environment you wish to use.
   init(restClient: TyroRestClient) {
-    self.tyroRestClient = tyroRestClient
+    self.restClient = restClient
   }
 
   /// Create/Register the connection between this device reader and Tyro.
@@ -37,10 +37,10 @@ public class SandboxConnectionProvider : ConnectionProvider, ObservableObject {
   /// - throws: an Error indicating either why the ConnectionProvider failed to connect to the POS server
   /// or why the `ConnectionSecret` could not be retrieved.
   public func createConnection() async throws -> String {
-    let connectionResponse = try await tyroRestClient.createConnection(readerId: sandboxReaderId)
-    MainActor.run {
+    let connectionResponse = try await restClient.createConnection(readerId: sandboxReaderId)
+    await MainActor.run {
       self.connectionResponse = connectionResponse
     }
-    return responseBody.connectionSecret
+    return connectionResponse.connectionSecret
   }
 }

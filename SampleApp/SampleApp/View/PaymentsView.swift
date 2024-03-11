@@ -11,20 +11,23 @@ class PaymentsViewModel: ObservableObject {
     }
   }
 
+  private let tapToPaySDK: TyroTapToPay
+
   let posInfo = POSInformation(name: "Demo",
                                vendor: "Tyro Payments Sample App",
                                version: "1.0",
                                siteReference: "Sydney")
 
   @MainActor
-  init() {
-    Task {
-      processInProgress = "Initialising..."
-      defer {
-        processInProgress = nil
-      }
+  init(tapToPaySDK: TyroTapToPay) {
+    self.tapToPaySDK = tapToPaySDK
+    processInProgress = "Initialising..."
+    defer {
+      processInProgress = nil
+    }
+    Task.detached {
       do {
-        try await TyroTapToPay.shared.initSDK(connectionProvider: SandboxConnectionProvider())
+        try await self.tapToPaySDK.connect()
       } catch {
         self.error = "\(error)"
       }
@@ -46,7 +49,7 @@ class PaymentsViewModel: ObservableObject {
                                               posInformation: posInfo,
                                               localeLanguage: Locale.current.language)
     do {
-      let outcome = try await TyroTapToPay.shared.startPayment(transactionDetail: transactionDetail)
+      let outcome = try await tapToPaySDK.startPayment(transactionDetail: transactionDetail)
       print(outcome)
     } catch {
       self.error = "\(error)"
@@ -71,7 +74,11 @@ class PaymentsViewModel: ObservableObject {
 }
 
 struct PaymentsView: View {
-  @StateObject var viewModel = PaymentsViewModel()
+  @ObservedObject var viewModel: PaymentsViewModel
+
+  init(viewModel: PaymentsViewModel) {
+    self.viewModel = viewModel
+  }
 
   var body: some View {
     ZStack {
@@ -127,5 +134,6 @@ struct PaymentsView: View {
 }
 
 #Preview {
-  PaymentsView()
+  PaymentsView(viewModel: PaymentsViewModel(tapToPaySDK: TyroTapToPay(environment: .sandbox,
+                                                                      connectionProvider: SandboxConnectionProvider(restClient: TyroRestClient(environment: .sandbox)))))
 }
