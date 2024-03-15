@@ -19,7 +19,7 @@ import TyroTapToPaySDK
 public class SandboxConnectionProvider : ConnectionProvider, ObservableObject {
   static let timeoutIntervalSeconds: TimeInterval = 10
 
-  private let sandboxReaderId: String = "f310e43b-a6c9-4c43-9535-ff68b2b9c4a1"
+  private let readerId: String = "f310e43b-a6c9-4c43-9535-ff68b2b9c4a1"
   private let restClient: TyroRestClient
 
   @Published
@@ -37,7 +37,7 @@ public class SandboxConnectionProvider : ConnectionProvider, ObservableObject {
   /// - throws: an Error indicating either why the ConnectionProvider failed to connect to the POS server
   /// or why the `ConnectionSecret` could not be retrieved.
   public func createConnection() async throws -> String {
-    let connectionResponse = try await restClient.createConnection(readerId: sandboxReaderId)
+    let connectionResponse = try await restClient.createConnection(for: readerId)
     await MainActor.run {
       self.connectionResponse = connectionResponse
     }

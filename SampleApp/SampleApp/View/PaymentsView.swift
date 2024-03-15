@@ -18,19 +18,20 @@ class PaymentsViewModel: ObservableObject {
                                version: "1.0",
                                siteReference: "Sydney")
 
-  @MainActor
   init(tapToPaySDK: TyroTapToPay) {
+    self.amount = ""
     self.tapToPaySDK = tapToPaySDK
+  }
+
+  func connect() async {
     processInProgress = "Initialising..."
     defer {
       processInProgress = nil
     }
-    Task.detached {
-      do {
-        try await self.tapToPaySDK.connect()
-      } catch {
-        self.error = "\(error)"
-      }
+    do {
+      try await self.tapToPaySDK.connect()
+    } catch {
+      self.error = "\(error)"
     }
   }
 
@@ -130,6 +131,9 @@ struct PaymentsView: View {
     }, message: { error in
       Text(error)
     })
+    .task {
+      await viewModel.connect()
+    }
   }
 }
 
