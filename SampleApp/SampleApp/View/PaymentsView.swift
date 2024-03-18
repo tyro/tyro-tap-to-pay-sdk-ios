@@ -94,7 +94,7 @@ struct PaymentsView: View {
         .padding()
       }
       VStack {
-//        TextField("Amount", value: $viewModel.amount, format: .currency(code: .))
+        //        TextField("Amount", value: $viewModel.amount, format: .currency(code: .))
         TextField("Amount", text: $viewModel.amount, prompt: Text("$0.00"))
           .keyboardType(.decimalPad)
 
@@ -138,6 +138,9 @@ struct PaymentsView: View {
 }
 
 #Preview {
-  PaymentsView(viewModel: PaymentsViewModel(tapToPaySDK: TyroTapToPay(environment: .sandbox,
-                                                                      connectionProvider: SandboxConnectionProvider(restClient: TyroRestClient(environment: .sandbox)))))
+
+
+
+  PaymentsView(viewModel: PaymentsViewModel(tapToPaySDK: try! TyroTapToPay(environment: .sandbox,
+                                                                           connectionProvider: SandboxConnectionProvider(restClient: TyroRestClient(environment: .sandbox)))))
 }

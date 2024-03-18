@@ -24,8 +24,12 @@ struct SampleApp: App {
 #endif
     let restClient = TyroRestClient(environment: tyroEnvironment)
     self.connectionProvider = SandboxConnectionProvider(restClient: restClient)
-    self.tapToPaySDK = TyroTapToPay(environment: tyroEnvironment,
-                                    connectionProvider: connectionProvider)
+    do {
+      self.tapToPaySDK = try TyroTapToPay(environment: tyroEnvironment,
+                                          connectionProvider: connectionProvider)
+    } catch {
+      fatalError(error.localizedDescription)
+    }
   }
 
   var body: some Scene {

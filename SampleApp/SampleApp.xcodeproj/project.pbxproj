@@ -11,6 +11,7 @@
 		BD0A73232B9F502200659F82 /* TyroTapToPaySDKPackage in Frameworks */ = {isa = PBXBuildFile; productRef = BD0A73222B9F502200659F82 /* TyroTapToPaySDKPackage */; };
 		BD0A73292B9FDCCD00659F82 /* TyroRestClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0A73282B9FDCCD00659F82 /* TyroRestClientTests.swift */; };
 		BD0A738C2BA2B7B700659F82 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = BD0A738B2BA2B7B700659F82 /* Localizable.xcstrings */; };
+		BD0DAA522BA8876A00100EC1 /* config_uat.env in Resources */ = {isa = PBXBuildFile; fileRef = BD0DAA512BA8876A00100EC1 /* config_uat.env */; };
 		BD1633782B9ACB6800183BE7 /* netfox in Frameworks */ = {isa = PBXBuildFile; productRef = BD1633772B9ACB6800183BE7 /* netfox */; };
 		BD1633802B9ACF6A00183BE7 /* ConnectionResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD16337F2B9ACF6A00183BE7 /* ConnectionResponseTests.swift */; };
 		BD9CEA4F2B982CF200928203 /* PaymentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CEA4E2B982CF200928203 /* PaymentsView.swift */; };
@@ -51,6 +52,8 @@
 		BD0A731F2B9F27E600659F82 /* SampleApp.entitlements */ = {isa = PBXFileReference; explicitFileType = text.plist.entitlements; path = SampleApp.entitlements; sourceTree = "<group>"; };
 		BD0A73282B9FDCCD00659F82 /* TyroRestClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TyroRestClientTests.swift; sourceTree = "<group>"; };
 		BD0A738B2BA2B7B700659F82 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		BD0DAA4E2BA8857E00100EC1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD0DAA512BA8876A00100EC1 /* config_uat.env */ = {isa = PBXFileReference; lastKnownFileType = file; path = config_uat.env; sourceTree = "<group>"; };
 		BD16337D2B9ACF6A00183BE7 /* SampleAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SampleAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD16337F2B9ACF6A00183BE7 /* ConnectionResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionResponseTests.swift; sourceTree = "<group>"; };
 		BD9CEA4E2B982CF200928203 /* PaymentsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentsView.swift; sourceTree = "<group>"; };
@@ -114,6 +117,7 @@
 		BD0A73262B9FDCA800659F82 /* POS */ = {
 			isa = PBXGroup;
 			children = (
+				BD1633862B9ACF9000183BE7 /* ConnectionProvider */,
 				BD0A73272B9FDCB800659F82 /* Rest */,
 			);
 			path = POS;
@@ -125,6 +129,15 @@
 				BD0A73282B9FDCCD00659F82 /* TyroRestClientTests.swift */,
 			);
 			path = Rest;
+			sourceTree = "<group>";
+		};
+		BD0DAA4D2BA884DD00100EC1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BD0DAA512BA8876A00100EC1 /* config_uat.env */,
+				BD0DAA4E2BA8857E00100EC1 /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		BD16336B2B9AC46800183BE7 /* Resources */ = {
@@ -140,7 +153,6 @@
 			isa = PBXGroup;
 			children = (
 				BD0A73262B9FDCA800659F82 /* POS */,
-				BD1633862B9ACF9000183BE7 /* ConnectionProvider */,
 			);
 			path = SampleAppTests;
 			sourceTree = "<group>";
@@ -182,12 +194,13 @@
 		BDC05CB02B903FB50062C06D /* SampleApp */ = {
 			isa = PBXGroup;
 			children = (
-				BD0A731F2B9F27E600659F82 /* SampleApp.entitlements */,
-				BDC05CBC2B903FB50062C06D /* SampleApp.swift */,
 				BD0A731B2B9E8FA800659F82 /* POS */,
 				BD9CEA662B9A90FD00928203 /* Preview Content */,
 				BD16336B2B9AC46800183BE7 /* Resources */,
+				BD0DAA4D2BA884DD00100EC1 /* Supporting Files */,
 				BD9CEA4A2B982BB800928203 /* View */,
+				BD0A731F2B9F27E600659F82 /* SampleApp.entitlements */,
+				BDC05CBC2B903FB50062C06D /* SampleApp.swift */,
 			);
 			path = SampleApp;
 			sourceTree = "<group>";
@@ -286,6 +299,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD0DAA522BA8876A00100EC1 /* config_uat.env in Resources */,
 				BD0A738C2BA2B7B700659F82 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,6 +375,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
+				CURRENT_PROJECT_VERSION = 0.2.0;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -383,6 +398,7 @@
 				INFOPLIST_FILE = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 0.2.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -390,6 +406,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -428,6 +445,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
+				CURRENT_PROJECT_VERSION = 0.2.0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -444,11 +462,13 @@
 				INFOPLIST_FILE = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 0.2.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tyro.tap-to-pay-sdk-ios.sample-app";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -465,6 +485,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SampleApp/Preview Content\"";
 				DEVELOPMENT_TEAM = AP4UA2XZ78;
 				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "$(TARGET_NAME)/Supporting Files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Tyro Tap to Pay on iPhone Demo";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -502,6 +523,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SampleApp/Preview Content\"";
 				DEVELOPMENT_TEAM = AP4UA2XZ78;
 				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "$(TARGET_NAME)/Supporting Files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Tyro Tap to Pay on iPhone Demo";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
