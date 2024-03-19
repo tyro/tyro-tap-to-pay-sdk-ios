@@ -18,6 +18,11 @@
 	<string>$(KEYLOADING_HOST)</string>
 	<key>KEYLOADING_HOST_CERT_PINNING</key>
 	<string>$(KEYLOADING_HOST_CERT_PINNING)</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>SECRET_KEY</key>
 	<string>$(SECRET_KEY)</string>
 </dict>

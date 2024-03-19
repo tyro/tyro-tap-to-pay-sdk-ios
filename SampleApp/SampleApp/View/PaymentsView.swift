@@ -23,15 +23,20 @@ class PaymentsViewModel: ObservableObject {
     self.tapToPaySDK = tapToPaySDK
   }
 
+  @MainActor
   func connect() async {
     processInProgress = "Initialising..."
     defer {
       processInProgress = nil
     }
-    do {
-      try await self.tapToPaySDK.connect()
-    } catch {
-      self.error = "\(error)"
+    Task {
+      do {
+        try await self.tapToPaySDK.connect()
+      } catch {
+        await MainActor.run {
+          self.error = "\(error)"
+        }
+      }
     }
   }
 
@@ -77,6 +82,14 @@ class PaymentsViewModel: ObservableObject {
 struct PaymentsView: View {
   @ObservedObject var viewModel: PaymentsViewModel
 
+  enum InputFocus: Hashable {
+    case amountTextField
+    case paymentButton
+    case refundButton
+  }
+
+  @FocusState var inputFocus: InputFocus?
+
   init(viewModel: PaymentsViewModel) {
     self.viewModel = viewModel
   }
@@ -101,6 +114,7 @@ struct PaymentsView: View {
           .font(.largeTitle)
           .multilineTextAlignment(.center)
           .padding()
+          .focused($inputFocus, equals: .amountTextField)
         HStack {
           Button {
             Task {
@@ -112,6 +126,7 @@ struct PaymentsView: View {
           .frame(maxWidth: .infinity)
           .buttonStyle(.borderedProminent)
           .disabled(viewModel.processInProgress != nil)
+          .focused($inputFocus, equals: .paymentButton)
 
           Button {
             viewModel.startRefund()
@@ -121,6 +136,7 @@ struct PaymentsView: View {
           .frame(maxWidth: .infinity)
           .buttonStyle(.bordered)
           .disabled(viewModel.processInProgress != nil)
+          .focused($inputFocus, equals: .refundButton)
         }
         .padding(.top)
       }
@@ -132,6 +148,7 @@ struct PaymentsView: View {
       Text(error)
     })
     .task {
+      inputFocus = .amountTextField
       await viewModel.connect()
     }
   }

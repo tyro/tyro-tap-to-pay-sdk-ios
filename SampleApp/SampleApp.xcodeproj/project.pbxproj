@@ -20,6 +20,7 @@
 		BD9CEA762B9ABB2B00928203 /* OpenSSL in Frameworks */ = {isa = PBXBuildFile; productRef = BD9CEA752B9ABB2B00928203 /* OpenSSL */; };
 		BDC05CC22B903FB50062C06D /* SandboxConnectionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC05CB62B903FB50062C06D /* SandboxConnectionProvider.swift */; };
 		BDC05CC72B903FB50062C06D /* SampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC05CBC2B903FB50062C06D /* SampleApp.swift */; };
+		BDDDB1FE2BA95F8A004385DB /* TyroTapToPaySDKPackage in Frameworks */ = {isa = PBXBuildFile; productRef = BDDDB1FD2BA95F8A004385DB /* TyroTapToPaySDKPackage */; };
 		BDFDEE622B8F03760034DA1F /* TyroTapToPaySDKPackage in Frameworks */ = {isa = PBXBuildFile; productRef = BDFDEE612B8F03760034DA1F /* TyroTapToPaySDKPackage */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDDDB1FE2BA95F8A004385DB /* TyroTapToPaySDKPackage in Frameworks */,
 				BD0A73232B9F502200659F82 /* TyroTapToPaySDKPackage in Frameworks */,
 				BDFDEE622B8F03760034DA1F /* TyroTapToPaySDKPackage in Frameworks */,
 				BD9CEA762B9ABB2B00928203 /* OpenSSL in Frameworks */,
@@ -212,6 +214,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B76E0DE2B5782520017B455 /* Build configuration list for PBXNativeTarget "SampleApp" */;
 			buildPhases = (
+				BDDDB1FB2BA95397004385DB /* ShellScript */,
 				8B76E0CC2B5782500017B455 /* Sources */,
 				8B76E0CD2B5782500017B455 /* Frameworks */,
 				8B76E0CE2B5782500017B455 /* Resources */,
@@ -227,6 +230,7 @@
 				BD9CEA752B9ABB2B00928203 /* OpenSSL */,
 				BD1633772B9ACB6800183BE7 /* netfox */,
 				BD0A73222B9F502200659F82 /* TyroTapToPaySDKPackage */,
+				BDDDB1FD2BA95F8A004385DB /* TyroTapToPaySDKPackage */,
 			);
 			productName = "tyro-tap-to-pay-sdk-ios-sample-app";
 			productReference = 8B76E0D02B5782500017B455 /* SampleApp.app */;
@@ -282,7 +286,7 @@
 			packageReferences = (
 				BD9CEA742B9ABB2B00928203 /* XCRemoteSwiftPackageReference "OpenSSL" */,
 				BD1633762B9ACB6800183BE7 /* XCRemoteSwiftPackageReference "netfox" */,
-				BD0A73212B9F502200659F82 /* XCLocalSwiftPackageReference ".." */,
+				BDDDB1FC2BA95F8A004385DB /* XCLocalSwiftPackageReference ".." */,
 			);
 			productRefGroup = 8B76E0D12B5782500017B455 /* Products */;
 			projectDirPath = "";
@@ -305,6 +309,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BDDDB1FB2BA95397004385DB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 8;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nswift package TyroTapToPaySDKPackage update\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8B76E0CC2B5782500017B455 /* Sources */ = {
@@ -618,7 +643,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		BD0A73212B9F502200659F82 /* XCLocalSwiftPackageReference ".." */ = {
+		BDDDB1FC2BA95F8A004385DB /* XCLocalSwiftPackageReference ".." */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ..;
 		};
@@ -657,6 +682,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BD9CEA742B9ABB2B00928203 /* XCRemoteSwiftPackageReference "OpenSSL" */;
 			productName = OpenSSL;
+		};
+		BDDDB1FD2BA95F8A004385DB /* TyroTapToPaySDKPackage */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TyroTapToPaySDKPackage;
 		};
 		BDFDEE612B8F03760034DA1F /* TyroTapToPaySDKPackage */ = {
 			isa = XCSwiftPackageProductDependency;
