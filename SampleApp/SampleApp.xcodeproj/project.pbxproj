@@ -12,7 +12,6 @@
 		BD0A73292B9FDCCD00659F82 /* TyroRestClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0A73282B9FDCCD00659F82 /* TyroRestClientTests.swift */; };
 		BD0A738C2BA2B7B700659F82 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = BD0A738B2BA2B7B700659F82 /* Localizable.xcstrings */; };
 		BD0DAA522BA8876A00100EC1 /* config_uat.env in Resources */ = {isa = PBXBuildFile; fileRef = BD0DAA512BA8876A00100EC1 /* config_uat.env */; };
-		BD1633782B9ACB6800183BE7 /* netfox in Frameworks */ = {isa = PBXBuildFile; productRef = BD1633772B9ACB6800183BE7 /* netfox */; };
 		BD1633802B9ACF6A00183BE7 /* ConnectionResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD16337F2B9ACF6A00183BE7 /* ConnectionResponseTests.swift */; };
 		BD9CEA4F2B982CF200928203 /* PaymentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CEA4E2B982CF200928203 /* PaymentsView.swift */; };
 		BD9CEA592B9A038100928203 /* ConnectionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CEA582B9A038100928203 /* ConnectionRequest.swift */; };
@@ -75,7 +74,6 @@
 				BD0A73232B9F502200659F82 /* TyroTapToPaySDKPackage in Frameworks */,
 				BDFDEE622B8F03760034DA1F /* TyroTapToPaySDKPackage in Frameworks */,
 				BD9CEA762B9ABB2B00928203 /* OpenSSL in Frameworks */,
-				BD1633782B9ACB6800183BE7 /* netfox in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,7 +226,6 @@
 			packageProductDependencies = (
 				BDFDEE612B8F03760034DA1F /* TyroTapToPaySDKPackage */,
 				BD9CEA752B9ABB2B00928203 /* OpenSSL */,
-				BD1633772B9ACB6800183BE7 /* netfox */,
 				BD0A73222B9F502200659F82 /* TyroTapToPaySDKPackage */,
 				BDDDB1FD2BA95F8A004385DB /* TyroTapToPaySDKPackage */,
 			);
@@ -285,7 +282,6 @@
 			mainGroup = 8B76E0C72B5782500017B455;
 			packageReferences = (
 				BD9CEA742B9ABB2B00928203 /* XCRemoteSwiftPackageReference "OpenSSL" */,
-				BD1633762B9ACB6800183BE7 /* XCRemoteSwiftPackageReference "netfox" */,
 				BDDDB1FC2BA95F8A004385DB /* XCLocalSwiftPackageReference ".." */,
 			);
 			productRefGroup = 8B76E0D12B5782500017B455 /* Products */;
@@ -517,7 +513,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_OUTPUT_FORMAT = XML;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -555,7 +551,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_OUTPUT_FORMAT = XML;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -650,14 +646,6 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		BD1633762B9ACB6800183BE7 /* XCRemoteSwiftPackageReference "netfox" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kasketis/netfox.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.21.0;
-			};
-		};
 		BD9CEA742B9ABB2B00928203 /* XCRemoteSwiftPackageReference "OpenSSL" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/krzyzanowskim/OpenSSL.git";
@@ -672,11 +660,6 @@
 		BD0A73222B9F502200659F82 /* TyroTapToPaySDKPackage */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = TyroTapToPaySDKPackage;
-		};
-		BD1633772B9ACB6800183BE7 /* netfox */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BD1633762B9ACB6800183BE7 /* XCRemoteSwiftPackageReference "netfox" */;
-			productName = netfox;
 		};
 		BD9CEA752B9ABB2B00928203 /* OpenSSL */ = {
 			isa = XCSwiftPackageProductDependency;

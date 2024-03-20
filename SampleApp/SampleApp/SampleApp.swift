@@ -7,7 +7,6 @@
 
 import SwiftUI
 import TyroTapToPaySDK
-import netfox
 
 @main
 struct SampleApp: App {
@@ -19,9 +18,6 @@ struct SampleApp: App {
   private let tapToPaySDK: TyroTapToPay
 
   init() {
-#if DEBUG
-    NFX.sharedInstance().start()
-#endif
     let restClient = TyroRestClient(environment: tyroEnvironment)
     self.connectionProvider = SandboxConnectionProvider(restClient: restClient)
     do {
