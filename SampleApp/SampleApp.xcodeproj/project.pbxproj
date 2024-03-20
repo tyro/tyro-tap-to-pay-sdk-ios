@@ -12,15 +12,18 @@
 		BD0A73292B9FDCCD00659F82 /* TyroRestClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0A73282B9FDCCD00659F82 /* TyroRestClientTests.swift */; };
 		BD0A738C2BA2B7B700659F82 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = BD0A738B2BA2B7B700659F82 /* Localizable.xcstrings */; };
 		BD0DAA522BA8876A00100EC1 /* config_uat.env in Resources */ = {isa = PBXBuildFile; fileRef = BD0DAA512BA8876A00100EC1 /* config_uat.env */; };
-		BD1633782B9ACB6800183BE7 /* netfox in Frameworks */ = {isa = PBXBuildFile; productRef = BD1633772B9ACB6800183BE7 /* netfox */; };
 		BD1633802B9ACF6A00183BE7 /* ConnectionResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD16337F2B9ACF6A00183BE7 /* ConnectionResponseTests.swift */; };
 		BD9CEA4F2B982CF200928203 /* PaymentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CEA4E2B982CF200928203 /* PaymentsView.swift */; };
 		BD9CEA592B9A038100928203 /* ConnectionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CEA582B9A038100928203 /* ConnectionRequest.swift */; };
 		BD9CEA5D2B9A838B00928203 /* ConnectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CEA5C2B9A838B00928203 /* ConnectionResponse.swift */; };
 		BD9CEA762B9ABB2B00928203 /* OpenSSL in Frameworks */ = {isa = PBXBuildFile; productRef = BD9CEA752B9ABB2B00928203 /* OpenSSL */; };
+		BDABE9152BAAA6190054001F /* TransactionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDABE9142BAAA6190054001F /* TransactionType.swift */; };
 		BDC05CC22B903FB50062C06D /* SandboxConnectionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC05CB62B903FB50062C06D /* SandboxConnectionProvider.swift */; };
 		BDC05CC72B903FB50062C06D /* SampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC05CBC2B903FB50062C06D /* SampleApp.swift */; };
 		BDDDB1FE2BA95F8A004385DB /* TyroTapToPaySDKPackage in Frameworks */ = {isa = PBXBuildFile; productRef = BDDDB1FD2BA95F8A004385DB /* TyroTapToPaySDKPackage */; };
+		BDDDB2012BAA6D9D004385DB /* netfox in Frameworks */ = {isa = PBXBuildFile; productRef = BDDDB2002BAA6D9D004385DB /* netfox */; };
+		BDDDB2032BAA703F004385DB /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDDB2022BAA703F004385DB /* LoadingView.swift */; };
+		BDDDB2082BAA8243004385DB /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDDB2072BAA8243004385DB /* LoadingState.swift */; };
 		BDFDEE622B8F03760034DA1F /* TyroTapToPaySDKPackage in Frameworks */ = {isa = PBXBuildFile; productRef = BDFDEE612B8F03760034DA1F /* TyroTapToPaySDKPackage */; };
 /* End PBXBuildFile section */
 
@@ -62,8 +65,11 @@
 		BD9CEA5C2B9A838B00928203 /* ConnectionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionResponse.swift; sourceTree = "<group>"; };
 		BD9CEA642B9A90FD00928203 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD9CEA672B9A90FD00928203 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BDABE9142BAAA6190054001F /* TransactionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionType.swift; sourceTree = "<group>"; };
 		BDC05CB62B903FB50062C06D /* SandboxConnectionProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SandboxConnectionProvider.swift; sourceTree = "<group>"; };
 		BDC05CBC2B903FB50062C06D /* SampleApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleApp.swift; sourceTree = "<group>"; };
+		BDDDB2022BAA703F004385DB /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		BDDDB2072BAA8243004385DB /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +81,6 @@
 				BD0A73232B9F502200659F82 /* TyroTapToPaySDKPackage in Frameworks */,
 				BDFDEE622B8F03760034DA1F /* TyroTapToPaySDKPackage in Frameworks */,
 				BD9CEA762B9ABB2B00928203 /* OpenSSL in Frameworks */,
-				BD1633782B9ACB6800183BE7 /* netfox in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,7 +175,8 @@
 		BD9CEA4A2B982BB800928203 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BD9CEA4E2B982CF200928203 /* PaymentsView.swift */,
+				BDABE9132BAAA5F50054001F /* Payments */,
+				BDDDB2042BAA8219004385DB /* Loading */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -193,6 +199,15 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		BDABE9132BAAA5F50054001F /* Payments */ = {
+			isa = PBXGroup;
+			children = (
+				BD9CEA4E2B982CF200928203 /* PaymentsView.swift */,
+				BDABE9142BAAA6190054001F /* TransactionType.swift */,
+			);
+			path = Payments;
+			sourceTree = "<group>";
+		};
 		BDC05CB02B903FB50062C06D /* SampleApp */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +220,15 @@
 				BDC05CBC2B903FB50062C06D /* SampleApp.swift */,
 			);
 			path = SampleApp;
+			sourceTree = "<group>";
+		};
+		BDDDB2042BAA8219004385DB /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				BDDDB2022BAA703F004385DB /* LoadingView.swift */,
+				BDDDB2072BAA8243004385DB /* LoadingState.swift */,
+			);
+			path = Loading;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,7 +252,6 @@
 			packageProductDependencies = (
 				BDFDEE612B8F03760034DA1F /* TyroTapToPaySDKPackage */,
 				BD9CEA752B9ABB2B00928203 /* OpenSSL */,
-				BD1633772B9ACB6800183BE7 /* netfox */,
 				BD0A73222B9F502200659F82 /* TyroTapToPaySDKPackage */,
 				BDDDB1FD2BA95F8A004385DB /* TyroTapToPaySDKPackage */,
 			);
@@ -285,7 +308,6 @@
 			mainGroup = 8B76E0C72B5782500017B455;
 			packageReferences = (
 				BD9CEA742B9ABB2B00928203 /* XCRemoteSwiftPackageReference "OpenSSL" */,
-				BD1633762B9ACB6800183BE7 /* XCRemoteSwiftPackageReference "netfox" */,
 				BDDDB1FC2BA95F8A004385DB /* XCLocalSwiftPackageReference ".." */,
 			);
 			productRefGroup = 8B76E0D12B5782500017B455 /* Products */;
@@ -336,12 +358,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD9CEA4F2B982CF200928203 /* PaymentsView.swift in Sources */,
 				BD0A731D2B9E8FDB00659F82 /* TyroRestClient.swift in Sources */,
-				BD9CEA5D2B9A838B00928203 /* ConnectionResponse.swift in Sources */,
-				BDC05CC72B903FB50062C06D /* SampleApp.swift in Sources */,
 				BD9CEA592B9A038100928203 /* ConnectionRequest.swift in Sources */,
+				BD9CEA5D2B9A838B00928203 /* ConnectionResponse.swift in Sources */,
 				BDC05CC22B903FB50062C06D /* SandboxConnectionProvider.swift in Sources */,
+				BDDDB2082BAA8243004385DB /* LoadingState.swift in Sources */,
+				BDDDB2032BAA703F004385DB /* LoadingView.swift in Sources */,
+				BDABE9152BAAA6190054001F /* TransactionType.swift in Sources */,
+				BD9CEA4F2B982CF200928203 /* PaymentsView.swift in Sources */,
+				BDC05CC72B903FB50062C06D /* SampleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,7 +542,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_OUTPUT_FORMAT = XML;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -555,7 +580,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_OUTPUT_FORMAT = XML;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -650,14 +675,6 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		BD1633762B9ACB6800183BE7 /* XCRemoteSwiftPackageReference "netfox" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kasketis/netfox.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.21.0;
-			};
-		};
 		BD9CEA742B9ABB2B00928203 /* XCRemoteSwiftPackageReference "OpenSSL" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/krzyzanowskim/OpenSSL.git";
@@ -672,11 +689,6 @@
 		BD0A73222B9F502200659F82 /* TyroTapToPaySDKPackage */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = TyroTapToPaySDKPackage;
-		};
-		BD1633772B9ACB6800183BE7 /* netfox */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BD1633762B9ACB6800183BE7 /* XCRemoteSwiftPackageReference "netfox" */;
-			productName = netfox;
 		};
 		BD9CEA752B9ABB2B00928203 /* OpenSSL */ = {
 			isa = XCSwiftPackageProductDependency;

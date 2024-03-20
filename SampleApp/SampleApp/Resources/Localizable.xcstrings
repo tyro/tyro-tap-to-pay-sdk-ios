@@ -29,16 +29,23 @@
         }
       }
     },
-    "Cancel" : {
+    "Processing %@ for %@..." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Processing %1$@ for %2$@..."
+          }
+        }
+      }
+    },
+    "Ready!" : {
 
     },
-    "Error" : {
+    "Reset" : {
 
     },
-    "Payment" : {
-
-    },
-    "Refund" : {
+    "Transaction type" : {
 
     }
   },
