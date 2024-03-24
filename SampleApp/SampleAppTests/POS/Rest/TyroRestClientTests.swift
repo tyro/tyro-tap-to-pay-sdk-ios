@@ -31,7 +31,6 @@ final class TyroRestClientTests: XCTestCase {
     headers.forEach { request.addValue($0.value, forHTTPHeaderField: $0.key) }
 
     let (data, urlResponse) = try await URLSession.shared.data(for: request)
-    print(String(data: data, encoding: .utf8)!)
     guard (urlResponse as? HTTPURLResponse)?.statusCode == 201 else {
       throw URLError(.badServerResponse)
     }

@@ -41,13 +41,13 @@ class PaymentsViewModel: ObservableObject {
   }
 
   func startPayment() async {
-    guard isAAmountValid(amount), let amountDecimal = Decimal(string: amount) else {
+    guard isValidAmount(amount), let amountDecimal = Decimal(string: amount) else {
       error = "Wrong amount format"
       return
     }
     let amountInCents = amountDecimal * 100.0
     let transactionDetail = TransactionDetail(amount: "\(amountInCents)",
-                                              referenceNumber: "your reference number",
+                                              referenceNumber: UUID().uuidString,
                                               transactionID: "your transaction id",
                                               cardIsPresented: true,
                                               email: "customer email address",
@@ -62,15 +62,29 @@ class PaymentsViewModel: ObservableObject {
     }
   }
 
-  func startRefund() {
-    guard isAAmountValid(amount) else {
+  func startRefund() async {
+    guard isValidAmount(amount), let amountDecimal = Decimal(string: amount) else {
       error = "Wrong amount format"
       return
     }
-
+    let amountInCents = amountDecimal * 100.0
+    let transactionDetail = TransactionDetail(amount: "\(amountInCents)",
+                                              referenceNumber: UUID().uuidString,
+                                              transactionID: "your transaction id",
+                                              cardIsPresented: true,
+                                              email: "customer email address",
+                                              mobilePhoneNumber: "customer mobile phone number",
+                                              posInformation: posInfo,
+                                              localeLanguage: Locale.current.language)
+    do {
+      let outcome = try await tapToPaySDK.refundPayment(transactionDetail: transactionDetail)
+      print(outcome)
+    } catch (let error) {
+      self.error = "\(error)"
+    }
   }
 
-  private func isAAmountValid(_ amount: String) -> Bool {
+  private func isValidAmount(_ amount: String) -> Bool {
     if let _ = try? /(\d+(\.\d{2})?)/.wholeMatch(in: amount) {
       return true
     } else {
@@ -81,14 +95,13 @@ class PaymentsViewModel: ObservableObject {
 
 struct PaymentsView: View {
   @ObservedObject var viewModel: PaymentsViewModel
+  @FocusState var inputFocus: InputFocus?
 
   enum InputFocus: Hashable {
     case amountTextField
     case paymentButton
     case refundButton
   }
-
-  @FocusState var inputFocus: InputFocus?
 
   init(viewModel: PaymentsViewModel) {
     self.viewModel = viewModel
@@ -107,10 +120,8 @@ struct PaymentsView: View {
         .padding()
       }
       VStack {
-        //        TextField("Amount", value: $viewModel.amount, format: .currency(code: .))
         TextField("Amount", text: $viewModel.amount, prompt: Text("$0.00"))
           .keyboardType(.decimalPad)
-
           .font(.largeTitle)
           .multilineTextAlignment(.center)
           .padding()
@@ -129,7 +140,9 @@ struct PaymentsView: View {
           .focused($inputFocus, equals: .paymentButton)
 
           Button {
-            viewModel.startRefund()
+            Task {
+              await viewModel.startRefund()
+            }
           } label: {
             Text("Refund")
           }
@@ -155,9 +168,12 @@ struct PaymentsView: View {
 }
 
 #Preview {
-
-
-
-  PaymentsView(viewModel: PaymentsViewModel(tapToPaySDK: try! TyroTapToPay(environment: .sandbox,
-                                                                           connectionProvider: SandboxConnectionProvider(restClient: TyroRestClient(environment: .sandbox)))))
+  PaymentsView(
+    viewModel: PaymentsViewModel(
+      tapToPaySDK: try! TyroTapToPay(
+        environment: .sandbox,
+        connectionProvider: SandboxConnectionProvider(restClient: TyroRestClient(environment: .sandbox))
+      )
+    )
+  )
 }
