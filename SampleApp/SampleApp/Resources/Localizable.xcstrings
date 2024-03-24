@@ -1,0 +1,46 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "$0.00" : {
+
+    },
+    "ALERT_BTN_OK" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dismiss"
+          }
+        }
+      }
+    },
+    "Amount" : {
+
+    },
+    "APPLICATION_NAME" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tyro Tap to Pay for iPhone"
+          }
+        }
+      }
+    },
+    "Cancel" : {
+
+    },
+    "Error" : {
+
+    },
+    "Payment" : {
+
+    },
+    "Refund" : {
+
+    }
+  },
+  "version" : "1.0"
+}
