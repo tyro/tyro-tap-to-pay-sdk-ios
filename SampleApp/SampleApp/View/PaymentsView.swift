@@ -1,87 +1,106 @@
 import SwiftUI
 import TyroTapToPaySDK
 
-class PaymentsViewModel: ObservableObject {
-  @Published var amount: String = ""
-  @Published var processInProgress: String?
-  @Published var showError: Bool = false
-  @Published var error: String? {
-    didSet {
-      showError = true
-    }
-  }
+struct PaymentsView: View {
+  @State private var isLoading: Bool = true
+  @State private var paymentInProgress: Bool = false
+  @State private var amount: String = ""
+  @State private var displayMessage: String = ""
+  @FocusState private var isFocused: Bool
 
-  private let tapToPaySDK: TyroTapToPay
-
-  let posInfo = POSInformation(name: "Demo",
-                               vendor: "Tyro Payments Sample App",
-                               version: "1.0",
-                               siteReference: "Sydney")
+  private var tapToPaySDK: TyroTapToPay
+  private let demoPosInfo = POSInformation(
+    name: "Demo",
+    vendor: "Tyro Payments Sample App",
+    version: "1.0",
+    siteReference: "Sydney"
+  )
 
   init(tapToPaySDK: TyroTapToPay) {
-    self.amount = ""
     self.tapToPaySDK = tapToPaySDK
+    self.isFocused = true
   }
 
   @MainActor
   func connect() async {
-    processInProgress = "Initialising..."
     defer {
-      processInProgress = nil
+      isLoading = false
     }
-    Task {
-      do {
-        try await self.tapToPaySDK.connect()
-      } catch {
-        await MainActor.run {
-          self.error = "\(error)"
-        }
+    do {
+      try await tapToPaySDK.connect()
+    } catch (let error) {
+      await MainActor.run {
+        displayMessage = "Something went wrong when connecting: \(error)"
       }
     }
   }
 
-  func startPayment() async {
+  func startRefund() async {
+    isFocused = false
+    displayMessage = ""
     guard isValidAmount(amount), let amountDecimal = Decimal(string: amount) else {
-      error = "Wrong amount format"
+      displayMessage = "Wrong amount format"
       return
     }
-    let amountInCents = amountDecimal * 100.0
-    let transactionDetail = TransactionDetail(amount: "\(amountInCents)",
-                                              referenceNumber: UUID().uuidString,
-                                              transactionID: "your transaction id",
-                                              cardIsPresented: true,
-                                              email: "customer email address",
-                                              mobilePhoneNumber: "customer mobile phone number",
-                                              posInformation: posInfo,
-                                              localeLanguage: Locale.current.language)
+    defer {
+      paymentInProgress = false
+    }
+    let transactionDetail = buildDemoTransactionDetail(amount: amountDecimal)
     do {
-      let outcome = try await tapToPaySDK.startPayment(transactionDetail: transactionDetail)
-      print(outcome)
-    } catch {
-      self.error = "\(error)"
+      displayMessage = "Refund in progress..."
+      paymentInProgress = true
+      let outcome = try await tapToPaySDK.refundPayment(transactionDetail: transactionDetail)
+      displayMessage = "Refund successful: \(outcome)"
+    } catch (let error) {
+      displayMessage = "Something went wrong when refunding: \(error)"
     }
   }
 
-  func startRefund() async {
+  func startPayment() async {
+    displayMessage = ""
+    isFocused = false
     guard isValidAmount(amount), let amountDecimal = Decimal(string: amount) else {
-      error = "Wrong amount format"
+      displayMessage = "Wrong amount format"
       return
     }
-    let amountInCents = amountDecimal * 100.0
-    let transactionDetail = TransactionDetail(amount: "\(amountInCents)",
-                                              referenceNumber: UUID().uuidString,
-                                              transactionID: "your transaction id",
-                                              cardIsPresented: true,
-                                              email: "customer email address",
-                                              mobilePhoneNumber: "customer mobile phone number",
-                                              posInformation: posInfo,
-                                              localeLanguage: Locale.current.language)
-    do {
-      let outcome = try await tapToPaySDK.refundPayment(transactionDetail: transactionDetail)
-      print(outcome)
-    } catch (let error) {
-      self.error = "\(error)"
+    let transactionDetail = buildDemoTransactionDetail(amount: amountDecimal)
+    defer {
+      paymentInProgress = false
     }
+    do {
+      paymentInProgress = true
+      displayMessage = "Payment in progress..."
+      let outcome = try await tapToPaySDK.startPayment(transactionDetail: transactionDetail)
+      displayMessage = "Payment successful: \(outcome)"
+    } catch TapToPaySDKError.fetchSessionCredentialsError(let error) {
+      displayMessage = "Failed to fetch session credentials: \(error)"
+    } catch TapToPaySDKError.transactionError(let error) {
+      displayMessage = "Transaction error: \(error)"
+    } catch {
+      displayMessage = "Something went wrong when paying: \(error)"
+    }
+  }
+
+  // MARK: - helper functions
+  private func buildDemoTransactionDetail(amount: Decimal) -> TransactionDetail {
+    let amountInCents = amount * 100.0
+    return TransactionDetail(
+      amount: "\(amountInCents)",
+      referenceNumber: UUID().uuidString,
+      transactionID: "transaction id",
+      cardIsPresented: true,
+      email: "customer's email address",
+      mobilePhoneNumber: "customer's mobile phone number",
+      posInformation: demoPosInfo,
+      localeLanguage: Locale.current.language
+    )
+  }
+
+  private func reset() {
+    paymentInProgress = false
+    isFocused = false
+    displayMessage = ""
+    amount = ""
   }
 
   private func isValidAmount(_ amount: String) -> Bool {
@@ -91,89 +110,75 @@ class PaymentsViewModel: ObservableObject {
       return false
     }
   }
-}
 
-struct PaymentsView: View {
-  @ObservedObject var viewModel: PaymentsViewModel
-  @FocusState var inputFocus: InputFocus?
-
-  enum InputFocus: Hashable {
-    case amountTextField
-    case paymentButton
-    case refundButton
-  }
-
-  init(viewModel: PaymentsViewModel) {
-    self.viewModel = viewModel
-  }
-
+  // MARK: - View
   var body: some View {
+    Image(.tyroLogo)
+      .resizable()
+      .aspectRatio(contentMode: .fit)
+      .frame(maxWidth: 150)
     ZStack {
-      if let processInProgress = viewModel.processInProgress {
+      if isLoading {
         VStack {
-          HStack(spacing: 10) {
+          HStack {
             ProgressView()
-            Text(processInProgress)
-          }
+            Text("Loading...")
+              .padding()
+          }.frame(
+            maxWidth: .infinity,
+            alignment: .center
+          )
           Spacer()
         }
         .padding()
-      }
-      VStack {
-        TextField("Amount", text: $viewModel.amount, prompt: Text("$0.00"))
-          .keyboardType(.decimalPad)
-          .font(.largeTitle)
-          .multilineTextAlignment(.center)
+      } else {
+        VStack {
+          TextField("Amount", text: $amount, prompt: Text("$0.00"))
+            .keyboardType(.decimalPad)
+            .font(.largeTitle)
+            .multilineTextAlignment(.center)
+            .focused($isFocused)
+            .padding()
+          HStack {
+            Button("Payment") {
+              Task {
+                await startPayment()
+              }
+            }
+            .disabled(isLoading)
+            .frame(maxWidth: .infinity)
+            .buttonStyle(.borderedProminent)
+            Button("Refund") {
+              Task {
+                await startRefund()
+              }
+            }
+            .frame(maxWidth: .infinity)
+            .buttonStyle(.bordered)
+            .disabled(isLoading)
+          }
+          Button("Reset") {
+            reset()
+          }
+          Text(displayMessage)
+            .padding(.top)
+        }.disabled(paymentInProgress)
           .padding()
-          .focused($inputFocus, equals: .amountTextField)
-        HStack {
-          Button {
-            Task {
-              await viewModel.startPayment()
-            }
-          } label: {
-            Text("Payment")
-          }
-          .frame(maxWidth: .infinity)
-          .buttonStyle(.borderedProminent)
-          .disabled(viewModel.processInProgress != nil)
-          .focused($inputFocus, equals: .paymentButton)
-
-          Button {
-            Task {
-              await viewModel.startRefund()
-            }
-          } label: {
-            Text("Refund")
-          }
-          .frame(maxWidth: .infinity)
-          .buttonStyle(.bordered)
-          .disabled(viewModel.processInProgress != nil)
-          .focused($inputFocus, equals: .refundButton)
-        }
-        .padding(.top)
       }
-      .padding()
-    }
-    .alert("Error", isPresented: $viewModel.showError, presenting: viewModel.error, actions: { _ in
-      Button("Cancel", role: .cancel, action: {})
-    }, message: { error in
-      Text(error)
-    })
-    .task {
-      inputFocus = .amountTextField
-      await viewModel.connect()
+    }.onAppear {
+      Task {
+        await self.connect()
+      }
     }
   }
 }
 
 #Preview {
   PaymentsView(
-    viewModel: PaymentsViewModel(
-      tapToPaySDK: try! TyroTapToPay(
-        environment: .sandbox,
-        connectionProvider: SandboxConnectionProvider(restClient: TyroRestClient(environment: .sandbox))
-      )
+    tapToPaySDK: try! TyroTapToPay(
+      environment: .sandbox,
+      connectionProvider: SandboxConnectionProvider(
+        restClient: TyroRestClient(environment: .sandbox))
     )
   )
 }

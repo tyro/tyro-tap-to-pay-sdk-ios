@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6343CD892BB12EB800314F6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD9CEA642B9A90FD00928203 /* Assets.xcassets */; };
 		BD0A731D2B9E8FDB00659F82 /* TyroRestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0A731C2B9E8FDB00659F82 /* TyroRestClient.swift */; };
 		BD0A73232B9F502200659F82 /* TyroTapToPaySDKPackage in Frameworks */ = {isa = PBXBuildFile; productRef = BD0A73222B9F502200659F82 /* TyroTapToPaySDKPackage */; };
 		BD0A73292B9FDCCD00659F82 /* TyroRestClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0A73282B9FDCCD00659F82 /* TyroRestClientTests.swift */; };
@@ -300,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD0DAA522BA8876A00100EC1 /* config_uat.env in Resources */,
+				6343CD892BB12EB800314F6C /* Assets.xcassets in Resources */,
 				BD0A738C2BA2B7B700659F82 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

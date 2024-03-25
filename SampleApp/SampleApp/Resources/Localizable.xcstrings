@@ -29,16 +29,16 @@
         }
       }
     },
-    "Cancel" : {
-
-    },
-    "Error" : {
+    "Loading..." : {
 
     },
     "Payment" : {
 
     },
     "Refund" : {
+
+    },
+    "Reset" : {
 
     }
   },
