@@ -21,8 +21,9 @@ struct SampleApp: App {
     let restClient = TyroRestClient(environment: tyroEnvironment)
     self.connectionProvider = SandboxConnectionProvider(restClient: restClient)
     do {
-      self.tapToPaySDK = try TyroTapToPay(environment: tyroEnvironment,
-                                          connectionProvider: connectionProvider)
+      self.tapToPaySDK = try TyroTapToPay(
+        environment: tyroEnvironment,
+        connectionProvider: connectionProvider)
     } catch {
       fatalError(error.localizedDescription)
     }
@@ -30,11 +31,12 @@ struct SampleApp: App {
 
   var body: some Scene {
     WindowGroup {
-      PaymentsView(viewModel: PaymentsViewModel(tapToPaySDK: tapToPaySDK))
+      PaymentsView(tapToPaySDK: tapToPaySDK)
     }
     .onChange(of: scenePhase) { (_, newValue) in
-      notificationCentre.post(name: Notification.Name(rawValue: "didChangeScenePhase"),
-                              object: scenePhase)
+      notificationCentre.post(
+        name: Notification.Name(rawValue: "didChangeScenePhase"),
+        object: scenePhase)
     }
   }
 }
