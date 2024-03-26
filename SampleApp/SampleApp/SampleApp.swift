@@ -13,18 +13,20 @@ struct SampleApp: App {
   private var notificationCentre = NotificationCenter.default
   @Environment(\.scenePhase) private var scenePhase: ScenePhase
   @State var loadingState: LoadingState = .inProgress("Initialising...")
+  @State var transactionOutcome: TransactionOutcome?
 
   private let tyroEnvironment = TyroEnvironment.sandbox
   private let connectionProvider: ConnectionProvider
   private let tapToPaySDK: TyroTapToPay
   private let posInformation = POSInformation(name: "SampleApp POS",
                                               vendor: "Tyro",
-                                              version: "0.2.0",
+                                              version: "0.2.1",
                                               siteReference: "Sydney")
 
-  private var transactionOutcome: TransactionOutcome?
-
   init() {
+#if DEBUG
+    NFX.sharedInstance().start()
+#endif
     let restClient = TyroRestClient(environment: tyroEnvironment)
     connectionProvider = SandboxConnectionProvider(restClient: restClient)
     do {
@@ -40,6 +42,13 @@ struct SampleApp: App {
       switch loadingState {
       case .inProgress, .failure:
         LoadingView(loadingState: $loadingState)
+          .task {
+            do {
+              try await tapToPaySDK.connect()
+            } catch {
+              loadingState = .failure(error)
+            }
+          }
       case .ready:
         PaymentsView() { (transactionType, amount) in
           transactionOutcome = try await startTransaction(type: transactionType, amount: amount)
@@ -48,10 +57,10 @@ struct SampleApp: App {
     }
   }
 
-  private func startTransaction(type: TransactionType, 
+  private func startTransaction(type transactionType: TransactionType,
                                 amount: String) async throws -> TransactionOutcome {
     let transactionDetail = transform(amount)
-    switch type {
+    switch transactionType {
     case .payment:
       return try await tapToPaySDK.startPayment(transactionDetail: transactionDetail)
     case .refund:
@@ -61,11 +70,11 @@ struct SampleApp: App {
 
   private func transform(_ amount: String) -> TransactionDetail {
     TransactionDetail(amount: amount,
-                      referenceNumber: "",
+                      referenceNumber: UUID().uuidString, // TODO: determine if/how this should be generated.
                       transactionID: UUID().uuidString,
                       cardIsPresented: true,
-                      email: "<email>",
-                      mobilePhoneNumber: "<mobilePhoneNumber>",
+                      email: "<email@domain.tld>",
+                      mobilePhoneNumber: "<mobile-phone-number>",
                       posInformation: posInformation,
                       localeLanguage: Locale.current.language)
   }

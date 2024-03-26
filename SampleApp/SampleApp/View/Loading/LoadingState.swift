@@ -11,11 +11,11 @@ enum LoadingState: Equatable {
   static func == (lhs: LoadingState, rhs: LoadingState) -> Bool {
     switch (lhs, rhs) {
     case (.inProgress(let lhsTitle), .inProgress(let rhsTitle)):
-      return lhsTitle == rhsTitle
+      return lhsTitle.lowercased() == rhsTitle.lowercased()
     case (.ready, .ready):
       return true
     case (.failure(let lhsError), .failure(let rhsError)):
-      return lhsError.localizedDescription == rhsError.localizedDescription
+      return lhsError.localizedDescription.lowercased() == rhsError.localizedDescription.lowercased()
     default:
       return false
     }

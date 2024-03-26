@@ -29,37 +29,45 @@ struct LoadingView: View {
             .resizable()
             .frame(maxWidth: 100, maxHeight: 100)
           Text("Ready!")
-            .font(.title)
+            .font(.title2)
+            .multilineTextAlignment(.center)
         }
         .foregroundStyle(.green)
       case .failure(let error):
         VStack {
           Image(systemName: "x.circle.fill")
             .resizable()
-            .ignoresSafeArea()
+            .frame(maxWidth: 100, maxHeight: 100)
           Text(error.localizedDescription)
-            .font(.title)
+            .font(.title2)
+            .multilineTextAlignment(.center)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .foregroundStyle(.red)
       }
       Spacer()
     }
+    .padding(.horizontal, 16.0)
     .frame(maxWidth: .infinity, maxHeight: .infinity)
   }
 }
-//
-//#Preview("Loading") {
-//  @Binding var loadingState: LoadingState = .inProgress("Loading...")
-//  return LoadingView(loadingState: $loadingState)
-//}
-//
-//#Preview("Ready") {
-//  @Binding var loadingState: LoadingState = .ready
-//  return LoadingView(loadingState: $loadingState)
-//}
-//
-//#Preview("Error") {
-//  @Binding var loadingState: LoadingState = .failure
-//  return LoadingView(loadingState: $loadingState)
-//}
+
+#Preview("Loading") {
+  @State var loadingState: LoadingState = .inProgress("Loading")
+  return LoadingView(loadingState: $loadingState)
+}
+
+#Preview("Ready") {
+  @State var loadingState: LoadingState = .ready
+  return LoadingView(loadingState: $loadingState)
+}
+
+#Preview("Error") {
+  @State var loadingState: LoadingState = .failure(NSError(domain: "Reader error", 
+                                                           code: -101,
+                                                           userInfo: [
+                                                            NSLocalizedFailureReasonErrorKey :
+                                                              "Invalid reader id: '<reader-id-from-connection-provider>'"
+                                                           ]))
+  return LoadingView(loadingState: $loadingState)
+}

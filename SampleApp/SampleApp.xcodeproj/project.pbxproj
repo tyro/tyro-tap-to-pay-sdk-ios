@@ -16,7 +16,6 @@
 		BD9CEA4F2B982CF200928203 /* PaymentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CEA4E2B982CF200928203 /* PaymentsView.swift */; };
 		BD9CEA592B9A038100928203 /* ConnectionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CEA582B9A038100928203 /* ConnectionRequest.swift */; };
 		BD9CEA5D2B9A838B00928203 /* ConnectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CEA5C2B9A838B00928203 /* ConnectionResponse.swift */; };
-		BD9CEA762B9ABB2B00928203 /* OpenSSL in Frameworks */ = {isa = PBXBuildFile; productRef = BD9CEA752B9ABB2B00928203 /* OpenSSL */; };
 		BDABE9152BAAA6190054001F /* TransactionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDABE9142BAAA6190054001F /* TransactionType.swift */; };
 		BDC05CC22B903FB50062C06D /* SandboxConnectionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC05CB62B903FB50062C06D /* SandboxConnectionProvider.swift */; };
 		BDC05CC72B903FB50062C06D /* SampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC05CBC2B903FB50062C06D /* SampleApp.swift */; };
@@ -686,20 +685,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		BD0A73222B9F502200659F82 /* TyroTapToPaySDKPackage */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = TyroTapToPaySDKPackage;
-		};
-		BD9CEA752B9ABB2B00928203 /* OpenSSL */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BD9CEA742B9ABB2B00928203 /* XCRemoteSwiftPackageReference "OpenSSL" */;
-			productName = OpenSSL;
-		};
-		BDDDB1FD2BA95F8A004385DB /* TyroTapToPaySDKPackage */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = TyroTapToPaySDKPackage;
-		};
-		BDFDEE612B8F03760034DA1F /* TyroTapToPaySDKPackage */ = {
+		BD80AC742BB26225008C4B9C /* TyroTapToPaySDKPackage */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = TyroTapToPaySDKPackage;
 		};
