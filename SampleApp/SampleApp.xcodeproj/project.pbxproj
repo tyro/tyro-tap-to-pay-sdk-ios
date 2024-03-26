@@ -13,6 +13,7 @@
 		BD0A738C2BA2B7B700659F82 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = BD0A738B2BA2B7B700659F82 /* Localizable.xcstrings */; };
 		BD0DAA522BA8876A00100EC1 /* config_uat.env in Resources */ = {isa = PBXBuildFile; fileRef = BD0DAA512BA8876A00100EC1 /* config_uat.env */; };
 		BD1633802B9ACF6A00183BE7 /* ConnectionResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD16337F2B9ACF6A00183BE7 /* ConnectionResponseTests.swift */; };
+		BD80AC802BB28ADE008C4B9C /* netfox in Frameworks */ = {isa = PBXBuildFile; productRef = BD80AC7F2BB28ADE008C4B9C /* netfox */; };
 		BD9CEA4F2B982CF200928203 /* PaymentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CEA4E2B982CF200928203 /* PaymentsView.swift */; };
 		BD9CEA592B9A038100928203 /* ConnectionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CEA582B9A038100928203 /* ConnectionRequest.swift */; };
 		BD9CEA5D2B9A838B00928203 /* ConnectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CEA5C2B9A838B00928203 /* ConnectionResponse.swift */; };
@@ -20,7 +21,6 @@
 		BDC05CC22B903FB50062C06D /* SandboxConnectionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC05CB62B903FB50062C06D /* SandboxConnectionProvider.swift */; };
 		BDC05CC72B903FB50062C06D /* SampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC05CBC2B903FB50062C06D /* SampleApp.swift */; };
 		BDDDB1FE2BA95F8A004385DB /* TyroTapToPaySDKPackage in Frameworks */ = {isa = PBXBuildFile; productRef = BDDDB1FD2BA95F8A004385DB /* TyroTapToPaySDKPackage */; };
-		BDDDB2012BAA6D9D004385DB /* netfox in Frameworks */ = {isa = PBXBuildFile; productRef = BDDDB2002BAA6D9D004385DB /* netfox */; };
 		BDDDB2032BAA703F004385DB /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDDB2022BAA703F004385DB /* LoadingView.swift */; };
 		BDDDB2082BAA8243004385DB /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDDB2072BAA8243004385DB /* LoadingState.swift */; };
 		BDFDEE622B8F03760034DA1F /* TyroTapToPaySDKPackage in Frameworks */ = {isa = PBXBuildFile; productRef = BDFDEE612B8F03760034DA1F /* TyroTapToPaySDKPackage */; };
@@ -665,14 +665,6 @@
 			relativePath = ..;
 		};
 /* End XCLocalSwiftPackageReference section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-			isa = XCRemoteSwiftPackageReference;
-			requirement = {
-				kind = upToNextMajorVersion;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		BD80AC742BB26225008C4B9C /* TyroTapToPaySDKPackage */ = {
