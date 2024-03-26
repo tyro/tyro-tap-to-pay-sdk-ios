@@ -10,7 +10,6 @@ import TyroTapToPaySDK
 
 @main
 struct SampleApp: App {
-  private var notificationCentre = NotificationCenter.default
   @Environment(\.scenePhase) private var scenePhase: ScenePhase
   @State var loadingState: LoadingState = .inProgress("Initialising...")
   @State var transactionOutcome: TransactionOutcome?
@@ -21,13 +20,10 @@ struct SampleApp: App {
   private let tapToPaySDK: TyroTapToPay
   private let posInformation = POSInformation(name: "SampleApp POS",
                                               vendor: "Tyro",
-                                              version: "0.2.1",
+                                              version: "0.3.0",
                                               siteReference: "Sydney")
 
   init() {
-#if DEBUG
-    NFX.sharedInstance().start()
-#endif
     let restClient = TyroRestClient(environment: tyroEnvironment)
     connectionProvider = SandboxConnectionProvider(restClient: restClient)
     do {
