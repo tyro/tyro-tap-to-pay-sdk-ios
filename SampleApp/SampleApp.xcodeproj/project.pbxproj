@@ -76,10 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDDDB1FE2BA95F8A004385DB /* TyroTapToPaySDKPackage in Frameworks */,
-				BD0A73232B9F502200659F82 /* TyroTapToPaySDKPackage in Frameworks */,
-				BDFDEE622B8F03760034DA1F /* TyroTapToPaySDKPackage in Frameworks */,
-				BD9CEA762B9ABB2B00928203 /* OpenSSL in Frameworks */,
+				BD80AC752BB26225008C4B9C /* TyroTapToPaySDKPackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,10 +246,7 @@
 			);
 			name = SampleApp;
 			packageProductDependencies = (
-				BDFDEE612B8F03760034DA1F /* TyroTapToPaySDKPackage */,
-				BD9CEA752B9ABB2B00928203 /* OpenSSL */,
-				BD0A73222B9F502200659F82 /* TyroTapToPaySDKPackage */,
-				BDDDB1FD2BA95F8A004385DB /* TyroTapToPaySDKPackage */,
+				BD80AC742BB26225008C4B9C /* TyroTapToPaySDKPackage */,
 			);
 			productName = "tyro-tap-to-pay-sdk-ios-sample-app";
 			productReference = 8B76E0D02B5782500017B455 /* SampleApp.app */;
@@ -306,7 +300,6 @@
 			);
 			mainGroup = 8B76E0C72B5782500017B455;
 			packageReferences = (
-				BD9CEA742B9ABB2B00928203 /* XCRemoteSwiftPackageReference "OpenSSL" */,
 				BDDDB1FC2BA95F8A004385DB /* XCLocalSwiftPackageReference ".." */,
 			);
 			productRefGroup = 8B76E0D12B5782500017B455 /* Products */;
@@ -674,12 +667,9 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		BD9CEA742B9ABB2B00928203 /* XCRemoteSwiftPackageReference "OpenSSL" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/krzyzanowskim/OpenSSL.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.1.4000;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

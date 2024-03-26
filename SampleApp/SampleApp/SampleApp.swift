@@ -14,6 +14,7 @@ struct SampleApp: App {
   @Environment(\.scenePhase) private var scenePhase: ScenePhase
   @State var loadingState: LoadingState = .inProgress("Initialising...")
   @State var transactionOutcome: TransactionOutcome?
+  @State var opacity: Float = .zero
 
   private let tyroEnvironment = TyroEnvironment.sandbox
   private let connectionProvider: ConnectionProvider
@@ -43,6 +44,9 @@ struct SampleApp: App {
       case .inProgress, .failure:
         LoadingView(loadingState: $loadingState)
           .task {
+            withAnimation(.easeIn(duration: 1)) {
+              opacity = 1.0
+            }
             do {
               try await tapToPaySDK.connect()
             } catch {
@@ -54,7 +58,9 @@ struct SampleApp: App {
           transactionOutcome = try await startTransaction(type: transactionType, amount: amount)
         }
       }
-    }
+    }.onChange(of: scenePhase) { (_, scenePhase) in
+        // TODO: - notify SDK of change in foreground/background state.
+      }
   }
 
   private func startTransaction(type transactionType: TransactionType,
