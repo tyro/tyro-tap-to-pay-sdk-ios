@@ -40,13 +40,15 @@ struct SampleApp: App {
       case .inProgress, .failure:
         LoadingView(loadingState: $loadingState)
           .task {
+            Task.detached(priority: .userInitiated) {
+              do {
+                try await tapToPaySDK.connect()
+              } catch {
+                loadingState = .failure(error)
+              }
+            }
             withAnimation(.easeIn(duration: 1)) {
               opacity = 1.0
-            }
-            do {
-              try await tapToPaySDK.connect()
-            } catch {
-              loadingState = .failure(error)
             }
           }
       case .ready:

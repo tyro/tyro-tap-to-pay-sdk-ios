@@ -30,6 +30,12 @@ class TyroRestClient {
     }
   }
 
+  private let urlSession: URLSession = {
+    let configuration = URLSessionConfiguration.default
+    configuration.timeoutIntervalForRequest = 10.0
+    return URLSession(configuration: configuration)
+  }()
+
   init(environment: TyroEnvironment) {
     self.environment = environment
   }
@@ -50,7 +56,7 @@ class TyroRestClient {
     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
     request.addValue("application/json", forHTTPHeaderField: "Accept")
 
-    let (data, urlResponse) = try await URLSession.shared.data(for: request)
+    let (data, urlResponse) = try await urlSession.data(for: request)
     guard let httpURLResponse = urlResponse as? HTTPURLResponse,
           let httpResponseStatusCode = HTTPResponseStatusCode(rawValue: httpURLResponse.statusCode) else {
       throw URLError(.badServerResponse)

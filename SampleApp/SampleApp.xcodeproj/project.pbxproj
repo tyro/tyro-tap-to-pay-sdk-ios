@@ -169,8 +169,8 @@
 		BD9CEA4A2B982BB800928203 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BDABE9132BAAA5F50054001F /* Payments */,
 				BDDDB2042BAA8219004385DB /* Loading */,
+				BDABE9132BAAA5F50054001F /* Payments */,
 			);
 			path = View;
 			sourceTree = "<group>";

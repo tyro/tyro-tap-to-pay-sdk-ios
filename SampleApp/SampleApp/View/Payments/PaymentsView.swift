@@ -14,6 +14,7 @@ struct PaymentsView: View {
   @State var activeFormatter: NumberFormatter
   @State var processingState: TransactionProcessingState = .ready
   @State var transactionType: TransactionType = .payment
+  @State var error: Error?
   let processClosure: (TransactionType, String) async throws -> Void
 
   let currencyFormatter: NumberFormatter = {
@@ -54,11 +55,10 @@ struct PaymentsView: View {
             }
             Task {
               do {
-
                 try await processClosure(transactionType, amountString)
               }
               catch {
-
+                self.error = error
               }
             }
           }
