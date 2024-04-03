@@ -55,6 +55,10 @@ struct SampleApp: App {
             }
           }
       case .ready:
+        Image(.tyroLogo)
+              .resizable()
+              .aspectRatio(contentMode: .fit)
+              .frame(maxWidth: 150)
         PaymentsView { (transactionType, amount) in
           Task.detached(priority: .userInitiated) {
             transactionOutcome = try await startTransaction(type: transactionType, amount: amount)
