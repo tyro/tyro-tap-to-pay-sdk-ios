@@ -15,6 +15,15 @@ struct SampleApp: App {
   @State var transactionOutcome: TransactionOutcome?
   @State var opacity: Float = .zero
 
+  static let numberFormatter: NumberFormatter = {
+    let formatter = NumberFormatter()
+    formatter.numberStyle = .decimal
+    formatter.maximumFractionDigits = 2
+    formatter.decimalSeparator = ""
+    formatter.groupingSeparator = ""
+    return formatter
+  }()
+
   private let tyroEnvironment = TyroEnvironment.sandbox
   private let connectionProvider: ConnectionProvider
   private let tapToPaySDK: TyroTapToPay
@@ -48,8 +57,7 @@ struct SampleApp: App {
       case .ready:
         PaymentsView { (transactionType, amount) in
           Task.detached(priority: .userInitiated) {
-            let formattedAmount = amount.formatted(.number.precision(.fractionLength(2)))
-            transactionOutcome = try await startTransaction(type: transactionType, amountText: formattedAmount)
+            transactionOutcome = try await startTransaction(type: transactionType, amount: amount)
           }
         }
       }
@@ -74,8 +82,10 @@ struct SampleApp: App {
   }
 
   private func startTransaction(type transactionType: TransactionType,
-                                amountText: String) async throws -> TransactionOutcome {
-    let transactionDetail = transform(transactionType: transactionType, amountText: amountText)
+                                amount: Decimal) async throws -> TransactionOutcome {
+    guard let transactionDetail = transform(transactionType: transactionType, amount: amount) else {
+      throw TapToPaySDKError.transactionError("Could not create TransactionDetail object.")
+    }
     switch transactionType {
     case .payment:
       return try await tapToPaySDK.startPayment(transactionDetail: transactionDetail)
@@ -84,9 +94,9 @@ struct SampleApp: App {
     }
   }
 
-  private func transform(transactionType: TransactionType, amountText: String) -> TransactionDetail {
-    let cleanAmount = ["$", ","].reduce(amountText) { (value, symbol) in
-      value.replacingOccurrences(of: symbol, with: "")
+  private func transform(transactionType: TransactionType, amount: Decimal) -> TransactionDetail? {
+    guard let formattedAmount = Self.numberFormatter.string(from: NSDecimalNumber(decimal: amount)) else {
+      return nil
     }
     let referenceNumber: String
     switch transactionType {
@@ -95,7 +105,7 @@ struct SampleApp: App {
     case .refund:
       referenceNumber = ""
     }
-    return TransactionDetail(amount: cleanAmount,
+    return TransactionDetail(amount: formattedAmount,
                              referenceNumber: referenceNumber,
                              transactionID: UUID().uuidString,
                              cardIsPresented: true,
