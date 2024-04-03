@@ -13,7 +13,6 @@
 		BD0DAA522BA8876A00100EC1 /* config_uat.env in Resources */ = {isa = PBXBuildFile; fileRef = BD0DAA512BA8876A00100EC1 /* config_uat.env */; };
 		BD1633802B9ACF6A00183BE7 /* ConnectionResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD16337F2B9ACF6A00183BE7 /* ConnectionResponseTests.swift */; };
 		BD80AC7D2BB28991008C4B9C /* TyroTapToPaySDKPackage in Frameworks */ = {isa = PBXBuildFile; productRef = BD80AC742BB26225008C4B9C /* TyroTapToPaySDKPackage */; };
-		BD80AC802BB28ADE008C4B9C /* netfox in Frameworks */ = {isa = PBXBuildFile; productRef = BD80AC7F2BB28ADE008C4B9C /* netfox */; };
 		BD9CEA4F2B982CF200928203 /* PaymentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CEA4E2B982CF200928203 /* PaymentsView.swift */; };
 		BD9CEA592B9A038100928203 /* ConnectionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CEA582B9A038100928203 /* ConnectionRequest.swift */; };
 		BD9CEA5D2B9A838B00928203 /* ConnectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CEA5C2B9A838B00928203 /* ConnectionResponse.swift */; };
@@ -298,7 +297,7 @@
 			);
 			mainGroup = 8B76E0C72B5782500017B455;
 			packageReferences = (
-				BD0E77F32BBCFB82008CED1E /* XCRemoteSwiftPackageReference "tyro-tap-to-pay-sdk-ios" */,
+				BD0E77F72BBD21D5008CED1E /* XCLocalSwiftPackageReference ".." */,
 			);
 			productRefGroup = 8B76E0D12B5782500017B455 /* Products */;
 			projectDirPath = "";
@@ -657,17 +656,12 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		BD0E77F32BBCFB82008CED1E /* XCRemoteSwiftPackageReference "tyro-tap-to-pay-sdk-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/tyro/tyro-tap-to-pay-sdk-ios";
-			requirement = {
-				branch = "PLA-6443-update-sample-app";
-				kind = branch;
-			};
+/* Begin XCLocalSwiftPackageReference section */
+		BD0E77F72BBD21D5008CED1E /* XCLocalSwiftPackageReference ".." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ..;
 		};
-		};
-/* End XCRemoteSwiftPackageReference section */
+/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		BD80AC742BB26225008C4B9C /* TyroTapToPaySDKPackage */ = {
