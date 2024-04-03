@@ -9,70 +9,79 @@ enum InputFocus: Hashable {
 }
 
 struct PaymentsView: View {
-  @State var amount: Decimal
-  @FocusState var amountInFocus: Bool
-  @State var activeFormatter: NumberFormatter
+  @State var amount: Decimal = .zero
   @State var processingState: TransactionProcessingState = .ready
-  @State var transactionType: TransactionType = .payment
   @State var error: Error?
+  @FocusState var isFocussed: Bool
+  @State var isPresented: Bool = false
+
   let processClosure: (TransactionType, String) async throws -> Void
 
-  let currencyFormatter: NumberFormatter = {
-    let formatter = NumberFormatter()
-    formatter.numberStyle = .currencyAccounting
-    formatter.currencyCode = Locale.Currency(stringLiteral: "AUD").identifier
-    return formatter
-  }()
-
-  let decimalFormatter: NumberFormatter = {
-    let formatter = NumberFormatter()
-    formatter.numberStyle = .decimal
-    formatter.minimumFractionDigits = 2
-    formatter.maximumFractionDigits = 2
-    return formatter
-  }()
-
-  init(amount: Decimal = .zero, processClosure: @escaping (TransactionType, String) async throws -> Void) {
-    self.amount = amount
-    self.activeFormatter = currencyFormatter
+  init(processClosure: @escaping (TransactionType, String) async throws -> Void) {
     self.processClosure = processClosure
   }
 
   var body: some View {
-    Form {
+    VStack {
       switch processingState {
       case .ready:
-        VStack(alignment: .center, spacing: 10) {
-          TextField("Amount",
-                    value: $amount,
-                    formatter: activeFormatter,
-                    prompt: Text("$0.00"))
-          .keyboardType(.decimalPad)
-          .onSubmit {
-            guard let amountString = currencyFormatter
-              .string(from: NSDecimalNumber(decimal: amount)) else {
-              return
-            }
-            Task {
-              do {
-                try await processClosure(transactionType, amountString)
+        Form {
+          Section(header: Text("Amount")) {
+            HStack {
+              TextField("Amount", value: $amount, format: .currency(code: "AUD"))
+                .formStyle(.grouped)
+                .keyboardType(.decimalPad)
+                .focused($isFocussed)
+              Button {
+                isPresented.toggle()
+              } label: {
+                Image(systemName: "plus.circle")
               }
-              catch {
-                self.error = error
-              }
-            }
-          }
-          .onChange(of: amountInFocus, initial: true) { (_, inFocus) in
-            activeFormatter = inFocus ? decimalFormatter : currencyFormatter
-          }
-          .backgroundStyle(.quinary)
-          Picker("Transaction type", selection: $transactionType) {
-            ForEach(TransactionType.allCases, id: \.self) { transactionType in
-              Text(transactionType.rawValue).tag(transactionType)
             }
           }
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .confirmationDialog("Actions", isPresented: $isPresented) {
+          Button {
+            Task {
+              do {
+                try await processClosure(.payment, amount.formatted(.currency(code: "AUD")))
+              } catch {
+                self.error = error
+              }
+            }
+          } label: {
+            Text("Payment")
+              .font(.callout)
+              .fontWeight(.semibold)
+              .frame(maxWidth: .infinity)
+          }
+          .buttonStyle(BorderedProminentButtonStyle())
+
+          Button(role: .destructive) {
+            Task {
+              do {
+                try await processClosure(.refund, amount.formatted(.currency(code: "AUD")))
+              } catch {
+                self.error = error
+              }
+            }
+          } label: {
+            Text("Refund")
+              .font(.callout)
+              .fontWeight(.semibold)
+              .frame(maxWidth: .infinity)
+          }
+          .buttonStyle(BorderedProminentButtonStyle())
+          .frame(maxWidth: .infinity)
+        }
+        .multilineTextAlignment(.trailing)
+        .onSubmit {
+          isPresented.toggle()
+        }
+        .onAppear {
+          isFocussed = true
+        }
+
       case .inProgress(let transactionType, let amount):
         VStack(alignment: .center, spacing: 10) {
           HStack(alignment: .center, spacing: 10) {
@@ -94,8 +103,6 @@ struct PaymentsView: View {
             .font(.title2)
           Button {
             withAnimation(.easeInOut(duration: 2)) {
-              amount = .zero
-              transactionType = .payment
               processingState = .ready
             }
           } label: {
@@ -106,14 +113,12 @@ struct PaymentsView: View {
       }
     }
     .frame(maxWidth: .infinity, maxHeight: .infinity)
-    .onAppear {
-      amountInFocus = true
-    }
   }
 }
 
 #Preview {
-  PaymentsView() { (transactionType, amountString) in
-    print("\(transactionType.rawValue) \(amountString)")
+  @State var amount: Decimal = .zero
+  return PaymentsView { (transactionType, amountText) in
+    print("\(transactionType.rawValue) \(amountText)")
   }
 }

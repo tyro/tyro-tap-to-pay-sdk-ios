@@ -52,8 +52,8 @@ struct SampleApp: App {
             }
           }
       case .ready:
-        PaymentsView() { (transactionType, amount) in
-          transactionOutcome = try await startTransaction(type: transactionType, amount: amount)
+        PaymentsView { (transactionType, amountText) in
+          transactionOutcome = try await startTransaction(type: transactionType, amountText: amountText)
         }
       }
     }.onChange(of: scenePhase) { (_, scenePhase) in
@@ -62,8 +62,8 @@ struct SampleApp: App {
   }
 
   private func startTransaction(type transactionType: TransactionType,
-                                amount: String) async throws -> TransactionOutcome {
-    let transactionDetail = transform(amount)
+                                amountText: String) async throws -> TransactionOutcome {
+    let transactionDetail = transform(transactionType: transactionType, amountText: amountText)
     switch transactionType {
     case .payment:
       return try await tapToPaySDK.startPayment(transactionDetail: transactionDetail)
@@ -72,14 +72,21 @@ struct SampleApp: App {
     }
   }
 
-  private func transform(_ amount: String) -> TransactionDetail {
-    TransactionDetail(amount: amount,
-                      referenceNumber: UUID().uuidString, // TODO: determine if/how this should be generated.
-                      transactionID: UUID().uuidString,
-                      cardIsPresented: true,
-                      email: "<email@domain.tld>",
-                      mobilePhoneNumber: "<mobile-phone-number>",
-                      posInformation: posInformation,
-                      localeLanguage: Locale.current.language)
+  private func transform(transactionType: TransactionType, amountText: String) -> TransactionDetail {
+    let referenceNumber: String
+    switch transactionType {
+    case .payment:
+      referenceNumber = UUID().uuidString
+    case .refund:
+      referenceNumber = ""
+    }
+    return TransactionDetail(amount: amountText,
+                             referenceNumber: referenceNumber,
+                             transactionID: UUID().uuidString,
+                             cardIsPresented: true,
+                             email: "<email@domain.tld>",
+                             mobilePhoneNumber: "<mobile-phone-number>",
+                             posInformation: posInformation,
+                             localeLanguage: Locale.current.language)
   }
 }
