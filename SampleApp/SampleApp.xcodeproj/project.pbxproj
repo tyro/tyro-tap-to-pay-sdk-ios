@@ -8,19 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		BD0A731D2B9E8FDB00659F82 /* TyroRestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0A731C2B9E8FDB00659F82 /* TyroRestClient.swift */; };
-		BD0A73232B9F502200659F82 /* TyroTapToPaySDKPackage in Frameworks */ = {isa = PBXBuildFile; productRef = BD0A73222B9F502200659F82 /* TyroTapToPaySDKPackage */; };
 		BD0A73292B9FDCCD00659F82 /* TyroRestClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0A73282B9FDCCD00659F82 /* TyroRestClientTests.swift */; };
 		BD0A738C2BA2B7B700659F82 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = BD0A738B2BA2B7B700659F82 /* Localizable.xcstrings */; };
 		BD0DAA522BA8876A00100EC1 /* config_uat.env in Resources */ = {isa = PBXBuildFile; fileRef = BD0DAA512BA8876A00100EC1 /* config_uat.env */; };
 		BD1633802B9ACF6A00183BE7 /* ConnectionResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD16337F2B9ACF6A00183BE7 /* ConnectionResponseTests.swift */; };
+		BD80AC7D2BB28991008C4B9C /* TyroTapToPaySDKPackage in Frameworks */ = {isa = PBXBuildFile; productRef = BD80AC742BB26225008C4B9C /* TyroTapToPaySDKPackage */; };
 		BD9CEA4F2B982CF200928203 /* PaymentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CEA4E2B982CF200928203 /* PaymentsView.swift */; };
 		BD9CEA592B9A038100928203 /* ConnectionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CEA582B9A038100928203 /* ConnectionRequest.swift */; };
 		BD9CEA5D2B9A838B00928203 /* ConnectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CEA5C2B9A838B00928203 /* ConnectionResponse.swift */; };
-		BD9CEA762B9ABB2B00928203 /* OpenSSL in Frameworks */ = {isa = PBXBuildFile; productRef = BD9CEA752B9ABB2B00928203 /* OpenSSL */; };
+		BDABE9152BAAA6190054001F /* TransactionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDABE9142BAAA6190054001F /* TransactionType.swift */; };
 		BDC05CC22B903FB50062C06D /* SandboxConnectionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC05CB62B903FB50062C06D /* SandboxConnectionProvider.swift */; };
 		BDC05CC72B903FB50062C06D /* SampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC05CBC2B903FB50062C06D /* SampleApp.swift */; };
-		BDDDB1FE2BA95F8A004385DB /* TyroTapToPaySDKPackage in Frameworks */ = {isa = PBXBuildFile; productRef = BDDDB1FD2BA95F8A004385DB /* TyroTapToPaySDKPackage */; };
-		BDFDEE622B8F03760034DA1F /* TyroTapToPaySDKPackage in Frameworks */ = {isa = PBXBuildFile; productRef = BDFDEE612B8F03760034DA1F /* TyroTapToPaySDKPackage */; };
+		BDDDB2032BAA703F004385DB /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDDB2022BAA703F004385DB /* LoadingView.swift */; };
+		BDDDB2082BAA8243004385DB /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDDB2072BAA8243004385DB /* LoadingState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,8 +61,11 @@
 		BD9CEA5C2B9A838B00928203 /* ConnectionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionResponse.swift; sourceTree = "<group>"; };
 		BD9CEA642B9A90FD00928203 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD9CEA672B9A90FD00928203 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BDABE9142BAAA6190054001F /* TransactionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionType.swift; sourceTree = "<group>"; };
 		BDC05CB62B903FB50062C06D /* SandboxConnectionProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SandboxConnectionProvider.swift; sourceTree = "<group>"; };
 		BDC05CBC2B903FB50062C06D /* SampleApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleApp.swift; sourceTree = "<group>"; };
+		BDDDB2022BAA703F004385DB /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		BDDDB2072BAA8243004385DB /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,10 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDDDB1FE2BA95F8A004385DB /* TyroTapToPaySDKPackage in Frameworks */,
-				BD0A73232B9F502200659F82 /* TyroTapToPaySDKPackage in Frameworks */,
-				BDFDEE622B8F03760034DA1F /* TyroTapToPaySDKPackage in Frameworks */,
-				BD9CEA762B9ABB2B00928203 /* OpenSSL in Frameworks */,
+				BD80AC7D2BB28991008C4B9C /* TyroTapToPaySDKPackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,7 +168,8 @@
 		BD9CEA4A2B982BB800928203 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BD9CEA4E2B982CF200928203 /* PaymentsView.swift */,
+				BDDDB2042BAA8219004385DB /* Loading */,
+				BDABE9132BAAA5F50054001F /* Payments */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -191,6 +192,15 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		BDABE9132BAAA5F50054001F /* Payments */ = {
+			isa = PBXGroup;
+			children = (
+				BD9CEA4E2B982CF200928203 /* PaymentsView.swift */,
+				BDABE9142BAAA6190054001F /* TransactionType.swift */,
+			);
+			path = Payments;
+			sourceTree = "<group>";
+		};
 		BDC05CB02B903FB50062C06D /* SampleApp */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +213,15 @@
 				BDC05CBC2B903FB50062C06D /* SampleApp.swift */,
 			);
 			path = SampleApp;
+			sourceTree = "<group>";
+		};
+		BDDDB2042BAA8219004385DB /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				BDDDB2022BAA703F004385DB /* LoadingView.swift */,
+				BDDDB2072BAA8243004385DB /* LoadingState.swift */,
+			);
+			path = Loading;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,10 +243,7 @@
 			);
 			name = SampleApp;
 			packageProductDependencies = (
-				BDFDEE612B8F03760034DA1F /* TyroTapToPaySDKPackage */,
-				BD9CEA752B9ABB2B00928203 /* OpenSSL */,
-				BD0A73222B9F502200659F82 /* TyroTapToPaySDKPackage */,
-				BDDDB1FD2BA95F8A004385DB /* TyroTapToPaySDKPackage */,
+				BD80AC742BB26225008C4B9C /* TyroTapToPaySDKPackage */,
 			);
 			productName = "tyro-tap-to-pay-sdk-ios-sample-app";
 			productReference = 8B76E0D02B5782500017B455 /* SampleApp.app */;
@@ -281,8 +297,7 @@
 			);
 			mainGroup = 8B76E0C72B5782500017B455;
 			packageReferences = (
-				BD9CEA742B9ABB2B00928203 /* XCRemoteSwiftPackageReference "OpenSSL" */,
-				BDDDB1FC2BA95F8A004385DB /* XCLocalSwiftPackageReference ".." */,
+				BD0E77F72BBD21D5008CED1E /* XCLocalSwiftPackageReference ".." */,
 			);
 			productRefGroup = 8B76E0D12B5782500017B455 /* Products */;
 			projectDirPath = "";
@@ -332,12 +347,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD9CEA4F2B982CF200928203 /* PaymentsView.swift in Sources */,
 				BD0A731D2B9E8FDB00659F82 /* TyroRestClient.swift in Sources */,
-				BD9CEA5D2B9A838B00928203 /* ConnectionResponse.swift in Sources */,
-				BDC05CC72B903FB50062C06D /* SampleApp.swift in Sources */,
 				BD9CEA592B9A038100928203 /* ConnectionRequest.swift in Sources */,
+				BD9CEA5D2B9A838B00928203 /* ConnectionResponse.swift in Sources */,
 				BDC05CC22B903FB50062C06D /* SandboxConnectionProvider.swift in Sources */,
+				BDDDB2082BAA8243004385DB /* LoadingState.swift in Sources */,
+				BDDDB2032BAA703F004385DB /* LoadingView.swift in Sources */,
+				BDABE9152BAAA6190054001F /* TransactionType.swift in Sources */,
+				BD9CEA4F2B982CF200928203 /* PaymentsView.swift in Sources */,
+				BDC05CC72B903FB50062C06D /* SampleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,7 +520,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/$(TARGET_NAME)/$(TARGET_NAME).entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.2.0;
+				CURRENT_PROJECT_VERSION = 0.4.0;
 				DEVELOPMENT_ASSET_PATHS = "\"SampleApp/Preview Content\"";
 				DEVELOPMENT_TEAM = AP4UA2XZ78;
 				ENABLE_PREVIEWS = YES;
@@ -519,7 +537,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.0;
+				MARKETING_VERSION = 0.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -540,7 +558,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/$(TARGET_NAME)/$(TARGET_NAME).entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.2.0;
+				CURRENT_PROJECT_VERSION = 0.4.0;
 				DEVELOPMENT_ASSET_PATHS = "\"SampleApp/Preview Content\"";
 				DEVELOPMENT_TEAM = AP4UA2XZ78;
 				ENABLE_PREVIEWS = YES;
@@ -557,7 +575,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.0;
+				MARKETING_VERSION = 0.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -639,38 +657,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		BDDDB1FC2BA95F8A004385DB /* XCLocalSwiftPackageReference ".." */ = {
+		BD0E77F72BBD21D5008CED1E /* XCLocalSwiftPackageReference ".." */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ..;
 		};
 /* End XCLocalSwiftPackageReference section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		BD9CEA742B9ABB2B00928203 /* XCRemoteSwiftPackageReference "OpenSSL" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/krzyzanowskim/OpenSSL.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.1.4000;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
-		BD0A73222B9F502200659F82 /* TyroTapToPaySDKPackage */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = TyroTapToPaySDKPackage;
-		};
-		BD9CEA752B9ABB2B00928203 /* OpenSSL */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BD9CEA742B9ABB2B00928203 /* XCRemoteSwiftPackageReference "OpenSSL" */;
-			productName = OpenSSL;
-		};
-		BDDDB1FD2BA95F8A004385DB /* TyroTapToPaySDKPackage */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = TyroTapToPaySDKPackage;
-		};
-		BDFDEE612B8F03760034DA1F /* TyroTapToPaySDKPackage */ = {
+		BD80AC742BB26225008C4B9C /* TyroTapToPaySDKPackage */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = TyroTapToPaySDKPackage;
 		};

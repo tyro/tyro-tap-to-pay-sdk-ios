@@ -1,7 +1,7 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "$0.00" : {
+    "Actions" : {
 
     },
     "ALERT_BTN_OK" : {
@@ -29,16 +29,38 @@
         }
       }
     },
-    "Cancel" : {
+    "Done" : {
 
     },
-    "Error" : {
+    "Items" : {
 
     },
     "Payment" : {
 
     },
+    "Processing %@ for %@..." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Processing %1$@ for %2$@..."
+          }
+        }
+      }
+    },
+    "Ready!" : {
+
+    },
     "Refund" : {
+
+    },
+    "Reset" : {
+
+    },
+    "Sub-total" : {
+
+    },
+    "Transact" : {
 
     }
   },

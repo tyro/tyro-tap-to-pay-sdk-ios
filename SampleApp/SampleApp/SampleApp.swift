@@ -10,31 +10,108 @@ import TyroTapToPaySDK
 
 @main
 struct SampleApp: App {
-  private var notificationCentre = NotificationCenter.default
   @Environment(\.scenePhase) private var scenePhase: ScenePhase
+  @State var loadingState: LoadingState = .inProgress("Initialising...")
+  @State var transactionOutcome: TransactionOutcome?
+  @State var opacity: Float = .zero
+
+  static let numberFormatter: NumberFormatter = {
+    let formatter = NumberFormatter()
+    formatter.numberStyle = .decimal
+    formatter.maximumFractionDigits = 2
+    formatter.decimalSeparator = ""
+    formatter.groupingSeparator = ""
+    return formatter
+  }()
 
   private let tyroEnvironment = TyroEnvironment.sandbox
   private let connectionProvider: ConnectionProvider
   private let tapToPaySDK: TyroTapToPay
+  private let posInformation = POSInformation(name: "SampleApp POS",
+                                              vendor: "Tyro",
+                                              version: "0.3.0",
+                                              siteReference: "Sydney")
 
   init() {
     let restClient = TyroRestClient(environment: tyroEnvironment)
-    self.connectionProvider = SandboxConnectionProvider(restClient: restClient)
+    connectionProvider = SandboxConnectionProvider(restClient: restClient)
     do {
-      self.tapToPaySDK = try TyroTapToPay(environment: tyroEnvironment,
-                                          connectionProvider: connectionProvider)
-    } catch {
+      tapToPaySDK = try TyroTapToPay(environment: .sandbox, connectionProvider: connectionProvider)
+    }
+    catch {
       fatalError(error.localizedDescription)
     }
   }
 
   var body: some Scene {
     WindowGroup {
-      PaymentsView(viewModel: PaymentsViewModel(tapToPaySDK: tapToPaySDK))
+      switch loadingState {
+      case .inProgress, .failure:
+        LoadingView(loadingState: $loadingState)
+          .task {
+            await connect()
+            withAnimation(.easeIn(duration: 1)) {
+              opacity = 1.0
+            }
+          }
+      case .ready:
+        PaymentsView { (transactionType, amount) in
+          Task.detached(priority: .userInitiated) {
+            transactionOutcome = try await startTransaction(type: transactionType, amount: amount)
+          }
+        }
+      }
+    }.onChange(of: scenePhase) { (_, scenePhase) in
+        // TODO: - notify SDK of change in foreground/background state.
+      }
+  }
+
+  private func connect() async {
+    Task.detached(priority: .userInitiated) {
+      do {
+        try await tapToPaySDK.connect()
+        await MainActor.run {
+          loadingState = .ready
+        }
+      } catch {
+        await MainActor.run {
+          loadingState = .failure(error)
+        }
+      }
     }
-    .onChange(of: scenePhase) { (_, newValue) in
-      notificationCentre.post(name: Notification.Name(rawValue: "didChangeScenePhase"),
-                              object: scenePhase)
+  }
+
+  private func startTransaction(type transactionType: TransactionType,
+                                amount: Decimal) async throws -> TransactionOutcome {
+    guard let transactionDetail = transform(transactionType: transactionType, amount: amount) else {
+      throw TapToPaySDKError.transactionError("Could not create TransactionDetail object.")
     }
+    switch transactionType {
+    case .payment:
+      return try await tapToPaySDK.startPayment(transactionDetail: transactionDetail)
+    case .refund:
+      return try await tapToPaySDK.refundPayment(transactionDetail: transactionDetail)
+    }
+  }
+
+  private func transform(transactionType: TransactionType, amount: Decimal) -> TransactionDetail? {
+    guard let formattedAmount = Self.numberFormatter.string(from: NSDecimalNumber(decimal: amount)) else {
+      return nil
+    }
+    let referenceNumber: String
+    switch transactionType {
+    case .payment:
+      referenceNumber = UUID().uuidString
+    case .refund:
+      referenceNumber = ""
+    }
+    return TransactionDetail(amount: formattedAmount,
+                             referenceNumber: referenceNumber,
+                             transactionID: UUID().uuidString,
+                             cardIsPresented: true,
+                             email: "<email@domain.tld>",
+                             mobilePhoneNumber: "<mobile-phone-number>",
+                             posInformation: posInformation,
+                             localeLanguage: Locale.current.language)
   }
 }
