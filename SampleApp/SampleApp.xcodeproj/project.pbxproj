@@ -298,7 +298,7 @@
 			);
 			mainGroup = 8B76E0C72B5782500017B455;
 			packageReferences = (
-				BD80AC732BB26225008C4B9C /* XCLocalSwiftPackageReference ".." */,
+				BD0E77F32BBCFB82008CED1E /* XCRemoteSwiftPackageReference "tyro-tap-to-pay-sdk-ios" */,
 			);
 			productRefGroup = 8B76E0D12B5782500017B455 /* Products */;
 			projectDirPath = "";
@@ -521,7 +521,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/$(TARGET_NAME)/$(TARGET_NAME).entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.2.0;
+				CURRENT_PROJECT_VERSION = 0.4.0;
 				DEVELOPMENT_ASSET_PATHS = "\"SampleApp/Preview Content\"";
 				DEVELOPMENT_TEAM = AP4UA2XZ78;
 				ENABLE_PREVIEWS = YES;
@@ -538,7 +538,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.0;
+				MARKETING_VERSION = 0.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -559,7 +559,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/$(TARGET_NAME)/$(TARGET_NAME).entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.2.0;
+				CURRENT_PROJECT_VERSION = 0.4.0;
 				DEVELOPMENT_ASSET_PATHS = "\"SampleApp/Preview Content\"";
 				DEVELOPMENT_TEAM = AP4UA2XZ78;
 				ENABLE_PREVIEWS = YES;
@@ -576,7 +576,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.0;
+				MARKETING_VERSION = 0.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -657,12 +657,17 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		BD80AC732BB26225008C4B9C /* XCLocalSwiftPackageReference ".." */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ..;
+/* Begin XCRemoteSwiftPackageReference section */
+		BD0E77F32BBCFB82008CED1E /* XCRemoteSwiftPackageReference "tyro-tap-to-pay-sdk-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tyro/tyro-tap-to-pay-sdk-ios";
+			requirement = {
+				branch = "PLA-6443-update-sample-app";
+				kind = branch;
+			};
 		};
-/* End XCLocalSwiftPackageReference section */
+		};
+/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		BD80AC742BB26225008C4B9C /* TyroTapToPaySDKPackage */ = {

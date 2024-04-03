@@ -40,25 +40,37 @@ struct SampleApp: App {
       case .inProgress, .failure:
         LoadingView(loadingState: $loadingState)
           .task {
-            Task.detached(priority: .userInitiated) {
-              do {
-                try await tapToPaySDK.connect()
-              } catch {
-                loadingState = .failure(error)
-              }
-            }
+            await connect()
             withAnimation(.easeIn(duration: 1)) {
               opacity = 1.0
             }
           }
       case .ready:
-        PaymentsView { (transactionType, amountText) in
-          transactionOutcome = try await startTransaction(type: transactionType, amountText: amountText)
+        PaymentsView { (transactionType, amount) in
+          Task.detached(priority: .userInitiated) {
+            let formattedAmount = amount.formatted(.number.precision(.fractionLength(2)))
+            transactionOutcome = try await startTransaction(type: transactionType, amountText: formattedAmount)
+          }
         }
       }
     }.onChange(of: scenePhase) { (_, scenePhase) in
         // TODO: - notify SDK of change in foreground/background state.
       }
+  }
+
+  private func connect() async {
+    Task.detached(priority: .userInitiated) {
+      do {
+        try await tapToPaySDK.connect()
+        await MainActor.run {
+          loadingState = .ready
+        }
+      } catch {
+        await MainActor.run {
+          loadingState = .failure(error)
+        }
+      }
+    }
   }
 
   private func startTransaction(type transactionType: TransactionType,
@@ -73,6 +85,9 @@ struct SampleApp: App {
   }
 
   private func transform(transactionType: TransactionType, amountText: String) -> TransactionDetail {
+    let cleanAmount = ["$", ","].reduce(amountText) { (value, symbol) in
+      value.replacingOccurrences(of: symbol, with: "")
+    }
     let referenceNumber: String
     switch transactionType {
     case .payment:
@@ -80,7 +95,7 @@ struct SampleApp: App {
     case .refund:
       referenceNumber = ""
     }
-    return TransactionDetail(amount: amountText,
+    return TransactionDetail(amount: cleanAmount,
                              referenceNumber: referenceNumber,
                              transactionID: UUID().uuidString,
                              cardIsPresented: true,

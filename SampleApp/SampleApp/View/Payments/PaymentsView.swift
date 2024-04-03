@@ -15,9 +15,16 @@ struct PaymentsView: View {
   @FocusState var isFocussed: Bool
   @State var isPresented: Bool = false
 
-  let processClosure: (TransactionType, String) async throws -> Void
+  @State var items: [Decimal] = []
+  var subTotal: Decimal {
+    items.reduce(0) {
+      $0 + $1
+    }
+  }
 
-  init(processClosure: @escaping (TransactionType, String) async throws -> Void) {
+  let processClosure: (TransactionType, Decimal) async throws -> Void
+
+  init(processClosure: @escaping (TransactionType, Decimal) async throws -> Void) {
     self.processClosure = processClosure
   }
 
@@ -28,23 +35,62 @@ struct PaymentsView: View {
         Form {
           Section(header: Text("Amount")) {
             HStack {
-              TextField("Amount", value: $amount, format: .currency(code: "AUD"))
-                .formStyle(.grouped)
-                .keyboardType(.decimalPad)
-                .focused($isFocussed)
               Button {
-                isPresented.toggle()
+                items.append(amount)
               } label: {
                 Image(systemName: "plus.circle")
+              }
+              TextField("Amount", value: $amount, format: .currency(code: "AUD"))
+                .keyboardType(.decimalPad)
+                .font(.title2)
+                .focused($isFocussed)
+                .toolbar {
+                  ToolbarItemGroup(placement: .keyboard) {
+                    HStack {
+                      Spacer()
+                      Button() {
+                        isFocussed.toggle()
+                        isPresented.toggle()
+                      } label: {
+                        Text("Done")
+                      }
+                    }
+                  }
+                }
+            }
+          }
+          if !items.isEmpty {
+            Section(header: Text("Items")) {
+              List {
+                ForEach(Array(items.enumerated()), id: \.offset) { index, item in
+                  HStack {
+                    Button {
+                      items.remove(at: index)
+                    } label: {
+                      Image(systemName: "minus.circle")
+                    }
+                    Text(item, format: .currency(code: "AUD"))
+                      .frame(maxWidth: .infinity, alignment: .trailing)
+                  }
+
+                }
+              }
+            }
+            Section(header: Text("Sub-total")) {
+              HStack {
+                Spacer()
+                Text(subTotal.formatted(.currency(code: "AUD")))
+                  .multilineTextAlignment(.trailing)
               }
             }
           }
         }
+        .multilineTextAlignment(.trailing)
         .confirmationDialog("Actions", isPresented: $isPresented) {
           Button {
             Task {
               do {
-                try await processClosure(.payment, amount.formatted(.currency(code: "AUD")))
+                try await processClosure(.payment, items.isEmpty ? amount : subTotal)
               } catch {
                 self.error = error
               }
@@ -60,7 +106,7 @@ struct PaymentsView: View {
           Button(role: .destructive) {
             Task {
               do {
-                try await processClosure(.refund, amount.formatted(.currency(code: "AUD")))
+                try await processClosure(.refund, items.isEmpty ? amount : subTotal)
               } catch {
                 self.error = error
               }
@@ -74,13 +120,23 @@ struct PaymentsView: View {
           .buttonStyle(BorderedProminentButtonStyle())
           .frame(maxWidth: .infinity)
         }
-        .multilineTextAlignment(.trailing)
         .onSubmit {
           isPresented.toggle()
         }
         .onAppear {
           isFocussed = true
         }
+        Button {
+          isPresented.toggle()
+        } label: {
+          Text("Transact")
+            .frame(maxWidth: .infinity, minHeight: 40)
+            .font(.title2)
+            .ignoresSafeArea()
+        }
+        .buttonStyle(BorderedProminentButtonStyle())
+        .padding()
+        .disabled(amount.isZero)
 
       case .inProgress(let transactionType, let amount):
         VStack(alignment: .center, spacing: 10) {
