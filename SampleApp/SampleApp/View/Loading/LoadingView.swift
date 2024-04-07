@@ -14,6 +14,10 @@ struct LoadingView: View {
   var body: some View {
     VStack {
       Spacer()
+      Image(.tyroLogo)
+        .resizable()
+        .aspectRatio(contentMode: .fit)
+        .frame(maxWidth: 150)
       switch loadingState {
       case .inProgress(let title):
         ProgressView() {
@@ -24,13 +28,12 @@ struct LoadingView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .foregroundStyle(.secondary)
       case .ready:
-        VStack {
+        HStack {
           Image(systemName: "checkmark.circle")
             .resizable()
-            .frame(maxWidth: 100, maxHeight: 100)
+            .frame(maxWidth: 24, maxHeight: 24)
           Text("Ready!")
-            .font(.title2)
-            .multilineTextAlignment(.center)
+            .font(.title)
         }
         .foregroundStyle(.green)
       case .failure(let error):

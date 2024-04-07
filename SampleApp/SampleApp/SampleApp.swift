@@ -29,7 +29,7 @@ struct SampleApp: App {
   private let tapToPaySDK: TyroTapToPay
   private let posInformation = POSInformation(name: "SampleApp POS",
                                               vendor: "Tyro",
-                                              version: "0.3.0",
+                                              version: "0.4.0",
                                               siteReference: "Sydney")
 
   init() {
@@ -65,9 +65,11 @@ struct SampleApp: App {
           }
         }
       }
-    }.onChange(of: scenePhase) { (_, scenePhase) in
-        // TODO: - notify SDK of change in foreground/background state.
+    }.onChange(of: scenePhase) { (_, newValue) in
+      Task.detached {
+        await tapToPaySDK.didChange(scenePhase: newValue)
       }
+    }
   }
 
   private func connect() async {
@@ -118,4 +120,27 @@ struct SampleApp: App {
                              posInformation: posInformation,
                              localeLanguage: Locale.current.language)
   }
+}
+
+#Preview("Ready") {
+  VStack {
+    Image(.tyroLogo)
+      .resizable()
+      .aspectRatio(contentMode: .fit)
+      .frame(maxWidth: 150)
+    PaymentsView { (transactionType, amount) in
+    }
+  }
+}
+
+#Preview("Loading") {
+  @State var opacity: Float = .zero
+  @State var loadingState: LoadingState = .inProgress("Loading...")
+  return LoadingView(loadingState: $loadingState)
+    .task {
+      // Do loading stuff...
+      withAnimation(.easeIn(duration: 1)) {
+        opacity = 1.0
+      }
+    }
 }
