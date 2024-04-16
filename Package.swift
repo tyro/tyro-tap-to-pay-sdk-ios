@@ -38,8 +38,8 @@ let package = Package(
             ]
     ),
     .binaryTarget(name: "TyroTapToPaySDK",
-                  url: "https://tap-to-pay.connect.tyro.com/tyro/0.6.0/TyroTapToPaySDK.xcframework.zip",
-                  checksum: "fa805f165c7539f00a4034ced19f0b3c8562ebcce3c2d79e392e05e6698dfbb5"),
+                  url: "https://tap-to-pay.connect.tyro.com/tyro/0.6.1/TyroTapToPaySDK.xcframework.zip",
+                  checksum: "52bc5b982e2e2b01a9d9dcdb5a6ab97dbb7e68fc5566c8c3abdbf71e6a1a8848"),
     .binaryTarget(name: "MobileConfiguration",
                   url: "https://tap-to-pay.connect.tyro.com/ss/1.0.7.0/SSMobileConfiguration.xcframework.zip",
                   checksum: "8973d0340c668a3071330c6ae019a87ed044779cc6c4acb9c6571a1167e20ab2"),
@@ -87,15 +87,6 @@ let package = Package(
                   checksum: "bbdf48d0dd829e304b1b924410f6817d7603d6d4f87914df0083970a162e0960"),
     .binaryTarget(name: "VisaSensoryBranding",
                   url: "https://tap-to-pay.connect.tyro.com/ss/1.0.7.0/VisaSensoryBranding.xcframework.zip",
-                  checksum: "670220e136332144f79bed0349e3e5a1a1068edde19b0582e904dbf93d4ad5e5"),
-
-
-
-
-
-
-
-
-    
+                  checksum: "670220e136332144f79bed0349e3e5a1a1068edde19b0582e904dbf93d4ad5e5"),    
   ]
 )
