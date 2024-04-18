@@ -8,6 +8,8 @@
 import Foundation
 import TyroTapToPaySDK
 
+let FAKE_READER_ID = "FAKE_READER_ID"
+
 /// This is an implementation of the `ConnectionProvider` protocol to demonstrate connecting a reader id with the Tyro Sandbox environment.
 /// You will need to implement `ConnectionProvider` in your own applications and call:
 /// ```TyroTapToPaySDKTyroTapToPay.shared.initSDK(_:ConnectionProvider)```.
@@ -18,7 +20,7 @@ import TyroTapToPaySDK
 /// - [SandBox Testing](https://preview.redoc.ly/tyro-connect/pla-5831/pos/tap-to-pay/sandbox-testing/#sandbox-testing)
 final class SandboxConnectionProvider : ConnectionProvider, ObservableObject {
   static let timeoutIntervalSeconds: TimeInterval = 10
-  private let readerId: String = "f310e43b-a6c9-4c43-9535-ff68b2b9c4a1"
+  private let readerId: String = FAKE_READER_ID
   private let restClient: TyroRestClient
 
   /// This implementation uses a sample reader id and registers directly with the Tyro Sandbox environment.
@@ -33,6 +35,9 @@ final class SandboxConnectionProvider : ConnectionProvider, ObservableObject {
   /// - throws: an Error indicating either why the ConnectionProvider failed to connect to the POS server
   /// or why the `ConnectionSecret` could not be retrieved.
   func createConnection() async throws -> String {
-    try await restClient.createConnection(for: readerId).connectionSecret
+    guard readerId != FAKE_READER_ID else {
+      preconditionFailure("Please replace the `readerId` in the SandboxConnectionProvider with your own readerId")
+    }
+    return try await restClient.createConnection(for: readerId).connectionSecret
   }
 }
