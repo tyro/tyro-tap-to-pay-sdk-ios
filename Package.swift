@@ -35,6 +35,7 @@ let package = Package(
               .target(name: "MobileUtils"),
               .target(name: "Shared"),
               .target(name: "TrustKit"),
+              .target(name: "VisaSensoryBranding"),
             ]
     ),
     .binaryTarget(name: "TyroTapToPaySDK",
