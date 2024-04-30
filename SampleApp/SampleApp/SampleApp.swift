@@ -33,8 +33,7 @@ struct SampleApp: App {
                                               siteReference: "Sydney")
 
   init() {
-    let restClient = TyroRestClient(environment: tyroEnvironment)
-    connectionProvider = SandboxConnectionProvider(restClient: restClient)
+    connectionProvider = DemoConnectionProvider()
     do {
       tapToPaySDK = try TyroTapToPay(environment: .sandbox, connectionProvider: connectionProvider)
     }
