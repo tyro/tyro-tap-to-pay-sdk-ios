@@ -7,16 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		631269FD2BE087E60093E9BC /* DemoConnectionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631269FC2BE087E60093E9BC /* DemoConnectionProvider.swift */; };
 		635FF3712BBE1D4C0027D144 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD9CEA642B9A90FD00928203 /* Assets.xcassets */; };
-		BD0A731D2B9E8FDB00659F82 /* TyroRestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0A731C2B9E8FDB00659F82 /* TyroRestClient.swift */; };
+		BD0A731D2B9E8FDB00659F82 /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0A731C2B9E8FDB00659F82 /* RestClient.swift */; };
 		BD0A738C2BA2B7B700659F82 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = BD0A738B2BA2B7B700659F82 /* Localizable.xcstrings */; };
 		BD0DAA522BA8876A00100EC1 /* config_uat.env in Resources */ = {isa = PBXBuildFile; fileRef = BD0DAA512BA8876A00100EC1 /* config_uat.env */; };
 		BD80AC7D2BB28991008C4B9C /* TyroTapToPaySDKPackage in Frameworks */ = {isa = PBXBuildFile; productRef = BD80AC742BB26225008C4B9C /* TyroTapToPaySDKPackage */; };
 		BD9CEA4F2B982CF200928203 /* PaymentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CEA4E2B982CF200928203 /* PaymentsView.swift */; };
-		BD9CEA592B9A038100928203 /* ConnectionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CEA582B9A038100928203 /* ConnectionRequest.swift */; };
-		BD9CEA5D2B9A838B00928203 /* ConnectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CEA5C2B9A838B00928203 /* ConnectionResponse.swift */; };
 		BDABE9152BAAA6190054001F /* TransactionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDABE9142BAAA6190054001F /* TransactionType.swift */; };
-		BDC05CC22B903FB50062C06D /* SandboxConnectionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC05CB62B903FB50062C06D /* SandboxConnectionProvider.swift */; };
 		BDC05CC72B903FB50062C06D /* SampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC05CBC2B903FB50062C06D /* SampleApp.swift */; };
 		BDDDB2032BAA703F004385DB /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDDB2022BAA703F004385DB /* LoadingView.swift */; };
 		BDDDB2082BAA8243004385DB /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDDB2072BAA8243004385DB /* LoadingState.swift */; };
@@ -46,20 +44,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		631269FC2BE087E60093E9BC /* DemoConnectionProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoConnectionProvider.swift; sourceTree = "<group>"; };
 		8B76E0D02B5782500017B455 /* SampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD0A731C2B9E8FDB00659F82 /* TyroRestClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TyroRestClient.swift; sourceTree = "<group>"; };
+		BD0A731C2B9E8FDB00659F82 /* RestClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestClient.swift; sourceTree = "<group>"; };
 		BD0A731F2B9F27E600659F82 /* SampleApp.entitlements */ = {isa = PBXFileReference; explicitFileType = text.plist.entitlements; path = SampleApp.entitlements; sourceTree = "<group>"; };
 		BD0A738B2BA2B7B700659F82 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		BD0DAA4E2BA8857E00100EC1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD0DAA512BA8876A00100EC1 /* config_uat.env */ = {isa = PBXFileReference; lastKnownFileType = file; path = config_uat.env; sourceTree = "<group>"; };
 		BD16337D2B9ACF6A00183BE7 /* SampleAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SampleAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD9CEA4E2B982CF200928203 /* PaymentsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentsView.swift; sourceTree = "<group>"; };
-		BD9CEA582B9A038100928203 /* ConnectionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionRequest.swift; sourceTree = "<group>"; };
-		BD9CEA5C2B9A838B00928203 /* ConnectionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionResponse.swift; sourceTree = "<group>"; };
 		BD9CEA642B9A90FD00928203 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD9CEA672B9A90FD00928203 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BDABE9142BAAA6190054001F /* TransactionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionType.swift; sourceTree = "<group>"; };
-		BDC05CB62B903FB50062C06D /* SandboxConnectionProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SandboxConnectionProvider.swift; sourceTree = "<group>"; };
 		BDC05CBC2B903FB50062C06D /* SampleApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleApp.swift; sourceTree = "<group>"; };
 		BDDDB2022BAA703F004385DB /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		BDDDB2072BAA8243004385DB /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
@@ -88,7 +84,6 @@
 			isa = PBXGroup;
 			children = (
 				BDC05CB02B903FB50062C06D /* SampleApp */,
-				BD16337E2B9ACF6A00183BE7 /* SampleAppTests */,
 				8B76E0D12B5782500017B455 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -105,8 +100,8 @@
 		BD0A731B2B9E8FA800659F82 /* POS */ = {
 			isa = PBXGroup;
 			children = (
-				BD9CEA5E2B9A873900928203 /* Rest */,
-				BDC05CB62B903FB50062C06D /* SandboxConnectionProvider.swift */,
+				BD0A731C2B9E8FDB00659F82 /* RestClient.swift */,
+				631269FC2BE087E60093E9BC /* DemoConnectionProvider.swift */,
 			);
 			path = POS;
 			sourceTree = "<group>";
@@ -129,13 +124,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		BD16337E2B9ACF6A00183BE7 /* SampleAppTests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SampleAppTests;
-			sourceTree = "<group>";
-		};
 		BD9CEA4A2B982BB800928203 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,16 +131,6 @@
 				BDABE9132BAAA5F50054001F /* Payments */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		BD9CEA5E2B9A873900928203 /* Rest */ = {
-			isa = PBXGroup;
-			children = (
-				BD9CEA582B9A038100928203 /* ConnectionRequest.swift */,
-				BD9CEA5C2B9A838B00928203 /* ConnectionResponse.swift */,
-				BD0A731C2B9E8FDB00659F82 /* TyroRestClient.swift */,
-			);
-			path = Rest;
 			sourceTree = "<group>";
 		};
 		BD9CEA662B9A90FD00928203 /* Preview Content */ = {
@@ -319,10 +297,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD0A731D2B9E8FDB00659F82 /* TyroRestClient.swift in Sources */,
-				BD9CEA592B9A038100928203 /* ConnectionRequest.swift in Sources */,
-				BD9CEA5D2B9A838B00928203 /* ConnectionResponse.swift in Sources */,
-				BDC05CC22B903FB50062C06D /* SandboxConnectionProvider.swift in Sources */,
+				BD0A731D2B9E8FDB00659F82 /* RestClient.swift in Sources */,
+				631269FD2BE087E60093E9BC /* DemoConnectionProvider.swift in Sources */,
 				BDDDB2082BAA8243004385DB /* LoadingState.swift in Sources */,
 				BDDDB2032BAA703F004385DB /* LoadingView.swift in Sources */,
 				BDABE9152BAAA6190054001F /* TransactionType.swift in Sources */,
