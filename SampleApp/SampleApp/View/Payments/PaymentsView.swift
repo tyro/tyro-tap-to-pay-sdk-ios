@@ -11,7 +11,6 @@ enum InputFocus: Hashable {
 struct PaymentsView: View {
   @State var processingState: TransactionProcessingState = .ready
   @State var error: Error?
-  @State var items: [Decimal] = []
 
   let processClosure: (TransactionType, Decimal) async throws -> Void
 
@@ -61,75 +60,38 @@ struct PaymentsView: View {
 }
 
 struct PaymentForm: View {
-  @State var amount: Decimal = .zero
+    @State var amount:Decimal = 0.0
   @FocusState var isFocussed: Bool
   @State var isPresented: Bool = false
-  @State var items: [Decimal] = []
   @Binding var error: Error?
-
-  var subTotal: Decimal {
-    items.reduce(0) {
-      $0 + $1
-    }
-  }
 
   let processClosure: (TransactionType, Decimal) async throws -> Void
 
+
   var body: some View {
     Form {
-      Section(header: Text("Amount")) {
-        HStack {
-          Button {
-            items.append(amount)
-          } label: {
-            Image(systemName: "plus.circle")
-          }
-          .disabled(!amount.isNormal)
-          TextField("Amount",
-                    value: $amount,
-                    format: .currency(code: "AUD").precision(.fractionLength(2)),
-                    prompt: Text("Amount"))
-          .keyboardType(.decimalPad)
-          .focused($isFocussed)
-          .toolbar {
-            ToolbarItemGroup(placement: .keyboard) {
-              Spacer()
-              Button("Done") {
-                isFocussed = false
-              }
-              .disabled(!amount.isNormal)
-            }
-          }
-        }
-      }
-
-      if !items.isEmpty {
-        Section(header: Text("Items")) {
-          List {
-            ForEach(Array(items.enumerated()), id: \.offset) { index, item in
-              HStack {
-                Button {
-                  items.remove(at: index)
-                } label: {
-                  Image(systemName: "minus.circle")
-                }
-                Text(item, format: .currency(code: "AUD"))
-                  .frame(maxWidth: .infinity, alignment: .trailing)
-              }
-            }
-          }
-        }
-        Section(header: Text("Sub-total")) {
+        Section(header: Text("Amount")) {
           HStack {
-            Spacer()
-            Text(subTotal.formatted(.currency(code: "AUD")))
-              .multilineTextAlignment(.trailing)
+            TextField("Amount",
+                      value: $amount,
+                      format: .number,
+                      prompt: Text("Amount"))
+            .keyboardType(.decimalPad)
+            .focused($isFocussed)
+            .toolbar {
+              ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+                Button("Done") {
+                  isFocussed = false
+                }
+                .disabled(!amount.isNormal)
+              }
+            }
           }
         }
-      }
     }
     .onSubmit {
-      if (items.isEmpty ? amount : subTotal).isNormal {
+      if (amount).isNormal {
         isPresented = true
       }
     }
@@ -173,7 +135,7 @@ struct PaymentForm: View {
   func processPayment(type: TransactionType) {
     Task {
       do {
-        try await processClosure(type, items.isEmpty ? amount : subTotal)
+        try await processClosure(type, amount)
       } catch {
         self.error = error
       }
