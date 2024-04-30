@@ -9,10 +9,8 @@
 /* Begin PBXBuildFile section */
 		635FF3712BBE1D4C0027D144 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD9CEA642B9A90FD00928203 /* Assets.xcassets */; };
 		BD0A731D2B9E8FDB00659F82 /* TyroRestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0A731C2B9E8FDB00659F82 /* TyroRestClient.swift */; };
-		BD0A73292B9FDCCD00659F82 /* TyroRestClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0A73282B9FDCCD00659F82 /* TyroRestClientTests.swift */; };
 		BD0A738C2BA2B7B700659F82 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = BD0A738B2BA2B7B700659F82 /* Localizable.xcstrings */; };
 		BD0DAA522BA8876A00100EC1 /* config_uat.env in Resources */ = {isa = PBXBuildFile; fileRef = BD0DAA512BA8876A00100EC1 /* config_uat.env */; };
-		BD1633802B9ACF6A00183BE7 /* ConnectionResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD16337F2B9ACF6A00183BE7 /* ConnectionResponseTests.swift */; };
 		BD80AC7D2BB28991008C4B9C /* TyroTapToPaySDKPackage in Frameworks */ = {isa = PBXBuildFile; productRef = BD80AC742BB26225008C4B9C /* TyroTapToPaySDKPackage */; };
 		BD9CEA4F2B982CF200928203 /* PaymentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CEA4E2B982CF200928203 /* PaymentsView.swift */; };
 		BD9CEA592B9A038100928203 /* ConnectionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CEA582B9A038100928203 /* ConnectionRequest.swift */; };
@@ -51,12 +49,10 @@
 		8B76E0D02B5782500017B455 /* SampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD0A731C2B9E8FDB00659F82 /* TyroRestClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TyroRestClient.swift; sourceTree = "<group>"; };
 		BD0A731F2B9F27E600659F82 /* SampleApp.entitlements */ = {isa = PBXFileReference; explicitFileType = text.plist.entitlements; path = SampleApp.entitlements; sourceTree = "<group>"; };
-		BD0A73282B9FDCCD00659F82 /* TyroRestClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TyroRestClientTests.swift; sourceTree = "<group>"; };
 		BD0A738B2BA2B7B700659F82 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		BD0DAA4E2BA8857E00100EC1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD0DAA512BA8876A00100EC1 /* config_uat.env */ = {isa = PBXFileReference; lastKnownFileType = file; path = config_uat.env; sourceTree = "<group>"; };
 		BD16337D2B9ACF6A00183BE7 /* SampleAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SampleAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD16337F2B9ACF6A00183BE7 /* ConnectionResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionResponseTests.swift; sourceTree = "<group>"; };
 		BD9CEA4E2B982CF200928203 /* PaymentsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentsView.swift; sourceTree = "<group>"; };
 		BD9CEA582B9A038100928203 /* ConnectionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionRequest.swift; sourceTree = "<group>"; };
 		BD9CEA5C2B9A838B00928203 /* ConnectionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionResponse.swift; sourceTree = "<group>"; };
@@ -115,23 +111,6 @@
 			path = POS;
 			sourceTree = "<group>";
 		};
-		BD0A73262B9FDCA800659F82 /* POS */ = {
-			isa = PBXGroup;
-			children = (
-				BD1633862B9ACF9000183BE7 /* ConnectionProvider */,
-				BD0A73272B9FDCB800659F82 /* Rest */,
-			);
-			path = POS;
-			sourceTree = "<group>";
-		};
-		BD0A73272B9FDCB800659F82 /* Rest */ = {
-			isa = PBXGroup;
-			children = (
-				BD0A73282B9FDCCD00659F82 /* TyroRestClientTests.swift */,
-			);
-			path = Rest;
-			sourceTree = "<group>";
-		};
 		BD0DAA4D2BA884DD00100EC1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,17 +132,8 @@
 		BD16337E2B9ACF6A00183BE7 /* SampleAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				BD0A73262B9FDCA800659F82 /* POS */,
 			);
 			path = SampleAppTests;
-			sourceTree = "<group>";
-		};
-		BD1633862B9ACF9000183BE7 /* ConnectionProvider */ = {
-			isa = PBXGroup;
-			children = (
-				BD16337F2B9ACF6A00183BE7 /* ConnectionResponseTests.swift */,
-			);
-			path = ConnectionProvider;
 			sourceTree = "<group>";
 		};
 		BD9CEA4A2B982BB800928203 /* View */ = {
@@ -365,8 +335,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD0A73292B9FDCCD00659F82 /* TyroRestClientTests.swift in Sources */,
-				BD1633802B9ACF6A00183BE7 /* ConnectionResponseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
