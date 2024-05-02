@@ -13,7 +13,7 @@ let DEMO_CONNECTION_SECRET_ENDPOINT_URL = "https://api.tyro.com/connect/tap-to-p
 
 // Create the reader id and set it here
 // Only one reader can be used on one device at any time otherwise transactions will fail
-let DEMO_READER_ID = "f310e43b-a6c9-4c43-9535-ff68b2b9c4a1"
+let DEMO_READER_ID = "972854f8-0d40-4455-9398-9dae86458ed6"
 
 final class DemoConnectionProvider: ConnectionProvider {
   static let timeoutIntervalSeconds: TimeInterval = 10
