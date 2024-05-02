@@ -12,8 +12,8 @@ class RestClient {
     let configuration = URLSessionConfiguration.default
     configuration.timeoutIntervalForRequest = 10.0
     return URLSession(configuration: configuration)
-  }();
-  
+  }()
+
   func post(requestUrl: String, payload: Data? = nil) async throws -> Data {
     guard let url = URL(string: requestUrl) else {
       throw URLError(.badURL)

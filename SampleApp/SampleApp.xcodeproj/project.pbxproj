@@ -8,16 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		631269FD2BE087E60093E9BC /* DemoConnectionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631269FC2BE087E60093E9BC /* DemoConnectionProvider.swift */; };
+		6344C4562BE1C2FE0071A025 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6344C4552BE1C2FE0071A025 /* ErrorView.swift */; };
+		6344C45A2BE1C3130071A025 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6344C4582BE1C3130071A025 /* ContentView.swift */; };
 		635FF3712BBE1D4C0027D144 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD9CEA642B9A90FD00928203 /* Assets.xcassets */; };
+		63AA55402BE1C7AC00F7C509 /* TransactionOutcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AA553F2BE1C7AC00F7C509 /* TransactionOutcomeView.swift */; };
+		63AA55422BE1CB1A00F7C509 /* PaymentFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AA55412BE1CB1A00F7C509 /* PaymentFormView.swift */; };
+		63D356FB2BE322F000EA7ECF /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D356FA2BE322F000EA7ECF /* ContentViewModel.swift */; };
+		63D356FD2BE3237100EA7ECF /* ResetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D356FC2BE3237100EA7ECF /* ResetButton.swift */; };
+		63D357042BE324EF00EA7ECF /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D357032BE324EF00EA7ECF /* CloseButton.swift */; };
 		BD0A731D2B9E8FDB00659F82 /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0A731C2B9E8FDB00659F82 /* RestClient.swift */; };
 		BD0A738C2BA2B7B700659F82 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = BD0A738B2BA2B7B700659F82 /* Localizable.xcstrings */; };
 		BD0DAA522BA8876A00100EC1 /* config_uat.env in Resources */ = {isa = PBXBuildFile; fileRef = BD0DAA512BA8876A00100EC1 /* config_uat.env */; };
 		BD80AC7D2BB28991008C4B9C /* TyroTapToPaySDKPackage in Frameworks */ = {isa = PBXBuildFile; productRef = BD80AC742BB26225008C4B9C /* TyroTapToPaySDKPackage */; };
-		BD9CEA4F2B982CF200928203 /* PaymentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CEA4E2B982CF200928203 /* PaymentsView.swift */; };
 		BDABE9152BAAA6190054001F /* TransactionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDABE9142BAAA6190054001F /* TransactionType.swift */; };
 		BDC05CC72B903FB50062C06D /* SampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC05CBC2B903FB50062C06D /* SampleApp.swift */; };
-		BDDDB2032BAA703F004385DB /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDDB2022BAA703F004385DB /* LoadingView.swift */; };
-		BDDDB2082BAA8243004385DB /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDDB2072BAA8243004385DB /* LoadingState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +49,13 @@
 
 /* Begin PBXFileReference section */
 		631269FC2BE087E60093E9BC /* DemoConnectionProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoConnectionProvider.swift; sourceTree = "<group>"; };
+		6344C4552BE1C2FE0071A025 /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		6344C4582BE1C3130071A025 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		63AA553F2BE1C7AC00F7C509 /* TransactionOutcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionOutcomeView.swift; sourceTree = "<group>"; };
+		63AA55412BE1CB1A00F7C509 /* PaymentFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentFormView.swift; sourceTree = "<group>"; };
+		63D356FA2BE322F000EA7ECF /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		63D356FC2BE3237100EA7ECF /* ResetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetButton.swift; sourceTree = "<group>"; };
+		63D357032BE324EF00EA7ECF /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		8B76E0D02B5782500017B455 /* SampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD0A731C2B9E8FDB00659F82 /* RestClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestClient.swift; sourceTree = "<group>"; };
 		BD0A731F2B9F27E600659F82 /* SampleApp.entitlements */ = {isa = PBXFileReference; explicitFileType = text.plist.entitlements; path = SampleApp.entitlements; sourceTree = "<group>"; };
@@ -52,13 +63,10 @@
 		BD0DAA4E2BA8857E00100EC1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD0DAA512BA8876A00100EC1 /* config_uat.env */ = {isa = PBXFileReference; lastKnownFileType = file; path = config_uat.env; sourceTree = "<group>"; };
 		BD16337D2B9ACF6A00183BE7 /* SampleAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SampleAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD9CEA4E2B982CF200928203 /* PaymentsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentsView.swift; sourceTree = "<group>"; };
 		BD9CEA642B9A90FD00928203 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD9CEA672B9A90FD00928203 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BDABE9142BAAA6190054001F /* TransactionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionType.swift; sourceTree = "<group>"; };
 		BDC05CBC2B903FB50062C06D /* SampleApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleApp.swift; sourceTree = "<group>"; };
-		BDDDB2022BAA703F004385DB /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
-		BDDDB2072BAA8243004385DB /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +88,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		63D356FE2BE3238E00EA7ECF /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				63D356FA2BE322F000EA7ECF /* ContentViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		63D357002BE3249E00EA7ECF /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				BDABE9142BAAA6190054001F /* TransactionType.swift */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
+		63D357022BE324CD00EA7ECF /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				63D356FC2BE3237100EA7ECF /* ResetButton.swift */,
+				63D357032BE324EF00EA7ECF /* CloseButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		8B76E0C72B5782500017B455 = {
 			isa = PBXGroup;
 			children = (
@@ -100,8 +133,8 @@
 		BD0A731B2B9E8FA800659F82 /* POS */ = {
 			isa = PBXGroup;
 			children = (
-				BD0A731C2B9E8FDB00659F82 /* RestClient.swift */,
 				631269FC2BE087E60093E9BC /* DemoConnectionProvider.swift */,
+				BD0A731C2B9E8FDB00659F82 /* RestClient.swift */,
 			);
 			path = POS;
 			sourceTree = "<group>";
@@ -124,13 +157,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		BD9CEA4A2B982BB800928203 /* View */ = {
+		BD9CEA4A2B982BB800928203 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BDDDB2042BAA8219004385DB /* Loading */,
-				BDABE9132BAAA5F50054001F /* Payments */,
+				6344C4582BE1C3130071A025 /* ContentView.swift */,
+				63AA553F2BE1C7AC00F7C509 /* TransactionOutcomeView.swift */,
+				6344C4552BE1C2FE0071A025 /* ErrorView.swift */,
+				63AA55412BE1CB1A00F7C509 /* PaymentFormView.swift */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		BD9CEA662B9A90FD00928203 /* Preview Content */ = {
@@ -141,36 +176,21 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		BDABE9132BAAA5F50054001F /* Payments */ = {
-			isa = PBXGroup;
-			children = (
-				BD9CEA4E2B982CF200928203 /* PaymentsView.swift */,
-				BDABE9142BAAA6190054001F /* TransactionType.swift */,
-			);
-			path = Payments;
-			sourceTree = "<group>";
-		};
 		BDC05CB02B903FB50062C06D /* SampleApp */ = {
 			isa = PBXGroup;
 			children = (
-				BD0A731B2B9E8FA800659F82 /* POS */,
+				BD0A731F2B9F27E600659F82 /* SampleApp.entitlements */,
 				BD9CEA662B9A90FD00928203 /* Preview Content */,
 				BD16336B2B9AC46800183BE7 /* Resources */,
 				BD0DAA4D2BA884DD00100EC1 /* Supporting Files */,
-				BD9CEA4A2B982BB800928203 /* View */,
-				BD0A731F2B9F27E600659F82 /* SampleApp.entitlements */,
+				BD0A731B2B9E8FA800659F82 /* POS */,
+				63D357002BE3249E00EA7ECF /* Types */,
+				63D357022BE324CD00EA7ECF /* Components */,
+				63D356FE2BE3238E00EA7ECF /* ViewModels */,
+				BD9CEA4A2B982BB800928203 /* Views */,
 				BDC05CBC2B903FB50062C06D /* SampleApp.swift */,
 			);
 			path = SampleApp;
-			sourceTree = "<group>";
-		};
-		BDDDB2042BAA8219004385DB /* Loading */ = {
-			isa = PBXGroup;
-			children = (
-				BDDDB2022BAA703F004385DB /* LoadingView.swift */,
-				BDDDB2072BAA8243004385DB /* LoadingState.swift */,
-			);
-			path = Loading;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,11 +318,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD0A731D2B9E8FDB00659F82 /* RestClient.swift in Sources */,
+				63D356FD2BE3237100EA7ECF /* ResetButton.swift in Sources */,
+				6344C45A2BE1C3130071A025 /* ContentView.swift in Sources */,
 				631269FD2BE087E60093E9BC /* DemoConnectionProvider.swift in Sources */,
-				BDDDB2082BAA8243004385DB /* LoadingState.swift in Sources */,
-				BDDDB2032BAA703F004385DB /* LoadingView.swift in Sources */,
+				63D357042BE324EF00EA7ECF /* CloseButton.swift in Sources */,
+				63AA55402BE1C7AC00F7C509 /* TransactionOutcomeView.swift in Sources */,
 				BDABE9152BAAA6190054001F /* TransactionType.swift in Sources */,
-				BD9CEA4F2B982CF200928203 /* PaymentsView.swift in Sources */,
+				63D356FB2BE322F000EA7ECF /* ContentViewModel.swift in Sources */,
+				63AA55422BE1CB1A00F7C509 /* PaymentFormView.swift in Sources */,
+				6344C4562BE1C2FE0071A025 /* ErrorView.swift in Sources */,
 				BDC05CC72B903FB50062C06D /* SampleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -473,8 +497,8 @@
 				INFOPLIST_FILE = "$(TARGET_NAME)/Supporting Files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Tyro Tap to Pay on iPhone Demo";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_OUTPUT_FORMAT = XML;
@@ -510,8 +534,8 @@
 				INFOPLIST_FILE = "$(TARGET_NAME)/Supporting Files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Tyro Tap to Pay on iPhone Demo";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_OUTPUT_FORMAT = XML;
