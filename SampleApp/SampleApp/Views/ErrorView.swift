@@ -10,11 +10,11 @@ import SwiftUI
 
 struct ErrorView: View {
   private var errorMessage: String = ""
-  
+
   init(errorMessage: String) {
     self.errorMessage = errorMessage
   }
-  
+
   var body: some View {
     VStack {
       Image(systemName: "x.circle.fill")
@@ -32,4 +32,3 @@ struct ErrorView: View {
 #Preview {
   ErrorView(errorMessage: "Something")
 }
-

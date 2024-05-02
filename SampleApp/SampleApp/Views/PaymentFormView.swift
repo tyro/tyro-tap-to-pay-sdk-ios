@@ -11,20 +11,22 @@ struct PaymentFormView: View {
   @State private var viewModel: ViewModel
   @FocusState private var isFocused: Bool
   var onSubmitPayment: (_ transactionType: TransactionType, _ amount: Decimal) -> Void
-  
+
   init(onSubmitPayment: @escaping (_: TransactionType, _: Decimal) -> Void) {
     self.onSubmitPayment = onSubmitPayment
     self.viewModel = ViewModel(onSubmitPayment)
   }
-  
+
   var body: some View {
     Form {
       Section(header: Text("Amount")) {
         VStack {
-          TextField("Amount",
-                    value: $viewModel.amount,
-                    format: .number,
-                    prompt: Text(""))
+          TextField(
+            "Amount",
+            value: $viewModel.amount,
+            format: .number,
+            prompt: Text("")
+          )
           .keyboardType(.decimalPad)
           .focused($isFocused)
           .onAppear {
@@ -36,7 +38,7 @@ struct PaymentFormView: View {
       }
     }
     Button {
-      if (viewModel.isValidAmount()) {
+      if viewModel.isValidAmount() {
         isFocused = false
         viewModel.isPresented = true
       }
@@ -78,23 +80,23 @@ extension PaymentFormView {
     var amount: Decimal? = nil
     var isPresented: Bool = false
     var onSubmitPayment: (_ transactionType: TransactionType, _ amount: Decimal) -> Void
-    
+
     init(_ onSubmitPayment: @escaping (_: TransactionType, _: Decimal) -> Void) {
       self.onSubmitPayment = onSubmitPayment
     }
-    
-    func isValidAmount () -> Bool {
+
+    func isValidAmount() -> Bool {
       let inputAmount = self.amount
       return (inputAmount != nil) && (inputAmount?.isNormal != false)
     }
-    
+
     func startPayment() {
       guard let paymentAmount = amount, isValidAmount() else {
         return
       }
       onSubmitPayment(TransactionType.payment, paymentAmount)
     }
-    
+
     func refundPayment() {
       guard let refundAmount = amount, isValidAmount() else {
         return

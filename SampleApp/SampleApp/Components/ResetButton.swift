@@ -5,16 +5,16 @@
 //  Created by Sanjay Narayana on 2/5/2024.
 //
 
-import SwiftUI
 import Foundation
+import SwiftUI
 
 struct ResetButton: View {
   var onReset: () -> Void
-  
+
   init(_ onReset: @escaping () -> Void) {
     self.onReset = onReset
   }
-  
+
   var body: some View {
     Button {
       self.onReset()

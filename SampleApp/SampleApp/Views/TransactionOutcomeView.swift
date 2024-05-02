@@ -5,17 +5,17 @@
 //  Created by Sanjay Narayana on 1/5/2024.
 //
 
-import SwiftUI
 import Foundation
+import SwiftUI
 import TyroTapToPaySDK
 
 struct TransactionOutcomeView: View {
   private var transactionOutcome: TransactionOutcome
-  
+
   init(_ transactionOutcome: TransactionOutcome) {
     self.transactionOutcome = transactionOutcome
   }
-  
+
   var body: some View {
     VStack {
       Group {
@@ -30,7 +30,7 @@ struct TransactionOutcomeView: View {
           .multilineTextAlignment(.center)
       }
       .foregroundStyle(transactionOutcome.statusCode == "APPROVED" ? .green : .red)
-      
+
       ScrollView {
         Text(transactionOutcome.customerReceipt)
           .foregroundStyle(.gray)

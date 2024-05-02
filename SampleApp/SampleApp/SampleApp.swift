@@ -8,15 +8,11 @@
 import SwiftUI
 import TyroTapToPaySDK
 
-extension TyroTapToPay: ObservableObject {
-  
-}
-
 @main
 struct SampleApp: App {
   @Environment(\.scenePhase) private var scenePhase: ScenePhase
   @ObservedObject var tapToPaySdk: TyroTapToPay
-  
+
   init() {
     do {
       tapToPaySdk = try TyroTapToPay(
@@ -26,7 +22,7 @@ struct SampleApp: App {
       fatalError(error.localizedDescription)
     }
   }
-  
+
   var body: some Scene {
     WindowGroup {
       Image(.tyroLogo)
@@ -39,3 +35,6 @@ struct SampleApp: App {
   }
 }
 
+extension TyroTapToPay: ObservableObject {
+
+}
