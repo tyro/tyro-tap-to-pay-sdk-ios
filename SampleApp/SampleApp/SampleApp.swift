@@ -16,7 +16,8 @@ struct SampleApp: App {
   init() {
     do {
       tapToPaySdk = try TyroTapToPay(
-        environment: .sandbox, connectionProvider: DemoConnectionProvider()
+        environment: .sandbox,
+        connectionProvider: DemoConnectionProvider()
       )
     } catch {
       fatalError(error.localizedDescription)
