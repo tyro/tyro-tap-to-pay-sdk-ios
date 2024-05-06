@@ -59,7 +59,7 @@ struct ContentView: View {
           })
 
         case .success(let transactionOutcome):
-          TransactionOutcomeView(transactionOutcome)
+          TransactionOutcomeView(transactionOutcome, viewModel.tapToPaySdk)
           ResetButton({
             viewModel.reset()
           }).frame(alignment: .bottom)

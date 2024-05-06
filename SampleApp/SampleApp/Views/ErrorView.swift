@@ -11,6 +11,8 @@ import SwiftUI
 struct ErrorView: View {
   private var errorMessage: String = ""
 
+  @State private var show = true
+
   init(errorMessage: String) {
     self.errorMessage = errorMessage
   }
@@ -19,7 +21,7 @@ struct ErrorView: View {
     VStack {
       Image(systemName: "x.circle.fill")
         .resizable()
-        .frame(maxWidth: 100, maxHeight: 100)
+        .frame(maxWidth: 75, maxHeight: 75)
         .padding()
       Text(errorMessage)
         .font(.title2)

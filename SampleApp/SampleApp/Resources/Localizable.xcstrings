@@ -35,16 +35,28 @@
     "Close" : {
 
     },
+    "email" : {
+
+    },
+    "Email" : {
+
+    },
     "Outcome: %@" : {
 
     },
     "Payment" : {
 
     },
+    "Receipt" : {
+
+    },
     "Refund" : {
 
     },
     "Reset" : {
+
+    },
+    "Send receipt" : {
 
     },
     "Transact" : {
