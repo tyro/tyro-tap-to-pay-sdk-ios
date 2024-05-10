@@ -83,6 +83,10 @@ class ContentViewModel: ObservableObject {
       DispatchQueue.main.async {
         self.state = .error("unableToConnectReader")
       }
+    } catch TapToPaySDKError.invalidParameter(let errorMessage) {
+      DispatchQueue.main.async {
+        self.state = .error("invalidParameter: \(errorMessage)")
+      }
     } catch {
       DispatchQueue.main.async {
         self.state = .error(error.localizedDescription)
