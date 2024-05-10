@@ -55,16 +55,12 @@ class ContentViewModel: ObservableObject {
       amount: formatAmount(amount),
       referenceNumber: UUID().uuidString,
       transactionID: UUID().uuidString,
-      cardIsPresented: true,
-      email: "<email@email.com>",
-      mobilePhoneNumber: "<mobile-number>",
       posInformation: POSInformation(
         name: "Demo POS",
         vendor: "Demo",
         version: "1.0.0",
         siteReference: "Sydney"
-      ),
-      localeLanguage: Locale.current.language
+      )
     )
     do {
       let outcome =
