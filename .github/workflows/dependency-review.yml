@@ -1,0 +1,14 @@
+---
+name: 'Pull Request Dependency Check'
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  review:
+    uses: tyro/gh-platform-technology-workflows/.github/workflows/dependency-review.yml@master
+    with:
+      build-tool: swift
+    secrets: inherit
