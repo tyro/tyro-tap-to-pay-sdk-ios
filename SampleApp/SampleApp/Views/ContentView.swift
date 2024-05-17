@@ -18,7 +18,8 @@ enum LoadingState {
 struct ContentView: View {
   @Environment(\.scenePhase) var scenePhase
   @StateObject private var viewModel: ContentViewModel
-
+  @State private var firstLoad = true
+  
   init(viewModel: ContentViewModel) {
     _viewModel = StateObject(wrappedValue: viewModel)
   }
@@ -27,7 +28,6 @@ struct ContentView: View {
     VStack {
       Group {
         switch viewModel.state {
-
         case .error(let errorMessage):
           Group {
             ErrorView(errorMessage: errorMessage)
@@ -73,6 +73,10 @@ struct ContentView: View {
       }
     }
     .task {
+      guard firstLoad else {
+        return
+      }
+      firstLoad = false
       do {
         try await viewModel.connect()
       } catch {
