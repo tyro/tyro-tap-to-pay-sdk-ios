@@ -12,13 +12,16 @@ import TyroTapToPaySDK
 struct SampleApp: App {
   @Environment(\.scenePhase) private var scenePhase: ScenePhase
   @ObservedObject var tapToPaySdk: TyroTapToPay
+  private var contentViewModel: ContentViewModel
 
   init() {
     do {
-      tapToPaySdk = try TyroTapToPay(
+      let tapToPaySdk = try TyroTapToPay(
         environment: .sandbox,
         connectionProvider: DemoConnectionProvider()
       )
+      contentViewModel = ContentViewModel(tapToPaySdk: tapToPaySdk)
+      self.tapToPaySdk = tapToPaySdk
     } catch {
       fatalError(error.localizedDescription)
     }
@@ -31,7 +34,7 @@ struct SampleApp: App {
         .aspectRatio(contentMode: .fit)
         .frame(maxWidth: 100)
         .padding()
-      ContentView(viewModel: ContentViewModel(tapToPaySdk: self.tapToPaySdk))
+      ContentView(viewModel: contentViewModel)
     }
   }
 }

@@ -17,38 +17,36 @@ class ContentViewModel: ObservableObject {
 
   init(tapToPaySdk: TyroTapToPay) {
     self.tapToPaySdk = tapToPaySdk
+
+    Task(priority: .userInitiated) { [weak self] in
+      await self?.connect()
+    }
   }
 
-  func showError(errorMessage: String) {
-    state = .error(errorMessage)
-  }
-
-  func connect() async throws {
+  func connect() async {
     do {
-      DispatchQueue.main.async {
+      await MainActor.run {
         self.state = .loading("Connecting to reader...")
       }
       try await self.tapToPaySdk.connect()
-      DispatchQueue.main.async {
+      await MainActor.run {
         self.state = .ready
         self.isConnected = true
       }
     } catch {
-      DispatchQueue.main.async {
+      await MainActor.run {
         self.state = .error(error.localizedDescription)
       }
     }
   }
 
   func reset() {
-    DispatchQueue.main.async {
-      self.state = .ready
-      self.transactionOutcome = nil
-    }
+      state = .ready
+      transactionOutcome = nil
   }
 
   func startPayment(_ transactionType: TransactionType, _ amount: Decimal) async throws {
-    DispatchQueue.main.async {
+    await MainActor.run {
       self.state = .loading("Processing \(transactionType.rawValue.lowercased())...")
     }
     let transactionDetail = TransactionDetail(
@@ -67,28 +65,28 @@ class ContentViewModel: ObservableObject {
         transactionType == .payment
         ? try await self.tapToPaySdk.startPayment(transactionDetail: transactionDetail)
         : try await self.tapToPaySdk.refundPayment(transactionDetail: transactionDetail)
-      DispatchQueue.main.async {
+      await MainActor.run {
         self.state = .success(outcome)
         self.transactionOutcome = outcome
       }
     } catch TapToPaySDKError.failedToVerifyConnection {
-      DispatchQueue.main.async {
+      await MainActor.run {
         self.state = .error("failedToVerifyConnection")
       }
     } catch TapToPaySDKError.transactionError(let errorMessage) {
-      DispatchQueue.main.async {
+      await MainActor.run {
         self.state = .error("transactionError: \(errorMessage)")
       }
     } catch TapToPaySDKError.unableToConnectReader {
-      DispatchQueue.main.async {
+      await MainActor.run {
         self.state = .error("unableToConnectReader")
       }
     } catch TapToPaySDKError.invalidParameter(let errorMessage) {
-      DispatchQueue.main.async {
+      await MainActor.run {
         self.state = .error("invalidParameter: \(errorMessage)")
       }
     } catch {
-      DispatchQueue.main.async {
+      await MainActor.run {
         self.state = .error(error.localizedDescription)
       }
     }

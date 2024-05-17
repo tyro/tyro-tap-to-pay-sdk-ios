@@ -18,8 +18,7 @@ enum LoadingState {
 struct ContentView: View {
   @Environment(\.scenePhase) var scenePhase
   @StateObject private var viewModel: ContentViewModel
-  @State private var firstLoad = true
-  
+
   init(viewModel: ContentViewModel) {
     _viewModel = StateObject(wrappedValue: viewModel)
   }
@@ -70,17 +69,6 @@ struct ContentView: View {
     .onChange(of: scenePhase) { (_, newValue) in
       Task.detached {
         await self.viewModel.tapToPaySdk.didChange(scenePhase: newValue)
-      }
-    }
-    .task {
-      guard firstLoad else {
-        return
-      }
-      firstLoad = false
-      do {
-        try await viewModel.connect()
-      } catch {
-        viewModel.showError(errorMessage: error.localizedDescription)
       }
     }
   }
