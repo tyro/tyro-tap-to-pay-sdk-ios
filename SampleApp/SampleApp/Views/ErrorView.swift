@@ -26,6 +26,7 @@ struct ErrorView: View {
       Text(errorMessage)
         .font(.title2)
         .multilineTextAlignment(.center)
+        .padding(.horizontal)
     }
     .foregroundStyle(.red)
   }
