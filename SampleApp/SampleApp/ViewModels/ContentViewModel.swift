@@ -33,6 +33,41 @@ class ContentViewModel: ObservableObject {
         self.state = .ready
         self.isConnected = true
       }
+    } catch TapToPaySDKError.sessionInitialisationError(let errorMessage) {
+      await MainActor.run {
+        self.state = .error("sessionInitialisationError: \(errorMessage)")
+      }
+    } catch TapToPaySDKError.retryLimitExhausted(let error) {
+      await MainActor.run {
+        self.state = .error("retryLimitExhausted (connectionSecret): \(error.localizedDescription)")
+      }
+    } catch TapToPaySDKError.unableToConnectReader(let errorMessage) {
+      await MainActor.run {
+        self.state = .error("unableToConnectReader: \(errorMessage)")
+      }
+    } catch TapToPaySDKError.discoverReadersError {
+      await MainActor.run {
+        self.state = .error("discoverReadersError")
+      }
+    } catch TapToPaySDKError.sdkUpgradeRequiredError(let errorMessage) {
+      await MainActor.run {
+        self.state = .error("sdkUpgradeRequiredError: \(errorMessage)")
+      }
+    } catch TapToPaySDKError.fetchSessionCredentialsError(let error) {
+      await MainActor.run {
+        self.state = .error("fetchSessionCredentialsError: \(error.localizedDescription)")
+      }
+    } catch TapToPaySDKError.fetchSdkDataError(let errorMessage) {
+      await MainActor.run {
+        self.state = .error("fetchSdkDataError: \(errorMessage)")
+      }
+    } catch TapToPaySDKError.noProximityReaderFound {
+      await MainActor.run {
+        self.state = .error("noProximityReaderFound" +
+                            "\n\n" +
+                            "Please ensure you are using an iPhone with Tap to Pay on iPhone hardware capability (iPhone XS or above)"
+        )
+      }
     } catch {
       await MainActor.run {
         self.state = .error(error.localizedDescription)
