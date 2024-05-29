@@ -112,9 +112,9 @@ class ContentViewModel: ObservableObject {
       await MainActor.run {
         self.state = .error("transactionError: \(errorMessage)")
       }
-    } catch TapToPaySDKError.unableToConnectReader {
+    } catch TapToPaySDKError.unableToConnectReader(let errorMessage) {
       await MainActor.run {
-        self.state = .error("unableToConnectReader")
+        self.state = .error("unableToConnectReader: \(errorMessage)")
       }
     } catch TapToPaySDKError.invalidParameter(let errorMessage) {
       await MainActor.run {
