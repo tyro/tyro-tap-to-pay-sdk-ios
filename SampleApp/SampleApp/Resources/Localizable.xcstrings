@@ -7,6 +7,9 @@
     "Actions" : {
 
     },
+    "Admin" : {
+
+    },
     "ALERT_BTN_OK" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -41,6 +44,9 @@
     "Email" : {
 
     },
+    "Home" : {
+
+    },
     "Outcome: %@" : {
 
     },
@@ -60,6 +66,9 @@
 
     },
     "Transact" : {
+
+    },
+    "Tyro Settings" : {
 
     }
   },
