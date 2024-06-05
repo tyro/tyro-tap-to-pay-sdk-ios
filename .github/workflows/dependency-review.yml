@@ -8,7 +8,7 @@ on:
 
 jobs:
   review:
-    uses: tyro/gh-platform-technology-workflows/.github/workflows/dependency-review.yml@master
+    uses: tyro/gh-platform-technology-workflows/.github/workflows/dependency-review.yml@main
     with:
       build-tool: swift
     secrets: inherit
