@@ -13,7 +13,6 @@ struct SampleApp: App {
 	var body: some Scene {
 		WindowGroup {
 			Home()
-				.preferredColorScheme(.light)
 				.navigationBarHidden(true)
 		}
 	}
@@ -60,9 +59,9 @@ struct Home : View {
 								.renderingMode(.template)
 								.resizable()
 								.frame(width: 25, height: 25)
-								.foregroundColor(.black)
+
 						}.fullScreenCover(isPresented: $isSettingsPresented) {
-							TyroSettingsView()
+							TyroSettingsViewWrapper()
 						}
 					}.padding()
 					ContentView(viewModel: contentViewModel)
@@ -72,7 +71,7 @@ struct Home : View {
 			}.tag(0)
 			
 			NavigationStack {
-				SettingsView().navigationTitle("Tyro Settings")
+				TyroSettingsView().navigationTitle("Tyro Settings")
 			}.tabItem {
 				Label("Admin", systemImage: "gear")
 			}.tag(1)
@@ -80,18 +79,17 @@ struct Home : View {
 	}
 }
 
-struct TyroSettingsView: View {
+struct TyroSettingsViewWrapper: View {
 	@Environment(\.dismiss) var dismiss
 	var body: some View {
 		NavigationStack {
 			ZStack {
-				SettingsView()
+				TyroSettingsView()
 			}.toolbar(content: {
 				Button {
 					dismiss()
 				} label: {
 					Image(systemName: "xmark")
-						.foregroundColor(.black)
 				}
 			})
 		}

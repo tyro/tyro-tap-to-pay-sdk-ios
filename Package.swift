@@ -37,10 +37,10 @@ let package = Package(
               .target(name: "TrustKit"),
               .target(name: "VisaSensoryBranding"),
             ]
-    ),
+    ), 
     .binaryTarget(name: "TyroTapToPaySDK",
                   url: "https://tap-to-pay.connect.tyro.com/tyro/0.12.0/TyroTapToPaySDK.xcframework.zip",
-                  checksum: "ce4a9c3d006f17fcee16cb13bfb4edaa3b912fe8b948aec22bc5d982ae1332c3"),
+                  checksum: "282a22d834215a2a42b16dce36817409a40b2f17a36cb0867215c3570556a506"),
     .binaryTarget(name: "MobileConfiguration",
                   url: "https://tap-to-pay.connect.tyro.com/ss/1.0.8.0/SSMobileConfiguration.xcframework.zip",
                   checksum: "ee6a8513480b8c39125eab131e9df5e223d63e3005dbf34b52f36734f719b115"),
