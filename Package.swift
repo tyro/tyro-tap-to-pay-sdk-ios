@@ -13,12 +13,14 @@ let package = Package(
   ],
   dependencies: [
     .package(url: "https://github.com/krzyzanowskim/OpenSSL.git", .upToNextMinor(from: "3.1.4000")),
-    .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.3.0")
+    .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.3.0"),
+    .package(url: "https://github.com/kishikawakatsumi/KeychainAccess.git", from: "4.2.2")
   ],
   targets: [
     .target(name: "TyroTapToPaySDKPackage",
             dependencies: [
               .product(name: "OpenSSL", package: "OpenSSL"),
+              .product(name: "KeychainAccess", package: "KeychainAccess"),
               .target(name: "TyroTapToPaySDK"),
               .target(name: "MobileMPOSSDK"),
               .target(name: "MobileConfiguration"),
