@@ -13,12 +13,14 @@ let package = Package(
   ],
   dependencies: [
     .package(url: "https://github.com/krzyzanowskim/OpenSSL.git", .upToNextMinor(from: "3.1.4000")),
-    .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.3.0")
+    .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.3.0"),
+    .package(url: "https://github.com/kishikawakatsumi/KeychainAccess.git", from: "4.2.2")
   ],
   targets: [
     .target(name: "TyroTapToPaySDKPackage",
             dependencies: [
               .product(name: "OpenSSL", package: "OpenSSL"),
+              .product(name: "KeychainAccess", package: "KeychainAccess"),
               .target(name: "TyroTapToPaySDK"),
               .target(name: "MobileMPOSSDK"),
               .target(name: "MobileConfiguration"),
@@ -37,7 +39,7 @@ let package = Package(
               .target(name: "TrustKit"),
               .target(name: "VisaSensoryBranding"),
             ]
-    ),
+    ), 
     .binaryTarget(name: "TyroTapToPaySDK",
                   url: "https://tap-to-pay.connect.tyro.com/tyro/0.12.0/TyroTapToPaySDK.xcframework.zip",
                   checksum: "282a22d834215a2a42b16dce36817409a40b2f17a36cb0867215c3570556a506"),
