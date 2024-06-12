@@ -41,8 +41,8 @@ let package = Package(
             ]
     ), 
     .binaryTarget(name: "TyroTapToPaySDK",
-                  url: "https://tap-to-pay.connect.tyro.com/tyro/0.13.0/TyroTapToPaySDK.xcframework.zip",
-                  checksum: "8c4ff5b192dbc544831f75749423afdd567ecfc169783d5f823c16da7699c571"),
+                  url: "https://tap-to-pay.connect.tyro.com/tyro/0.14.0/TyroTapToPaySDK.xcframework.zip",
+                  checksum: "10de9df9aaf5167d4a9da4127e2b23757da602e8efd46b2d689f91322995450d"),
     .binaryTarget(name: "MobileConfiguration",
                 url: "https://tap-to-pay.connect.tyro.com/ss/1.0.10.0/SSMobileConfiguration.xcframework.zip",
                 checksum: "60e8d21797cf534875ba31416bb96744b470b69d37c72656e8b432273cffc124"),
