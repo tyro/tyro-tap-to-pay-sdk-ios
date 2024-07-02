@@ -10,10 +10,18 @@ import TyroTapToPaySDK
 
 @main
 struct SampleApp: App {
+  @State var readerId: String?
+
   var body: some Scene {
     WindowGroup {
-      Home()
-        .navigationBarHidden(true)
+      if readerId != nil {
+        Home(readerId: readerId!)
+          .navigationBarHidden(true)
+      } else {
+        EnterReaderIdView(onSubmitReaderId: { readerId in
+          self.readerId = readerId
+        })
+      }
     }
   }
 }
@@ -24,14 +32,13 @@ struct Home: View {
   private var contentViewModel: ContentViewModel
 
   @State private var isSettingsPresented = false
-
   @State private var selectedIndex: Int = 0
 
-  init() {
+  init(readerId: String) {
     do {
       let tapToPaySdk = try TyroTapToPay(
         environment: .sandbox,
-        connectionProvider: DemoConnectionProvider()
+        connectionProvider: DemoConnectionProvider(readerId: readerId)
       )
       contentViewModel = ContentViewModel(tapToPaySdk: tapToPaySdk)
       self.tapToPaySdk = tapToPaySdk
@@ -59,7 +66,6 @@ struct Home: View {
                 .renderingMode(.template)
                 .resizable()
                 .frame(width: 25, height: 25)
-
             }.fullScreenCover(isPresented: $isSettingsPresented) {
               TyroSettingsViewWrapper()
             }

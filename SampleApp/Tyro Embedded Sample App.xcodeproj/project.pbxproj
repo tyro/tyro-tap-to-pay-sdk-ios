@@ -19,6 +19,8 @@
 		639540B82C25485E004D6C9A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639540AB2C25485E004D6C9A /* ContentView.swift */; };
 		639540B92C25485E004D6C9A /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639540AC2C25485E004D6C9A /* ErrorView.swift */; };
 		639540BA2C25485E004D6C9A /* config_uat.env in Resources */ = {isa = PBXBuildFile; fileRef = 639540AE2C25485E004D6C9A /* config_uat.env */; };
+		63A8602C2C3395FF0027053B /* EnterReaderIdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A8602B2C3395FF0027053B /* EnterReaderIdView.swift */; };
+		63A860312C339AAE0027053B /* Tyro-Embedded-Sample-App-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63A860302C339AAE0027053B /* Tyro-Embedded-Sample-App-Info.plist */; };
 		63B6C0202C2505FF001FCC3C /* SampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B6C01F2C2505FF001FCC3C /* SampleApp.swift */; };
 		63B6C0242C250601001FCC3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63B6C0232C250601001FCC3C /* Assets.xcassets */; };
 		63B6C0282C250601001FCC3C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63B6C0272C250601001FCC3C /* Preview Assets.xcassets */; };
@@ -37,6 +39,8 @@
 		639540AC2C25485E004D6C9A /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		639540AE2C25485E004D6C9A /* config_uat.env */ = {isa = PBXFileReference; lastKnownFileType = file; path = config_uat.env; sourceTree = "<group>"; };
 		639540AF2C25485E004D6C9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63A8602B2C3395FF0027053B /* EnterReaderIdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterReaderIdView.swift; sourceTree = "<group>"; };
+		63A860302C339AAE0027053B /* Tyro-Embedded-Sample-App-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Tyro-Embedded-Sample-App-Info.plist"; sourceTree = "<group>"; };
 		63B6C01C2C2505FF001FCC3C /* Tyro Embedded Sample App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tyro Embedded Sample App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63B6C01F2C2505FF001FCC3C /* SampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleApp.swift; sourceTree = "<group>"; };
 		63B6C0232C250601001FCC3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -94,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				639540A82C25485E004D6C9A /* PaymentFormView.swift */,
+				63A8602B2C3395FF0027053B /* EnterReaderIdView.swift */,
 				639540A92C25485E004D6C9A /* TransactionOutcomeView.swift */,
 				639540AB2C25485E004D6C9A /* ContentView.swift */,
 				639540AC2C25485E004D6C9A /* ErrorView.swift */,
@@ -145,6 +150,7 @@
 				639540A72C25485E004D6C9A /* Views */,
 				63B6C0262C250601001FCC3C /* Preview Content */,
 				639540BC2C254B2B004D6C9A /* Resources */,
+				63A860302C339AAE0027053B /* Tyro-Embedded-Sample-App-Info.plist */,
 				63B6C0252C250601001FCC3C /* SampleApp.entitlements */,
 				63B6C01F2C2505FF001FCC3C /* SampleApp.swift */,
 			);
@@ -223,6 +229,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63A860312C339AAE0027053B /* Tyro-Embedded-Sample-App-Info.plist in Resources */,
 				639540BA2C25485E004D6C9A /* config_uat.env in Resources */,
 				63B6C0282C250601001FCC3C /* Preview Assets.xcassets in Resources */,
 				63B6C0242C250601001FCC3C /* Assets.xcassets in Resources */,
@@ -247,6 +254,7 @@
 				639540B12C25485E004D6C9A /* CloseButton.swift in Sources */,
 				639540B42C25485E004D6C9A /* RestClient.swift in Sources */,
 				639540B02C25485E004D6C9A /* ContentViewModel.swift in Sources */,
+				63A8602C2C3395FF0027053B /* EnterReaderIdView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,7 +387,6 @@
 				DEVELOPMENT_TEAM = AP4UA2XZ78;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Tyro-Embedded-Sample-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Tyro Tap to Pay on iPhone Demo";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Bluetooth usage";
@@ -424,7 +431,6 @@
 				DEVELOPMENT_TEAM = AP4UA2XZ78;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Tyro-Embedded-Sample-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Tyro Tap to Pay on iPhone Demo";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Bluetooth usage";
