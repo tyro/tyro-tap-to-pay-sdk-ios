@@ -3,11 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6395409C2C251191004D6C9A /* TyroTapToPaySDKPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 6395409B2C251191004D6C9A /* TyroTapToPaySDKPackage */; };
+		63042F4D2C34C79E0012F5D0 /* TyroTapToPaySDKPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 63042F4C2C34C79E0012F5D0 /* TyroTapToPaySDKPackage */; };
 		639540B02C25485E004D6C9A /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6395409E2C25485E004D6C9A /* ContentViewModel.swift */; };
 		639540B12C25485E004D6C9A /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639540A02C25485E004D6C9A /* CloseButton.swift */; };
 		639540B22C25485E004D6C9A /* ResetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639540A12C25485E004D6C9A /* ResetButton.swift */; };
@@ -53,7 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6395409C2C251191004D6C9A /* TyroTapToPaySDKPackage in Frameworks */,
+				63042F4D2C34C79E0012F5D0 /* TyroTapToPaySDKPackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,7 +182,7 @@
 			);
 			name = "Tyro Embedded Sample App";
 			packageProductDependencies = (
-				6395409B2C251191004D6C9A /* TyroTapToPaySDKPackage */,
+				63042F4C2C34C79E0012F5D0 /* TyroTapToPaySDKPackage */,
 			);
 			productName = SampleApp;
 			productReference = 63B6C01C2C2505FF001FCC3C /* Tyro Embedded Sample App.app */;
@@ -213,7 +213,7 @@
 			);
 			mainGroup = 63B6C0132C2505FF001FCC3C;
 			packageReferences = (
-				6395409A2C251191004D6C9A /* XCRemoteSwiftPackageReference "tyro-tap-to-pay-sdk-ios" */,
+				63042F4B2C34C79E0012F5D0 /* XCLocalSwiftPackageReference ".." */,
 			);
 			productRefGroup = 63B6C01D2C2505FF001FCC3C /* Products */;
 			projectDirPath = "";
@@ -486,21 +486,16 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		6395409A2C251191004D6C9A /* XCRemoteSwiftPackageReference "tyro-tap-to-pay-sdk-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/tyro/tyro-tap-to-pay-sdk-ios";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.15.1;
-			};
+/* Begin XCLocalSwiftPackageReference section */
+		63042F4B2C34C79E0012F5D0 /* XCLocalSwiftPackageReference ".." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ..;
 		};
-/* End XCRemoteSwiftPackageReference section */
+/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		6395409B2C251191004D6C9A /* TyroTapToPaySDKPackage */ = {
+		63042F4C2C34C79E0012F5D0 /* TyroTapToPaySDKPackage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6395409A2C251191004D6C9A /* XCRemoteSwiftPackageReference "tyro-tap-to-pay-sdk-ios" */;
 			productName = TyroTapToPaySDKPackage;
 		};
 /* End XCSwiftPackageProductDependency section */
