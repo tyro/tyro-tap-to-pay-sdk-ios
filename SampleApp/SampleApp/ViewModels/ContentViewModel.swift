@@ -5,9 +5,9 @@
 //  Created by Sanjay Narayana on 2/5/2024.
 //
 
+import Combine
 import Foundation
 import TyroTapToPaySDK
-import Combine
 
 class ContentViewModel: ObservableObject {
   @Published var state: LoadingState = .loading("Loading...")
@@ -32,11 +32,11 @@ class ContentViewModel: ObservableObject {
         switch event {
         case .updateStarted:
           self.state = .loading("Reader update started")
-        case .updateInProgress(progress: let progress):
+        case .updateInProgress(let progress):
           self.state = .loading("Updating reader: \(progress)%")
         case .updateCompleted:
           self.state = .loading("Reader update complete")
-        case .updateFailed(error: let error):
+        case .updateFailed(let error):
           self.state = .error("Reader update failed: \(error)")
         @unknown default:
           self.state = .loading("Unknown reader update event: \(event)")
@@ -63,9 +63,10 @@ class ContentViewModel: ObservableObject {
     } catch TapToPaySDKError.fetchSdkDataError(let errorMessage) {
       self.state = .error("fetchSdkDataError: \(errorMessage)")
     } catch TapToPaySDKError.noProximityReaderFound {
-      self.state = .error("noProximityReaderFound" +
-                          "\n\n" +
-                          "Please ensure you are using an iPhone with Tap to Pay on iPhone hardware capability (iPhone XS or above)")
+      self.state = .error(
+        "noProximityReaderFound" + "\n\n"
+          + "Please ensure you are using an iPhone with Tap to Pay on iPhone hardware capability (iPhone XS or above)"
+      )
     } catch {
       self.state = .error(error.localizedDescription)
     }
