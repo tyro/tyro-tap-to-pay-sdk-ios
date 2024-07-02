@@ -41,6 +41,7 @@ struct EnterReaderIdView: View {
             HStack {
               Image(systemName: "clock")
               Text(readerId)
+                .scaledToFit()
             }
           }
           .font(.subheadline)
