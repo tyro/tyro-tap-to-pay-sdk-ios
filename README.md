@@ -3,7 +3,7 @@
 iOS SDK for Tap To Pay on iPhone using Tyro Payments as the Payment Service Provider (PSP)
 
 [![Swift](https://img.shields.io/badge/Swift-5.10-blue?style=flat-squre)](https://swift.org)
-![Static Badge](https://img.shields.io/badge/iOS-16.4+-purple)
+![Static Badge](https://img.shields.io/badge/iOS-17.0+-purple)
 ![Static Badge](https://img.shields.io/badge/Xcode-15.3+-green)
 <!-- [![License][license-image]][license-url] -->
 
@@ -11,7 +11,7 @@ iOS SDK for Tap To Pay on iPhone using Tyro Payments as the Payment Service Prov
 
 - [Xcode](https://xcodereleases.com/?scope=release) or above
 - iPhone with `Tap to Pay on iPhone` hardware capability (iPhone XS or above)
-- [iOS 16.4][min-ios-version] or above
+- [iOS 17.0][min-ios-version] or above
 
 ## Installation
 
@@ -79,4 +79,4 @@ Tap to Pay on iPhone requires the latest version of iOS. Update to the latest ve
 
 [repo-url]:https://github.com/tyro/tyro-tap-to-pay-sdk-ios (Tyro Tap to Pay SDK iOS GitHub Repository)
 [Tap to Pay Marketing Guidelines]:https://developer.apple.com/tap-to-pay/marketing-guidelines/
-[min-ios-version]: https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-16_4-release-notes (iOS 16.4)
+[min-ios-version]: https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-17-release-notes (iOS 17.0)
