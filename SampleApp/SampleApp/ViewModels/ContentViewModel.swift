@@ -98,8 +98,8 @@ class ContentViewModel: ObservableObject {
         : try await self.tapToPaySdk.refundPayment(transactionDetail: transactionDetail)
       self.state = .success(outcome)
       self.transactionOutcome = outcome
-    } catch TapToPaySDKError.failedToVerifyConnection {
-      self.state = .error("failedToVerifyConnection")
+    } catch TapToPaySDKError.failedToVerifyConnection(let error) {
+      self.state = .error("failedToVerifyConnection: \(error)")
     } catch TapToPaySDKError.transactionError(let errorMessage) {
       self.state = .error("transactionError: \(errorMessage)")
     } catch TapToPaySDKError.unableToConnectReader(let errorMessage) {
