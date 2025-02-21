@@ -15,7 +15,7 @@ let package = Package(
     .package(url: "https://github.com/krzyzanowskim/OpenSSL.git", .upToNextMinor(from: "3.1.4000")),
     .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.3.0"),
     .package(url: "https://github.com/kishikawakatsumi/KeychainAccess.git", from: "4.2.2"),
-    .package(url: "https://github.com/microsoft/plcrashreporter.git", from: "1.11.2"),
+    .package(url: "https://github.com/microsoft/plcrashreporter.git", from: "1.11.2")
   ],
   targets: [
     .target(name: "TyroTapToPaySDKPackage",
@@ -43,7 +43,7 @@ let package = Package(
             ]
     ), 
     .binaryTarget(name: "TyroTapToPaySDK",
-                  url: "https://tap-to-pay.connect.tyro.com/tyro/1.0.0/TyroTapToPaySDK.xcframework.zip",
+                  url: "https://tap-to-pay.connect.tyro.com/tyro/0.19.0/TyroTapToPaySDK.xcframework.zip",
                   checksum: "e2f645d7fafbc69ff0d5f2febe15d4c571623502499e566ae73ddc607bc43a21"),
     .binaryTarget(name: "MobileConfiguration",
                 url: "https://tap-to-pay.connect.tyro.com/ss/1.0.11.0/SSMobileConfiguration.xcframework.zip",
