@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -47,6 +47,10 @@
 		63B6C0252C250601001FCC3C /* SampleApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SampleApp.entitlements; sourceTree = "<group>"; };
 		63B6C0272C250601001FCC3C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		6370C9BF2D5B11FA0032B42A /* Consts */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Consts; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		63B6C0192C2505FF001FCC3C /* Frameworks */ = {
@@ -97,6 +101,7 @@
 		639540A72C25485E004D6C9A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6370C9BF2D5B11FA0032B42A /* Consts */,
 				639540A82C25485E004D6C9A /* PaymentFormView.swift */,
 				63A8602B2C3395FF0027053B /* EnterReaderIdView.swift */,
 				639540A92C25485E004D6C9A /* TransactionOutcomeView.swift */,
@@ -179,6 +184,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				6370C9BF2D5B11FA0032B42A /* Consts */,
 			);
 			name = "Tyro Embedded Sample App";
 			packageProductDependencies = (

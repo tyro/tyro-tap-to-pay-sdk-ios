@@ -38,7 +38,8 @@ struct Home: View {
     do {
       let tapToPaySdk = try TyroTapToPay(
         environment: .sandbox,
-        connectionProvider: DemoConnectionProvider(readerId: readerId)
+        connectionProvider: DemoConnectionProvider(readerId: readerId),
+        hapticFeedbackEnabled: true
       )
       contentViewModel = ContentViewModel(tapToPaySdk: tapToPaySdk)
       self.tapToPaySdk = tapToPaySdk
@@ -48,56 +49,51 @@ struct Home: View {
   }
 
   var body: some View {
-    TabView(selection: $selectedIndex) {
-      NavigationStack {
-        VStack {
-          HStack {
-            Spacer(minLength: 0)
-            Image(.tyroLogo)
+    VStack {
+      HStack {
+        Spacer()
+        Button(action: {
+          isSettingsPresented.toggle()
+        }) {
+          VStack {
+            Image(systemName: "gear")
+              .renderingMode(.template)
               .resizable()
-              .aspectRatio(contentMode: .fit)
-              .frame(maxWidth: 100)
-              .padding()
-            Spacer(minLength: 0)
-            Button(action: {
-              isSettingsPresented.toggle()
-            }) {
-              Image(systemName: "gear")
-                .renderingMode(.template)
-                .resizable()
-                .frame(width: 25, height: 25)
-            }.fullScreenCover(isPresented: $isSettingsPresented) {
-              TyroSettingsViewWrapper()
-            }
-          }.padding()
-          ContentView(viewModel: contentViewModel)
-        }.navigationTitle("")
-      }.tabItem {
-        Label("Home", systemImage: "house")
-      }.tag(0)
-
-      NavigationStack {
-        TyroSettingsView().navigationTitle("Tyro Settings")
-      }.tabItem {
-        Label("Admin", systemImage: "gear")
-      }.tag(1)
+              .frame(width: 25, height: 25)
+          }
+        }
+        .buttonStyle(.plain)
+        .fullScreenCover(isPresented: $isSettingsPresented) {
+          TyroSettingsViewWrapper()
+        }
+      }
+      .overlay(
+        Image(.tyroLogo)
+          .resizable()
+          .scaledToFit()
+          .aspectRatio(contentMode: .fit)
+          .frame(width: 75, height: 75)
+          .padding(), alignment: .center
+      )
+      .padding()
+      ContentView(viewModel: contentViewModel)
     }
   }
 }
 
 struct TyroSettingsViewWrapper: View {
   @Environment(\.dismiss) var dismiss
+
   var body: some View {
     NavigationStack {
-      ZStack {
-        TyroSettingsView()
-      }.toolbar(content: {
-        Button {
-          dismiss()
-        } label: {
-          Image(systemName: "xmark")
-        }
-      })
+      TyroSettingsView()
+        .toolbar(content: {
+          Button {
+            dismiss()
+          } label: {
+            Image(systemName: "xmark")
+          }
+        })
     }
   }
 }
@@ -105,3 +101,9 @@ struct TyroSettingsViewWrapper: View {
 extension TyroTapToPay: ObservableObject {
 
 }
+
+#if DEBUG
+  #Preview {
+    Home(readerId: "reader-id")
+  }
+#endif
