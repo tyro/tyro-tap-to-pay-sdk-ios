@@ -7,8 +7,15 @@ on:
       - master
 
 jobs:
-  review:
-    uses: tyro/gh-platform-technology-workflows/.github/workflows/dependency-review.yml@main
-    with:
-      build-tool: swift
-    secrets: inherit
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set up Swift
+      run: |
+        curl -L -o swiftly-install.sh https://swiftlang.github.io/swiftly/swiftly-install.sh
+        chmod a+x swiftly-install.sh
+        ./swiftly-install.sh --disable-confirmation --no-modify-profile < /dev/null
+      shell: bash
+    - name: Run snapshot action
+      uses: vapor-community/swift-dependency-submission@v0.1
+
