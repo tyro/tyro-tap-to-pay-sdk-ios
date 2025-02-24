@@ -14,14 +14,12 @@ let package = Package(
   dependencies: [
     .package(url: "https://github.com/krzyzanowskim/OpenSSL.git", .upToNextMinor(from: "3.1.4000")),
     .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.3.0"),
-    .package(url: "https://github.com/kishikawakatsumi/KeychainAccess.git", from: "4.2.2"),
     .package(url: "https://github.com/microsoft/plcrashreporter.git", from: "1.11.2")
   ],
   targets: [
     .target(name: "TyroTapToPaySDKPackage",
             dependencies: [
               .product(name: "OpenSSL", package: "OpenSSL"),
-              .product(name: "KeychainAccess", package: "KeychainAccess"),
               .product(name: "CrashReporter", package: "plcrashreporter"),
               .target(name: "TyroTapToPaySDK"),
               .target(name: "MobileMPOSSDK"),
@@ -43,8 +41,8 @@ let package = Package(
             ]
     ), 
     .binaryTarget(name: "TyroTapToPaySDK",
-                  url: "https://tap-to-pay.connect.tyro.com/tyro/0.18.0/TyroTapToPaySDK.xcframework.zip",
-                  checksum: "851247783372c041c6cc4a7c1e03ceea2dafaa162a0f0946f7ff6080b10c356c"),
+                  url: "https://tap-to-pay.connect.tyro.com/tyro/0.19.0/TyroTapToPaySDK.xcframework.zip",
+                  checksum: "e2f645d7fafbc69ff0d5f2febe15d4c571623502499e566ae73ddc607bc43a21"),
     .binaryTarget(name: "MobileConfiguration",
                 url: "https://tap-to-pay.connect.tyro.com/ss/1.0.11.0/SSMobileConfiguration.xcframework.zip",
                 checksum: "534ca37dd83f03b34cd66393b5011c7b9f307fd8dea6fdb2f074bbdc0269e33f"),
