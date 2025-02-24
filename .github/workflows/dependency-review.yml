@@ -14,6 +14,10 @@ jobs:
       uses: swift-actions/setup-swift@v2
       with:
         swift-version: '6.0.2'
+    - name: Get swift version
+      run: swift --version
+    - name: Checkout code
+      uses: actions/checkout@v3
     - name: Run snapshot action
       uses: vapor-community/swift-dependency-submission@v0.1
 
