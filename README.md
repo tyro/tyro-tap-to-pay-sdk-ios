@@ -51,7 +51,7 @@ Create necessary certificates and provisioning profiles
    - Inject the TyroEnvironment and your ConnectionProvider implementation
    - Call the `connect()` method of the TyroTapToPay instance.
 
-For more details, refer to the [Documentation](https://preview.redoc.ly/tyro-connect/pla-5831/pos/tap-to-pay/iphone/get-started/).
+For more details, refer to the [Documentation](https://docs.connect.tyro.com/pos/embedded-payments/iphone/get-started/).
 
 ## Documentation
 
@@ -59,7 +59,7 @@ For more details, refer to the [Documentation](https://preview.redoc.ly/tyro-con
 
 A preview of our API documentation can be found here:
 
-- [Integrate SDK](https://preview.redoc.ly/tyro-connect/pla-5831/pos/tap-to-pay/iphone/integrate-sdk/)
+- [Integrate SDK](https://docs.connect.tyro.com/pos/embedded-payments/iphone/integrate-sdk/)
 
 ## Marketing Guidelines
 
