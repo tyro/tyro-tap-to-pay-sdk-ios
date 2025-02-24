@@ -10,12 +10,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Set up Swift
-      run: |
-        curl -L -o swiftly-install.sh https://swiftlang.github.io/swiftly/swiftly-install.sh
-        chmod a+x swiftly-install.sh
-        ./swiftly-install.sh --disable-confirmation --no-modify-profile < /dev/null
-      shell: bash
+    - name: Setup swift
+      uses: swift-actions/setup-swift@v2
+      with:
+        swift-version: '6.0.2'
     - name: Run snapshot action
       uses: vapor-community/swift-dependency-submission@v0.1
 
