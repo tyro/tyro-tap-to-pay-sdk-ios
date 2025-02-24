@@ -13,7 +13,7 @@ jobs:
     - name: Setup swift
       uses: swift-actions/setup-swift@v2
       with:
-        swift-version: latest
+        swift-version: '6.0.2'
     - name: Get swift version
       run: swift --version
     - name: Checkout code
