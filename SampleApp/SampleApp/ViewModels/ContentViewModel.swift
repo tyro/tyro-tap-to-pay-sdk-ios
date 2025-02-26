@@ -96,6 +96,10 @@ class ContentViewModel: ObservableObject {
         transactionType == .payment
         ? try await self.tapToPaySdk.startPayment(transactionDetail: transactionDetail)
         : try await self.tapToPaySdk.refundPayment(transactionDetail: transactionDetail)
+      if outcome.statusCode == "CANCELLED" {
+        self.state = .error("Transaction cancelled.")
+        return
+      }
       self.state = .success(outcome)
       self.transactionOutcome = outcome
     } catch TapToPaySDKError.failedToVerifyConnection(let error) {
