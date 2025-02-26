@@ -39,6 +39,7 @@ struct Home: View {
       let tapToPaySdk = try TyroTapToPay(
         environment: .sandbox,
         connectionProvider: DemoConnectionProvider(readerId: readerId),
+        enableLogging: true,
         hapticFeedbackEnabled: true
       )
       contentViewModel = ContentViewModel(tapToPaySdk: tapToPaySdk)
