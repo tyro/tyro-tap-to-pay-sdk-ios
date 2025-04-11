@@ -119,10 +119,10 @@ extension TransactionOutcomeView {
         )
         emailSentText =
           requestSent
-          ? "Receipt SENT for transaction id: \(transactionId) to email \(email)."
-          : "Receipt NOT sent for transaction id: \(transactionId) to email \(email)"
+          ? "Receipt request sent to email '\(email)'."
+          : "Could not send receipt request to email: '\(email)'."
       } catch {
-        emailSentText = "Error: \(error.localizedDescription)"
+        emailSentText = "Error requesting digital receipt: \(error.localizedDescription)"
       }
       showAlert = true
       isLoading = false
