@@ -59,13 +59,11 @@ struct TransactionOutcomeView: View {
                 .textInputAutocapitalization(.never)
                 .keyboardType(.emailAddress)
               Button {
-                Task {
                   try await viewModel.sendReceiptRequest(
                     tapToPaySdk: tapToPaySdk,
                     transactionId: transactionOutcome.transactionID,
                     email: viewModel.email
                   )
-                }
               } label: {
                 Text("Send receipt")
                   .frame(maxWidth: .infinity, minHeight: 35)

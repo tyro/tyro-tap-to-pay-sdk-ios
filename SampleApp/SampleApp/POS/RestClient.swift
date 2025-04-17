@@ -7,7 +7,7 @@
 
 import Foundation
 
-class RestClient {
+actor RestClient {
   private let urlSession: URLSession = {
     let configuration = URLSessionConfiguration.default
     configuration.timeoutIntervalForRequest = 10.0

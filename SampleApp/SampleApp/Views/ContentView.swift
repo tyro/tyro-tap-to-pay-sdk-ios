@@ -52,9 +52,7 @@ struct ContentView: View {
 
         case .ready:
           PaymentFormView(onSubmitPayment: { (transactionType, amount) in
-            Task.detached(priority: .userInitiated) {
-              try await viewModel.startPayment(transactionType, amount)
-            }
+            try await viewModel.startPayment(transactionType, amount)
           })
 
         case .success(let transactionOutcome):
@@ -70,6 +68,9 @@ struct ContentView: View {
       Task.detached {
         await self.viewModel.tapToPaySdk.didChange(scenePhase: newValue)
       }
+    }
+    .task {
+      await viewModel.connect()
     }
   }
 }

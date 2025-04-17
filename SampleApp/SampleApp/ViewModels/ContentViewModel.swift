@@ -19,12 +19,8 @@ class ContentViewModel: ObservableObject {
 
   init(tapToPaySdk: TyroTapToPay) {
     self.tapToPaySdk = tapToPaySdk
-    Task(priority: .userInitiated) { [weak self] in
-      await self?.connect()
-    }
   }
 
-  @MainActor
   func connect() async {
     tapToPaySdk
       .readerUpdatePublisher
@@ -77,7 +73,6 @@ class ContentViewModel: ObservableObject {
     transactionOutcome = nil
   }
 
-  @MainActor
   func startPayment(_ transactionType: TransactionType, _ amount: Decimal) async throws {
     self.state = .loading("Processing \(transactionType.rawValue.lowercased())...")
     let transactionDetail = TransactionDetail(

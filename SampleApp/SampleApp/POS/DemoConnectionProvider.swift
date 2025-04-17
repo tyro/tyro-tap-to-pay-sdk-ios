@@ -11,7 +11,7 @@ import TyroTapToPaySDK
 // Create an endpoint on your server to generate the connection secret
 let DEMO_CONNECTION_SECRET_ENDPOINT_URL = "https://api.tyro.com/connect/tap-to-pay/demo/connections"
 
-final class DemoConnectionProvider: ConnectionProvider {
+actor DemoConnectionProvider: ConnectionProvider {
   static let timeoutIntervalSeconds: TimeInterval = 10
   private let restClient = RestClient()
   private var readerId: String
@@ -22,11 +22,15 @@ final class DemoConnectionProvider: ConnectionProvider {
 
   func createConnection() async throws -> String {
     let payload = try JSONEncoder().encode(DemoConnectionRequest(readerId: self.readerId))
-    let response = try await restClient.post(
-      requestUrl: DEMO_CONNECTION_SECRET_ENDPOINT_URL,
-      payload: payload
-    )
-    return try JSONDecoder().decode(DemoConnectionResponse.self, from: response).connectionSecret
+      do {
+          let response = try await restClient.post(
+            requestUrl: DEMO_CONNECTION_SECRET_ENDPOINT_URL,
+            payload: payload
+          )
+          return try JSONDecoder().decode(DemoConnectionResponse.self, from: response).connectionSecret
+      } catch {
+          fatalError("Can't create connection")
+      }
   }
 }
 
