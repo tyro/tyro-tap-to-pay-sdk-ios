@@ -61,6 +61,34 @@ A preview of our API documentation can be found here:
 
 - [Integrate SDK](https://docs.connect.tyro.com/pos/embedded-payments/iphone/integrate-sdk/)
 
+### Error Handling
+
+The SDK surfaces errors through `TapToPaySDKError`. Your app should catch and handle each case in the `do/catch` block around `connect()` and payment calls. The table below describes each error case, its cause, and how the Sample App handles it.
+
+#### Errors thrown by `connect()`
+
+| Error Case | Cause | Sample App Behaviour |
+|---|---|---|
+| `sessionInitialisationError(String)` | The SDK failed to initialise a reader session. | Displays `"sessionInitialisationError: <message>"`. |
+| `retryLimitExhausted(Error)` | The SDK exhausted all retries while attempting to obtain the connection secret via `ConnectionProvider.createConnection()`. | Displays `"retryLimitExhausted (connectionSecret): <error>"`. |
+| `unableToConnectReader(String)` | The SDK could not establish a connection to the proximity reader hardware. | Displays `"unableToConnectReader: <message>"`. |
+| `discoverReadersError` | Reader discovery failed. | Displays `"discoverReadersError"`. |
+| `sdkUpgradeRequiredError(String)` | The installed SDK version is too old and must be upgraded. | Displays `"sdkUpgradeRequiredError: <message>"`. |
+| `fetchSessionCredentialsError(Error)` | The SDK failed to fetch the session credentials needed to activate the reader. This is thrown when your `ConnectionProvider.createConnection()` implementation throws an error (e.g. a network failure or an unexpected server response when retrieving the connection secret). The underlying error from `createConnection()` is wrapped and surfaced here. | Catches the error and displays `"fetchSessionCredentialsError: <error.localizedDescription>"` in the UI. |
+| `fetchSdkDataError(String)` | The SDK failed to download required data during initialisation. | Displays `"fetchSdkDataError: <message>"`. |
+| `noProximityReaderFound` | No compatible Tap to Pay hardware was found on the device. Requires iPhone XS or above. | Displays `"noProximityReaderFound"` with a device-capability hint. |
+
+#### Errors thrown by `startPayment()` / `refundPayment()`
+
+| Error Case | Cause | Sample App Behaviour |
+|---|---|---|
+| `failedToVerifyConnection(String)` | The SDK could not verify the reader connection before processing the transaction. | Displays `"failedToVerifyConnection: <error>"`. |
+| `transactionError(String)` | A general transaction-level error occurred. | Displays `"transactionError: <message>"`. |
+| `unableToConnectReader(String)` | The reader disconnected before or during the transaction. | Displays `"unableToConnectReader: <message>"`. |
+| `invalidParameter(String)` | One or more transaction parameters (e.g. `amount`) are invalid. | Displays `"invalidParameter: <message>"`. |
+
+> **Note:** Always include a generic `catch` clause after all specific `TapToPaySDKError` cases to handle any unexpected errors.
+
 ## Marketing Guidelines
 
 Refer to Apple's [Tap to Pay Marketing Guidelines]

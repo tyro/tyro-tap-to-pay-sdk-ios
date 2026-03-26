@@ -59,6 +59,8 @@ class ContentViewModel: ObservableObject {
     } catch TapToPaySDKError.sdkUpgradeRequiredError(let errorMessage) {
       self.state = .error("sdkUpgradeRequiredError: \(errorMessage)")
     } catch TapToPaySDKError.fetchSessionCredentialsError(let error) {
+      // Thrown when ConnectionProvider.createConnection() fails (e.g. network error or unexpected
+      // server response while fetching the connection secret). The underlying error is surfaced here.
       self.state = .error("fetchSessionCredentialsError: \(error.localizedDescription)")
     } catch TapToPaySDKError.fetchSdkDataError(let errorMessage) {
       self.state = .error("fetchSdkDataError: \(errorMessage)")
