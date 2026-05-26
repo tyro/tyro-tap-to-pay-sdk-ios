@@ -99,7 +99,7 @@ struct TyroSettingsViewWrapper: View {
   }
 }
 
-extension TyroTapToPay: ObservableObject {
+extension TyroTapToPay: @retroactive ObservableObject {
 
 }
 
