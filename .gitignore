@@ -57,6 +57,8 @@ Package.resolved
 
 #DerivedData
 DerivedData
+.derived-data-log-*
+**/.derived-data-log-*
 
 #Build, Archives and XCFrameworks
 build
