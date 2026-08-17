@@ -2,24 +2,84 @@
 import PackageDescription
 
 let package = Package(
-  name: "TyroTapToPaySDKPackage",
-  platforms: [
-    .iOS("18.6")
-  ],
-  products: [
-    .library(
-      name: "TyroTapToPaySDKPackage",
-      targets: ["TyroTapToPaySDKPackage"])
-  ],
-  dependencies: [],
-  targets: [
-    .target(name: "TyroTapToPaySDKPackage",
-            dependencies: [
-              .target(name: "TyroTapToPaySDK"),
-            ]
-    ), 
-    .binaryTarget(name: "TyroTapToPaySDK",
-                url: "https://tap-to-pay.connect.tyro.com/tyro/0.21.0/TyroTapToPaySDK.xcframework.zip",
-                checksum: "57c93f9857752f120cd03372fd6ce7986fb35244d7a64b0ecd697e4c7c5fc689"),
-  ]
+    name: "TyroTapToPaySDKPackage",
+    platforms: [
+        .iOS("18.6")
+    ],
+    products: [
+        .library(
+            name: "TyroTapToPaySDKPackage",
+            targets: ["TyroTapToPaySDKPackage"])
+    ],
+    dependencies: [],
+    targets: [
+        .target(name: "TyroTapToPaySDKPackage",
+                dependencies: [
+                    .target(name: "TyroTapToPaySDK"),
+                    .target(name: "MobileMPOSSDK"),
+                    .target(name: "MobileConfiguration"),
+                    .target(name: "MobileHttp"),
+                    .target(name: "MobileMPOSCoreV2"),
+                    .target(name: "MobileMessageProcess"),
+                    .target(name: "MobileProximityReaderSDK"),
+                    .target(name: "MobileReaderSPOC"),
+                    .target(name: "MobileSecurity"),
+                    .target(name: "MobileService"),
+                    .target(name: "MobileThirdPartyIntegration"),
+                    .target(name: "MobileUIKit"),
+                    .target(name: "MobileUtils"),
+                    .target(name: "Shared"),
+                    .target(name: "TrustKit"),
+                    .target(name: "VisaSensoryBranding"),
+                ]
+               ),
+        .binaryTarget(name: "TyroTapToPaySDK",
+                      url: "https://tap-to-pay.connect.tyro.com/ss/1.3.1.0/TyroTapToPaySDK.xcframework.zip",
+                      checksum: "0577f4a224182451b277c14fa6a710cbdbe5459c0e4553fd42c3c816b216ea87"),
+        .binaryTarget(name: "MobileMPOSSDK",
+                      url: "https://tap-to-pay.connect.tyro.com/ss/1.3.1.0/SSMobileMPOSSDK.xcframework.zip",
+                      checksum: "6daff9dd710204b8bdd2176b48cab2cee201c706d0d2ceefc203791bd9510f52"),
+        .binaryTarget(name: "MobileConfiguration",
+                      url: "https://tap-to-pay.connect.tyro.com/ss/1.3.1.0/SSMobileConfiguration.xcframework.zip",
+                      checksum: "dcf54d7ffc798c5c90200451bd403771fb6bca71793324b7894dc80a28c95219"),
+        .binaryTarget(name: "MobileHttp",
+                      url: "https://tap-to-pay.connect.tyro.com/ss/1.3.1.0/SSMobileHttp.xcframework.zip",
+                      checksum: "1d31821d570eb0c69750d499b38d77791ce40d299ed5c43e59530861c5e26742"),
+        .binaryTarget(name: "MobileMPOSCoreV2",
+                      url: "https://tap-to-pay.connect.tyro.com/ss/1.3.1.0/SSMobileMPOSCoreV2.xcframework.zip",
+                      checksum: "911a715481053ac4dbfe9b791d2fe8c8d82de44abec8b563f3f545511d1a5835"),
+        .binaryTarget(name: "MobileMessageProcess",
+                      url: "https://tap-to-pay.connect.tyro.com/ss/1.3.1.0/SSMobileMessageProcess.xcframework.zip",
+                      checksum: "187545df85bb217ab6994c7b7225b5824bb523dbc875ee38b6105de1328f7542"),
+        .binaryTarget(name: "MobileProximityReaderSDK",
+                      url: "https://tap-to-pay.connect.tyro.com/ss/1.3.1.0/SSMobileProximityReaderSDK.xcframework.zip",
+                      checksum: "a6615765a28e9a2e22e82bfb19a8f2168fd6bb4e304a78bdd8cd1b45ddc9fdf9"),
+        .binaryTarget(name: "MobileReaderSPOC",
+                      url: "https://tap-to-pay.connect.tyro.com/ss/1.3.1.0/SSMobileReaderSPOC.xcframework.zip",
+                      checksum: "98e5725c39e6b7b7adeee30eaca3cacc8bec0af5559bbea38ff537cf418b3cc1"),
+        .binaryTarget(name: "MobileSecurity",
+                      url: "https://tap-to-pay.connect.tyro.com/ss/1.3.1.0/SSMobileSecurity.xcframework.zip",
+                      checksum: "2f3748316e8955ace637d559ef91d8a8d7b5ee3ec7ae58dd3076712fb8ef1665"),
+        .binaryTarget(name: "MobileService",
+                      url: "https://tap-to-pay.connect.tyro.com/ss/1.3.1.0/SSMobileService.xcframework.zip",
+                      checksum: "010fef6a917c4173b4d661b6934e9166f332f81bf6292627e962c892be3af32a"),
+        .binaryTarget(name: "MobileThirdPartyIntegration",
+                      url: "https://tap-to-pay.connect.tyro.com/ss/1.3.1.0/SSMobileThirdPartyIntegration.xcframework.zip",
+                      checksum: "61658a60bf46d4c72504a238abed6e08b5b1f74f3ddc499b0866b27c8ae51519"),
+        .binaryTarget(name: "MobileUIKit",
+                      url: "https://tap-to-pay.connect.tyro.com/ss/1.3.1.0/SSMobileUIKit.xcframework.zip",
+                      checksum: "0f3b0366d86c66003ceaff6df27de33297178c16bc99dbdf9edf5a28f9de37ab"),
+        .binaryTarget(name: "MobileUtils",
+                      url: "https://tap-to-pay.connect.tyro.com/ss/1.3.1.0/SSMobileUtils.xcframework.zip",
+                      checksum: "e447c714b2dee64672dc3cd8affbd1d38862f68d3fc64cac265b6b7a4ba4b19e"),
+        .binaryTarget(name: "Shared",
+                      url: "https://tap-to-pay.connect.tyro.com/ss/1.3.1.0/Shared.xcframework.zip",
+                      checksum: "edc45df50a048de98c65da3ec811f5a9d13aa79fa7bb7797b9062058a3ef6378"),
+        .binaryTarget(name: "TrustKit",
+                      url: "https://tap-to-pay.connect.tyro.com/ss/1.3.1.0/TrustKit.xcframework.zip",
+                      checksum: "9dca848bb13da6af5e4923e038d4d2e0531772d2295671757e544ab26035e01a"),
+        .binaryTarget(name: "VisaSensoryBranding",
+                      url: "https://tap-to-pay.connect.tyro.com/ss/1.3.1.0/VisaSensoryBranding.xcframework.zip",
+                      checksum: "0ecd72dc2a2dcab8c0a4809f9cb2f403397463f6ade31435faefba7519243866"),
+    ]
 )
