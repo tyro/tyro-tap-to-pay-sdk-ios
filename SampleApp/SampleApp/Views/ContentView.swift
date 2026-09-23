@@ -53,7 +53,7 @@ struct ContentView: View {
         case .ready:
           PaymentFormView(onSubmitPayment: { (transactionType, amount) in
             Task.detached(priority: .userInitiated) {
-              try await viewModel.startPayment(transactionType, amount)
+              await viewModel.startPayment(transactionType, amount)
             }
           })
 

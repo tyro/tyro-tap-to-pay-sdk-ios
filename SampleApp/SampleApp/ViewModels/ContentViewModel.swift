@@ -78,7 +78,7 @@ class ContentViewModel: ObservableObject {
   }
 
   @MainActor
-  func startPayment(_ transactionType: TransactionType, _ amount: Decimal) async throws {
+  func startPayment(_ transactionType: TransactionType, _ amount: Decimal) async {
     self.state = .loading("Processing \(transactionType.rawValue.lowercased())...")
     let transactionDetail = TransactionDetail(
       amount: formatAmount(amount),
