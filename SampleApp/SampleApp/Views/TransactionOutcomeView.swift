@@ -60,7 +60,7 @@ struct TransactionOutcomeView: View {
                 .keyboardType(.emailAddress)
               Button {
                 Task {
-                  try await viewModel.sendReceiptRequest(
+                  await viewModel.sendReceiptRequest(
                     tapToPaySdk: tapToPaySdk,
                     transactionId: transactionOutcome.transactionID,
                     email: viewModel.email
@@ -109,7 +109,7 @@ extension TransactionOutcomeView {
     }
 
     func sendReceiptRequest(tapToPaySdk: TyroTapToPay, transactionId: String, email: String)
-      async throws
+      async
     {
       isLoading = true
       do {
